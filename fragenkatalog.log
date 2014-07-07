@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Arch Linux) (format=pdflatex 2014.3.24)  3 JUL 2014 17:53
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Arch Linux) (format=pdflatex 2014.6.19)  4 JUL 2014 13:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -361,62 +361,100 @@ Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 \Gin@req@height=\dimen113
 \Gin@req@width=\dimen114
 )
+(/usr/share/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2010/09/12 v5.6 Page Geometry
+
+(/usr/share/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+)
+(/usr/share/texmf-dist/tex/generic/oberdiek/ifvtex.sty
+Package: ifvtex 2010/03/01 v1.5 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+)
+(/usr/share/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+\Gm@cnth=\count102
+\Gm@cntv=\count103
+\c@Gm@tempcnt=\count104
+\Gm@bindingoffset=\dimen115
+\Gm@wd@mp=\dimen116
+\Gm@odd@mp=\dimen117
+\Gm@even@mp=\dimen118
+\Gm@layoutwidth=\dimen119
+\Gm@layoutheight=\dimen120
+\Gm@layouthoffset=\dimen121
+\Gm@layoutvoffset=\dimen122
+\Gm@dimlist=\toks22
+)
 (/usr/share/texmf-dist/tex/latex/amscls/amsthm.sty
 Package: amsthm 2004/08/06 v2.20
-\thm@style=\toks22
-\thm@bodyfont=\toks23
-\thm@headfont=\toks24
-\thm@notefont=\toks25
-\thm@headpunct=\toks26
+\thm@style=\toks23
+\thm@bodyfont=\toks24
+\thm@headfont=\toks25
+\thm@notefont=\toks26
+\thm@headpunct=\toks27
 \thm@preskip=\skip46
 \thm@postskip=\skip47
 \thm@headsep=\skip48
-\dth@everypar=\toks27
+\dth@everypar=\toks28
 )
 (/usr/share/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count102
-\float@exts=\toks28
+\c@float@type=\count105
+\float@exts=\toks29
 \float@box=\box28
-\@float@everytoks=\toks29
+\@float@everytoks=\toks30
 \@floatcapt=\box29
 )
-\c@mydef=\count103
-\c@myfrag=\count104
-\c@mybem=\count105
-\c@mybei=\count106
-\c@mybeh=\count107
-\c@mybew=\count108
-\c@mycod=\count109
+(/usr/share/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+\fancy@headwidth=\skip49
+\f@ncyO@elh=\skip50
+\f@ncyO@erh=\skip51
+\f@ncyO@olh=\skip52
+\f@ncyO@orh=\skip53
+\f@ncyO@elf=\skip54
+\f@ncyO@erf=\skip55
+\f@ncyO@olf=\skip56
+\f@ncyO@orf=\skip57
+)
+\c@mydef=\count106
+\c@myfrag=\count107
+\c@mybem=\count108
+\c@mybei=\count109
+\c@mybeh=\count110
+\c@mybew=\count111
+\c@mycod=\count112
  (./fragenkatalog.aux)
 \openout1 = `fragenkatalog.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
 
 (/usr/share/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count110
-\scratchdimen=\dimen115
+\scratchcounter=\count113
+\scratchdimen=\dimen123
 \scratchbox=\box30
-\nofMPsegments=\count111
-\nofMParguments=\count112
-\everyMPshowfont=\toks30
-\MPscratchCnt=\count113
-\MPscratchDim=\dimen116
-\MPnumerator=\count114
-\makeMPintoPDFobject=\count115
-\everyMPtoPDFconversion=\toks31
+\nofMPsegments=\count114
+\nofMParguments=\count115
+\everyMPshowfont=\toks31
+\MPscratchCnt=\count116
+\MPscratchDim=\dimen124
+\MPnumerator=\count117
+\makeMPintoPDFobject=\count118
+\everyMPtoPDFconversion=\toks32
 ) (/usr/share/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
 )
@@ -424,10 +462,6 @@ Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
 (/usr/share/texmf-dist/tex/generic/oberdiek/ifluatex.sty
 Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
 Package ifluatex Info: LuaTeX not detected.
-)
-(/usr/share/texmf-dist/tex/generic/oberdiek/ifpdf.sty
-Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
-Package ifpdf Info: pdfTeX in PDF mode is detected.
 )
 Package pdftexcmds Info: LuaTeX not detected.
 Package pdftexcmds Info: \pdf@primitive is available.
@@ -465,89 +499,91 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-LaTeX Font Info:    Try loading font information for U+msa on input line 24.
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(71.13188pt, 455.24411pt, 71.13188pt)
+* v-part:(T,H,B)=(42.67912pt, 645.87758pt, 156.49014pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=455.24411pt
+* \textheight=645.87758pt
+* \oddsidemargin=-1.1381pt
+* \evensidemargin=-1.1381pt
+* \topmargin=-66.59087pt
+* \headheight=82.5pt
+* \headsep=25.0pt
+* \topskip=12.0pt
+* \footskip=30.0pt
+* \marginparwidth=35.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
+LaTeX Font Info:    Try loading font information for U+msa on input line 43.
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 24.
+LaTeX Font Info:    Try loading font information for U+msb on input line 43.
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./fragenkatalog.toc [1
-
-] [2])
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./fragenkatalog.toc)
 \tf@toc=\write3
 \openout3 = `fragenkatalog.toc'.
 
- [3]
+ [1
+
+]
 Kapitel 1.
-[4
 
-] [5] [6]
-Overfull \hbox (6.08386pt too wide) in paragraph at lines 134--136
-\OT1/cmr/bx/n/12 Frage 21. \OT1/cmr/m/it/12 Be-schrei-be den Car-not Kreispro-z
-ess und skiz-zie-re die da-zu-geh[]origen
- []
+LaTeX Font Warning: Font shape `OT1/cmss/m/it' in size <12> not available
+(Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 48.
 
+[2
 
-Overfull \hbox (1.44745pt too wide) in paragraph at lines 134--136
-\OT1/cmr/m/it/12 p-V und S-T Dia-gram-me. Be-rech-ne den Wir-kungs-grad f[]ur r
-e-ver-si-ble Kreispro-
- []
-
-
-Overfull \hbox (3.08386pt too wide) in paragraph at lines 139--143
-\OT1/cmr/bx/n/12 Frage 22. \OT1/cmr/m/it/12 Be-schrei-be den Stir-ling Kreispro
--zess und skiz-zie-re das da-zu-geh[]orige
- []
-
-[7]
+] [3] [4] [5]
 Kapitel 2.
-[8
+[6
 
-] [9]
-Overfull \hbox (20.7328pt too wide) in paragraph at lines 259--261
-\OT1/cmr/bx/n/12 Frage 45. \OT1/cmr/m/it/12 Be-rech-ne die Mi-schen-tro-pie f[]
-ur zwei idea-le Ga-se. Erl[]autere ausf[]uhrlich
- []
-
-[10]
-Overfull \hbox (3.7036pt too wide) in paragraph at lines 297--300
-\OT1/cmr/bx/n/12 Frage 52. \OT1/cmr/m/it/12 Be-rech-ne die Er-war-tungs-wer-te 
-$[] \OML/cmm/m/it/12 ; [] ; []$ \OT1/cmr/m/it/12 und die wahr-schein-
- []
-
-[11] [12]
-Overfull \hbox (4.04712pt too wide) in paragraph at lines 351--356
-\OT1/cmr/m/it/12 die quan-ti-sier-ten ki-ne-ti-schen Frei-heits-gra-de ei-nes G
-a-ses. Was ist die Hochtem-
- []
-
-[13] [14] [15] [16] [17] (./fragenkatalog.aux) ) 
+] [7] [8] [9] [10] [11] [12] [13] [14] (./fragenkatalog.aux) ) 
 Here is how much of TeX's memory you used:
- 3230 strings out of 493308
- 40408 string characters out of 6143616
- 110751 words of memory out of 5000000
- 6622 multiletter control sequences out of 15000+600000
- 13356 words of font info for 51 fonts, out of 8000000 for 9000
+ 3837 strings out of 493308
+ 48729 string characters out of 6143616
+ 125307 words of memory out of 5000000
+ 7214 multiletter control sequences out of 15000+600000
+ 13951 words of font info for 53 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 37i,6n,24p,244b,235s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8
-.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/shar
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mti12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb
->
-Output written on fragenkatalog.pdf (18 pages, 125608 bytes).
+ 38i,10n,43p,246b,308s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pf
+b></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb></usr/share/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmssi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10
+.pfb>
+Output written on fragenkatalog.pdf (15 pages, 122085 bytes).
 PDF statistics:
- 98 PDF objects out of 1000 (max. 8388607)
- 68 compressed objects within 1 object stream
+ 93 PDF objects out of 1000 (max. 8388607)
+ 65 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

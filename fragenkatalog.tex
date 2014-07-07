@@ -7,24 +7,43 @@
 \usepackage{amssymb}
 \usepackage{euscript}
 \usepackage{graphicx}
+\usepackage{geometry}
 \usepackage{amsthm}
 \usepackage{float}
-\usepackage{amsthm}
-\usepackage{graphicx}
-\author{Maximilian Kiefer-Emmanouilidis, Philipp Jaeger}
-\title{Statistische Mechanik und Thermodynamik Eggert 2014}
+\usepackage{fancyhdr}
+\setcounter{tocdepth}{1}
+\newcommand{\theauthor}{Maximilian Kiefer-Emmanouilidis, Philipp Jaeger}
+\author{\theauthor}
+
+\newcommand{\thetitle}{Statistische Mechanik und Thermodynamik\\ Prof. Eggert, Sommersemester 2014}
+\title{\thetitle}
+
+\geometry{a4paper,left=25mm,right=25mm, top=15mm, bottom=55mm}
+\fancyhead{}
+\fancyhead[R]{\textbf{\thetitle}\\\theauthor}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\addtolength{\headheight}{70.5pt}
+\pagestyle{fancy}
+
+\renewcommand{\familydefault}{\sfdefault}
+%hätte gerne nen sf-font
+
 \newtheorem{mydef}{Definition}
-\newtheorem{myfrag}{Frage}
+\newtheorem{myfrag}{}%Frage} doppelt nur die Nummerierung
 \newtheorem{mybem}{Bemerkung}
 \newtheorem{mybei}{Beispiel}
 \newtheorem{mybeh}{Behauptung}
 \newtheorem{mybew}{Beweis}
-\newtheorem{mycod}{Code}
+\newtheorem{mycod}{Code}%sollte man als environment mit monospace bauen
+
+\renewcommand{\thesubsection}{Frage}
 \begin{document}
-\maketitle
-\tableofcontents
+\maketitle% sollte man als header verbauen
+\tableofcontents%macht mir zu viel Gedöns, hätte aber gerne thematische Sortierung in sections
 \chapter{Thermodynamik}
-\section{Thermodynamik und Allgeimeine Definitionen}
+\section{Thermodynamik und Allgemeine\\Definitionen}
 \subsection{1}
 \begin{myfrag}
 Was ist ein Makrozustand und ein Mikrozustand?
@@ -76,6 +95,7 @@ Was ist die Gibbs-Duhem Relation? Leite sie her! Was besagt die Gibbs-
 Duhem Relation für die Freie Enthalpie G und das Grosskanonische
 Potential $\Phi$?
 \end{myfrag}
+\section{Thermodynamische Größen}
 \subsection{11}
 \begin{myfrag}
 Definiere die Wärmekapazitäten Cp und CV, die Kompressibilität $\kappa_T$, den

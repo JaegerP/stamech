@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Arch Linux) (format=pdflatex 2014.3.24)  8 JUL 2014 21:35
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Arch Linux) (format=pdflatex 2014.3.24)  9 JUL 2014 01:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -602,7 +602,32 @@ Underfull \hbox (badness 10000) in paragraph at lines 140--145
 
  []
 
-[4 <./Bilder/Frage6.jpg>] [5] [6] [7]
+[4 <./Bilder/Frage6.jpg>] [5]
+<Bilder/Frage20.jpg, id=32, 331.2375pt x 421.575pt>
+File: Bilder/Frage20.jpg Graphic file (type jpg)
+ <use Bilder/Frage20.jpg>
+Package pdftex.def Info: Bilder/Frage20.jpg used on input line 232.
+(pdftex.def)             Requested size: 113.81102pt x 144.84528pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 229--234
+
+ []
+
+[6 <./Bilder/Frage20.jpg>]
+<Bilder/Frage21pV.jpg, id=38, 39.7485pt x 33.84645pt>
+File: Bilder/Frage21pV.jpg Graphic file (type jpg)
+
+<use Bilder/Frage21pV.jpg>
+Package pdftex.def Info: Bilder/Frage21pV.jpg used on input line 249.
+(pdftex.def)             Requested size: 142.26378pt x 121.18242pt.
+
+<Bilder/Frage21TS.jpg, id=39, 263.48438pt x 193.47281pt>
+File: Bilder/Frage21TS.jpg Graphic file (type jpg)
+
+<use Bilder/Frage21TS.jpg>
+Package pdftex.def Info: Bilder/Frage21TS.jpg used on input line 250.
+(pdftex.def)             Requested size: 170.71652pt x 125.36024pt.
+ [7 <./Bilder/Frage21pV.jpg> <./Bilder/Frage21TS.jpg>]
 Kapitel 2.
 [8
 
@@ -612,10 +637,10 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 4045 strings out of 493308
- 51508 string characters out of 6143616
+ 4061 strings out of 493308
+ 51844 string characters out of 6143616
  129585 words of memory out of 5000000
- 7409 multiletter control sequences out of 15000+600000
+ 7422 multiletter control sequences out of 15000+600000
  13951 words of font info for 53 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  38i,10n,43p,246b,308s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -627,12 +652,12 @@ r8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/s
 hare/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb></usr/share/texmf-dis
 t/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texmf-dist/fonts/type
 1/public/amsfonts/cm/cmssi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/m
-sbm10.pfb>
-Output written on fragenkatalog.pdf (17 pages, 158697 bytes).
+onts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.
+pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on fragenkatalog.pdf (17 pages, 223190 bytes).
 PDF statistics:
- 104 PDF objects out of 1000 (max. 8388607)
- 72 compressed objects within 1 object stream
+ 111 PDF objects out of 1000 (max. 8388607)
+ 75 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 21 words of extra memory for PDF output out of 10000 (max. 10000000)
 

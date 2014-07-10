@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Arch Linux) (format=pdflatex 2014.3.24)  10 JUL 2014 17:55
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Arch Linux) (format=pdflatex 2014.5.13)  10 JUL 2014 19:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -636,7 +636,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 259--264
 Kapitel 2.
 [9
 
-] [10] [11] [12] [13] [14] [15] [16] [17] (./fragenkatalog.aux)
+] [10] [11] [12] [13] [14] [15] [16] [17] [18] (./fragenkatalog.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -661,10 +661,10 @@ ts/cm/cmssi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.
 pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share
 /texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texmf-di
 st/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on fragenkatalog.pdf (18 pages, 265828 bytes).
+Output written on fragenkatalog.pdf (19 pages, 268174 bytes).
 PDF statistics:
- 122 PDF objects out of 1000 (max. 8388607)
- 83 compressed objects within 1 object stream
+ 126 PDF objects out of 1000 (max. 8388607)
+ 86 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  21 words of extra memory for PDF output out of 10000 (max. 10000000)
 

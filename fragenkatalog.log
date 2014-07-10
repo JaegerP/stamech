@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Arch Linux) (format=pdflatex 2014.3.24)  10 JUL 2014 17:28
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Arch Linux) (format=pdflatex 2014.3.24)  10 JUL 2014 17:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -603,11 +603,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 140--145
  []
 
 [4 <./Bilder/Frage6.jpg>] [5]
-<Bilder/Frage20.jpg, id=32, 331.2375pt x 421.575pt>
+<Bilder/Frage20.jpg, id=32, 509.905pt x 634.37pt>
 File: Bilder/Frage20.jpg Graphic file (type jpg)
  <use Bilder/Frage20.jpg>
 Package pdftex.def Info: Bilder/Frage20.jpg used on input line 232.
-(pdftex.def)             Requested size: 113.81102pt x 144.84528pt.
+(pdftex.def)             Requested size: 113.81102pt x 141.58488pt.
 
 Underfull \hbox (badness 10000) in paragraph at lines 229--234
 
@@ -661,7 +661,7 @@ ts/cm/cmssi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.
 pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share
 /texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texmf-di
 st/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on fragenkatalog.pdf (18 pages, 247198 bytes).
+Output written on fragenkatalog.pdf (18 pages, 265828 bytes).
 PDF statistics:
  122 PDF objects out of 1000 (max. 8388607)
  83 compressed objects within 1 object stream

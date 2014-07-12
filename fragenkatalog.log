@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Arch Linux) (format=pdflatex 2014.5.13)  10 JUL 2014 19:23
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Arch Linux) (format=pdflatex 2014.3.24)  12 JUL 2014 19:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -636,7 +636,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 259--264
 Kapitel 2.
 [9
 
-] [10] [11] [12] [13] [14] [15] [16] [17] [18] (./fragenkatalog.aux)
+] [10] [11]
+Overfull \hbox (4.57959pt too wide) in paragraph at lines 414--427
+\OML/cmm/m/it/12 Z \OT1/cmr/m/n/12 = [] [] \OML/cmm/m/it/12 d[][] [] d[][] [][]
+ $\OT1/cmss/m/n/12 NR: $[] \OML/cmm/m/it/12 dp[]dp[]dp[] [][] \OT1/cmr/m/n/12 =
+ ([] \OML/cmm/m/it/12 dy [][]\OT1/cmr/m/n/12 )[][] 
+ []
+
+[12] [13] [14] [15] [16] [17] [18] [19] (./fragenkatalog.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -644,27 +651,29 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Here is how much of TeX's memory you used:
  4061 strings out of 493308
  51844 string characters out of 6143616
- 129585 words of memory out of 5000000
+ 132585 words of memory out of 5000000
  7422 multiletter control sequences out of 15000+600000
  13951 words of font info for 53 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  38i,10n,43p,465b,308s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-r12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/sh
-are/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmss17.pfb></usr/share/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmssbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmssi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.
-pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share
-/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texmf-di
-st/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on fragenkatalog.pdf (19 pages, 268174 bytes).
+texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/share/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmmi6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></
+usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmss12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmss17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10
+.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi12.pfb></usr/sh
+are/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/pu
+blic/amsfonts/symbols/msam10.pfb></usr/share/texmf-dist/fonts/type1/public/amsf
+onts/symbols/msbm10.pfb>
+Output written on fragenkatalog.pdf (20 pages, 293169 bytes).
 PDF statistics:
- 126 PDF objects out of 1000 (max. 8388607)
- 86 compressed objects within 1 object stream
+ 137 PDF objects out of 1000 (max. 8388607)
+ 94 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  21 words of extra memory for PDF output out of 10000 (max. 10000000)
 

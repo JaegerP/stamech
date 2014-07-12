@@ -375,7 +375,11 @@ $\Rightarrow \left\langle E \right\rangle = \dfrac{\sum _r \epsilon _r \exp ^{-\
 Wie ist die Freie Energie definiert? Wie können Energie, Entropie sowie
 generalisierte Kräfte (Druck, etc.) als Funktion der Freien Energie berechnet
 werden?
-\end{myfrag}
+\end{myfrag} \quad \\
+Freie Energie : $ F = -k_B T lnZ \\[1ex]
+E = \dfrac{\partial (\beta F)}{\partial \beta } = - \dfrac{\partial lnZ}{\partial \beta } \\[1ex]
+S= - \left( \dfrac{\partial F}{\partial T} \right) _\alpha = k_BlnZ + \dfrac{E}{T} \\[1ex]
+F_\alpha =- \left( \dfrac{\partial E}{\partial \alpha } \right)_S = - \left( \dfrac{\partial F}{\partial \alpha } \right) _T \qquad p = - \left( \dfrac{\partial F}{\partial V} \right)_T \qquad m= - \left( \dfrac{\partial F}{\partial B} \right)_T$ 
 \subsection{42}
 \begin{myfrag}
 Vergleiche die Konzepte des Kanonischen und des Mikrokanonischen Ensembles
@@ -383,19 +387,67 @@ in einer Liste: Was ist die jeweilige physikalische Situation? Was ist jeweils d
 Zustandssumme und das zentrale thermodynamische Potential? Wie werden
 thermodynamische Größen (gen. Kräfte, Druck, Temperatur, Energie und
 Entropie) bestimmt? Was sind die Besetzungswahrscheinlichkeiten?
-\end{myfrag}
+\end{myfrag} \quad \\
+$\begin{array}{l | l}
+$Mikrokan. Ensemble$ & $Kanonisches Ensemble$ \\ \hline 
+$Annahme: isoliert, E = const $ & $ in thermischen Kontakt, T = const $ 
+\\[1.5ex]
+$Zustandsintegral $ \Omega = \int d \Gamma \delta (E-H(\{\vec{r} _i , \vec{p} _i \} )) & $ Zustandsintegral $ Z= \int d \Gamma \exp ^{-\beta H(\{ \vec{r} _i , \vec{p} _i \} ) } 
+\\[1.5ex]
+ $zentrales Thermodyn. Potential $ S=k:Bln \Omega & F=-k_B T ln Z 
+\\
+P_r = \dfrac{1}{\Omega} 
+&
+ P_r = \dfrac{\exp^{-\beta \epsilon _r}}{Z}
+ \\[1.5ex]
+\dfrac{1}{T}= \left( \dfrac{\partial S}{\partial E} \right) _{V,N} 
+& 
+E= - \dfrac{\partial lnZ}{\partial \beta} = \dfrac{\partial (\beta F)}{\partial
+ \beta} 
+\\[1.5ex]
+F_\alpha = T\left( \dfrac{\partial S}{\partial \alpha } \right) _{E} & F_\alpha = - \left( \dfrac{\partial S}{\partial \alpha } \right) _{T}
+\end{array} $
 \subsection{43}
 \begin{myfrag}
 Wende die Methoden des Kanonischen Ensembles auf das Ideale Klassische Gas
 an. Rechne die Erwartungswerte für den Druck, die Energie und die Entropie aus.
-\end{myfrag}
+\end{myfrag} \quad \\
+klassisches ideales Gas: \\
+$Z = \int \prod \limits _{i=1}^N d^3 \vec{r} _i \prod \limits_{i=1}^N d^3 \vec{p} _i \exp ^{-\beta \sum \limits_i \dfrac{p_i^2}{2m} } \qquad $NR: $ \int dp_x dp_y dp_y \exp ^{-\beta \dfrac{p_x^2+p_y^2+p_z^2}{2m}}=(\int dy \exp ^{\alpha y^2})^3  
+\\
+ = V^N\left( \sqrt{\dfrac{2m \pi}{\beta}} \right) ^{3N} = V^N(2m\pi k_B T)^{\dfrac{3N}{2}} \qquad \qquad \qquad \qquad = \left( \sqrt{ \dfrac{ \pi }{\alpha }}\right) ^2
+ \\
+ F= -k_B TlnZ = -k_B T N (lnV + \dfrac{2}{3}lnT + const) 
+ \\[1ex]
+E= - \dfrac{\partial lnZ}{\partial \beta} = \dfrac{\partial N(lnV - \dfrac{2}{3}lnT + const}{\partial \beta} = \dfrac{3N}{2\beta}= \dfrac{3}{2} Nk_B T
+\\[1ex]
+p= -\left(\dfrac{\partial F}{\partial V} \right) _T = k_B TN \dfrac{\partial lnV}{\partial V} = \dfrac{k_B TN}{V} \quad \Rightarrow \quad pV= Nk_B T
+\\[1ex]
+S= \dfrac{E_F}{T} = k_BlnZ + \dfrac{E}{T} =k_B N (lnV + \dfrac{3}{2}lnT+ const)+\dfrac{3}{2} N k_B$
 \subsection{44}
 \begin{myfrag}
 Betrachte ein vereinfachtes quantisiertes Modell für ein „Polymer“, wobei die
 einzelnen Polymerglieder der Länge d nur nach links oder rechts zeigen können.
 Berechne den Erwartungswert der Länge L mit Hilfe des Kanonischen Ensembles
 als Funktion der Kraft (siehe auch Frage 37.).
-\end{myfrag}
+\end{myfrag} \quad \\
+$Z= \sum \limits_{Zustaende} \exp ^{-\beta H}
+= \sum \limits_{r_j=\pm} \exp ^{-\beta \sum \limits_j H_j} \qquad j = 1,...,N  \quad r_j = \pm $ Zustand des Segments j$
+\\[1.5ex]
+H= \sum \limits_j H_j \qquad H_j = r_j Fd= \pm Fd 
+\\[1.5ex]
+Z = \sum \limits _{r_j = \pm } \exp ^{-\beta \sum \limits _j H_j}= \prod \limits_{j=1}^N \sum \limits _{r=\pm} \exp ^{-\beta rFd}
+\\[1.5ex]
+Z_1 = \sum \limits_{r=\pm} \exp ^{-\beta rFd} = \exp ^{-\beta Fd} = \exp ^{-\beta Fd} + \exp ^{\beta Fd} = 2cosh(\beta Fd)
+\\[1.5ex]
+L=N\left\langle l \right\rangle \qquad l=rd=\pm d \qquad \left\langle l \right\rangle = \dfrac{\sum \limits _{r=\pm} \exp ^{-\beta rFd} rd}{Z_1}
+\\[1.5ex]
+P_r = \dfrac{\exp ^{-\beta H_1(r)}}{Z_1} \qquad \left\langle A \right\rangle = \sum \limits _r P_r A_r = \dfrac{\sum \limits _r A_r \exp ^{-\beta H(r)}}{Z} 
+\\[1.5ex]
+\left\langle l \right\rangle = \dfrac{d\exp ^{-\beta Fd} -d\exp ^{\beta Fd}}{cosh(\beta Fd)} = -d \dfrac{sinh(\beta Fd)}{cosh(\beta Fd)} \qquad L= \left\langle l \right\rangle = Ndtanh(\beta Fd) 
+\\[1.5ex]
+$Umkehrung : $F=\dfrac{k_BT}{2d}ln\left( \dfrac{Nd-L}{Nd+L} \right) $ im Mikrokanonischen Ensemble.
+
 \subsection{45}
 \begin{myfrag}
 Berechne die Mischentropie für zwei ideale Gase. Erläutere ausführlich das

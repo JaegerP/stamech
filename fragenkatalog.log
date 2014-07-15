@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Arch Linux) (format=pdflatex 2014.3.24)  12 JUL 2014 19:27
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Arch Linux) (format=pdflatex 2014.7.15)  15 JUL 2014 06:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -408,6 +408,19 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@float@everytoks=\toks30
 \@floatcapt=\box29
 )
+(/usr/share/texmf-dist/tex/latex/sidecap/sidecap.sty
+Package: sidecap 2003/06/06 v1.6f SideCap Package (RN/HjG)
+
+(/usr/share/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
+)
+\SC@BOXWD=\dimen123
+\SC@CAPWD=\dimen124
+\SC@tempdima=\dimen125
+\SC@tempdimb=\dimen126
+\c@SC@C=\count106
+\SC@BOX=\box30
+)
 (/usr/share/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 \fancy@headwidth=\skip49
 \f@ncyO@elh=\skip50
@@ -428,15 +441,14 @@ Package: paralist 2013/06/09 v2.4 Extended list environments
 \pl@lab=\toks31
 )
 (/usr/share/texmf-dist/tex/latex/wrapfig/wrapfig.sty
-\wrapoverhang=\dimen123
-\WF@size=\dimen124
-\c@WF@wrappedlines=\count106
-\WF@box=\box30
+\wrapoverhang=\dimen127
+\WF@size=\dimen128
+\c@WF@wrappedlines=\count107
+\WF@box=\box31
 \WF@everypar=\toks32
 Package: wrapfig 2003/01/31  v 3.6
 )
-\c@mydef=\count107
-\c@myfrag=\count108
+\c@mydef=\count108
 \c@mybem=\count109
 \c@mybei=\count110
 \c@mybeh=\count111
@@ -445,29 +457,29 @@ Package: wrapfig 2003/01/31  v 3.6
  (./fragenkatalog.aux)
 \openout1 = `fragenkatalog.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
 
 (/usr/share/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count114
-\scratchdimen=\dimen125
-\scratchbox=\box31
+\scratchdimen=\dimen129
+\scratchbox=\box32
 \nofMPsegments=\count115
 \nofMParguments=\count116
 \everyMPshowfont=\toks33
 \MPscratchCnt=\count117
-\MPscratchDim=\dimen126
+\MPscratchDim=\dimen130
 \MPnumerator=\count118
 \makeMPintoPDFobject=\count119
 \everyMPtoPDFconversion=\toks34
@@ -549,35 +561,61 @@ e
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 45.
+(/usr/share/texmf-dist/tex/latex/ms/ragged2e.sty
+Package: ragged2e 2009/05/21 v2.1 ragged2e Package (MS)
+
+(/usr/share/texmf-dist/tex/latex/ms/everysel.sty
+Package: everysel 2011/10/28 v1.2 EverySelectfont Package (MS)
+
+ABD: EverySelectfont initializing macros
+LaTeX Info: Redefining \selectfont on input line 126.
+)
+\CenteringLeftskip=\skip62
+\RaggedLeftLeftskip=\skip63
+\RaggedRightLeftskip=\skip64
+\CenteringRightskip=\skip65
+\RaggedLeftRightskip=\skip66
+\RaggedRightRightskip=\skip67
+\CenteringParfillskip=\skip68
+\RaggedLeftParfillskip=\skip69
+\RaggedRightParfillskip=\skip70
+\JustifyingParfillskip=\skip71
+\CenteringParindent=\skip72
+\RaggedLeftParindent=\skip73
+\RaggedRightParindent=\skip74
+\JustifyingParindent=\skip75
+)
+LaTeX Font Info:    Try loading font information for U+msa on input line 58.
+
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 45.
+LaTeX Font Info:    Try loading font information for U+msb on input line 58.
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./fragenkatalog.toc)
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+No file fragenkatalog.toc.
 \tf@toc=\write3
 \openout3 = `fragenkatalog.toc'.
 
- [1
+[1
 
 ]
 Kapitel 1.
 
 LaTeX Font Warning: Font shape `OT1/cmss/m/it' in size <12> not available
-(Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 50.
+(Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 63.
 
-LaTeX Font Info:    Try loading font information for OMS+cmss on input line 56.
+LaTeX Font Info:    Try loading font information for OMS+cmss on input line 69.
 
-LaTeX Font Info:    No file OMScmss.fd. on input line 56.
+LaTeX Font Info:    No file OMScmss.fd. on input line 69.
 
 LaTeX Font Warning: Font shape `OMS/cmss/m/n' undefined
 (Font)              using `OMS/cmsy/m/n' instead
-(Font)              for symbol `textbullet' on input line 56.
+(Font)              for symbol `textbullet' on input line 69.
 
 [2
 
@@ -585,77 +623,90 @@ LaTeX Font Warning: Font shape `OMS/cmss/m/n' undefined
 File: Bilder/Frage6.jpg Graphic file (type jpg)
 
 <use Bilder/Frage6.jpg>
-Package pdftex.def Info: Bilder/Frage6.jpg used on input line 126.
+Package pdftex.def Info: Bilder/Frage6.jpg used on input line 139.
 (pdftex.def)             Requested size: 142.26378pt x 85.56364pt.
 
-Overfull \hbox (5.68916pt too wide) in paragraph at lines 126--127
+Overfull \hbox (5.68916pt too wide) in paragraph at lines 139--140
 [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 123--127
+Underfull \hbox (badness 10000) in paragraph at lines 136--140
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 140--145
+Underfull \hbox (badness 10000) in paragraph at lines 153--158
 
  []
 
-[4 <./Bilder/Frage6.jpg>] [5]
-<Bilder/Frage20.jpg, id=32, 509.905pt x 634.37pt>
+[4 <./Bilder/Frage6.jpg>] [5] [6] [7]
+<Bilder/fr18.pdf, id=40, 487.95636pt x 416.62321pt>
+File: Bilder/fr18.pdf Graphic file (type pdf)
+ <use Bilder/fr18.pdf>
+Package pdftex.def Info: Bilder/fr18.pdf used on input line 289.
+(pdftex.def)             Requested size: 204.85846pt x 174.91063pt.
+
+[8 <./Bilder/fr18.pdf>] <Bilder/Frage20.jpg, id=59, 509.905pt x 634.37pt>
 File: Bilder/Frage20.jpg Graphic file (type jpg)
- <use Bilder/Frage20.jpg>
-Package pdftex.def Info: Bilder/Frage20.jpg used on input line 232.
+
+<use Bilder/Frage20.jpg>
+Package pdftex.def Info: Bilder/Frage20.jpg used on input line 316.
 (pdftex.def)             Requested size: 113.81102pt x 141.58488pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 229--234
+Underfull \hbox (badness 10000) in paragraph at lines 313--318
 
  []
 
-[6 <./Bilder/Frage20.jpg>]
-<Bilder/Frage21pV.jpg, id=38, 39.7485pt x 33.84645pt>
+[9 <./Bilder/Frage20.jpg>]
+<Bilder/Frage21pV.jpg, id=65, 39.7485pt x 33.84645pt>
 File: Bilder/Frage21pV.jpg Graphic file (type jpg)
 
 <use Bilder/Frage21pV.jpg>
-Package pdftex.def Info: Bilder/Frage21pV.jpg used on input line 249.
+Package pdftex.def Info: Bilder/Frage21pV.jpg used on input line 334.
 (pdftex.def)             Requested size: 142.26378pt x 121.18242pt.
 
-<Bilder/Frage21TS.jpg, id=39, 263.48438pt x 193.47281pt>
+<Bilder/Frage21TS.jpg, id=66, 263.48438pt x 193.47281pt>
 File: Bilder/Frage21TS.jpg Graphic file (type jpg)
 
 <use Bilder/Frage21TS.jpg>
-Package pdftex.def Info: Bilder/Frage21TS.jpg used on input line 250.
+Package pdftex.def Info: Bilder/Frage21TS.jpg used on input line 335.
 (pdftex.def)             Requested size: 170.71652pt x 125.36024pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 259--264
+Underfull \hbox (badness 10000) in paragraph at lines 344--349
 
  []
 
-[7 <./Bilder/Frage21pV.jpg> <./Bilder/Frage21TS.jpg>] [8]
+[10 <./Bilder/Frage21pV.jpg> <./Bilder/Frage21TS.jpg>] [11]
 Kapitel 2.
-[9
+[12
 
-] [10] [11]
-Overfull \hbox (4.57959pt too wide) in paragraph at lines 414--427
+] [13] [14]
+Overfull \hbox (4.57959pt too wide) in paragraph at lines 509--522
 \OML/cmm/m/it/12 Z \OT1/cmr/m/n/12 = [] [] \OML/cmm/m/it/12 d[][] [] d[][] [][]
  $\OT1/cmss/m/n/12 NR: $[] \OML/cmm/m/it/12 dp[]dp[]dp[] [][] \OT1/cmr/m/n/12 =
  ([] \OML/cmm/m/it/12 dy [][]\OT1/cmr/m/n/12 )[][] 
  []
 
-[12] [13] [14] [15] [16] [17] [18] [19] (./fragenkatalog.aux)
+[15] [16] [17] [18] [19] [20] [21]
+Overfull \hbox (12.80714pt too wide) in paragraph at lines 776--780
+\OT1/cmss/m/sl/12 Wie []andert sich das gro^^Y-ka-no-ni-sche En-sem-ble falls i
+n-ne-re Frei-heits-gra-de (z.B. Spin) ber[]ucksichtigt
+ []
+
+[22] [23] (./fragenkatalog.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 4061 strings out of 493308
- 51844 string characters out of 6143616
- 132585 words of memory out of 5000000
- 7422 multiletter control sequences out of 15000+600000
- 13951 words of font info for 53 fonts, out of 8000000 for 9000
+ 4281 strings out of 493308
+ 55069 string characters out of 6143616
+ 137439 words of memory out of 5000000
+ 7628 multiletter control sequences out of 15000+600000
+ 14551 words of font info for 55 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 38i,10n,43p,465b,308s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,11n,43p,714b,316s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/
 texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/share/texmf-dist
 /fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fonts/type1/p
@@ -664,16 +715,17 @@ cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></
 usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-
 dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1
 /public/amsfonts/cm/cmss12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmss17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10
-.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi12.pfb></usr/sh
-are/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/pu
-blic/amsfonts/symbols/msam10.pfb></usr/share/texmf-dist/fonts/type1/public/amsf
-onts/symbols/msbm10.pfb>
-Output written on fragenkatalog.pdf (20 pages, 293169 bytes).
+ts/cm/cmss17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pf
+b></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/shar
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi12.pfb></usr/share/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/s
+ymbols/msam10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/ms
+bm10.pfb>
+Output written on fragenkatalog.pdf (24 pages, 322082 bytes).
 PDF statistics:
- 137 PDF objects out of 1000 (max. 8388607)
- 94 compressed objects within 1 object stream
+ 170 PDF objects out of 1000 (max. 8388607)
+ 116 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 26 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Arch Linux) (format=pdflatex 2014.7.15)  15 JUL 2014 06:57
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Arch Linux) (format=pdflatex 2014.7.15)  15 JUL 2014 07:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -596,7 +596,7 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 58.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./fragenkatalog.toc)
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [1] (./fragenkatalog.toc)
 \tf@toc=\write3
 \openout3 = `fragenkatalog.toc'.
 
@@ -606,73 +606,73 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 Kapitel 1.
 
 LaTeX Font Warning: Font shape `OT1/cmss/m/it' in size <12> not available
-(Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 63.
+(Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 67.
 
-LaTeX Font Info:    Try loading font information for OMS+cmss on input line 69.
+LaTeX Font Info:    Try loading font information for OMS+cmss on input line 73.
 
-LaTeX Font Info:    No file OMScmss.fd. on input line 69.
+LaTeX Font Info:    No file OMScmss.fd. on input line 73.
 
 LaTeX Font Warning: Font shape `OMS/cmss/m/n' undefined
 (Font)              using `OMS/cmsy/m/n' instead
-(Font)              for symbol `textbullet' on input line 69.
+(Font)              for symbol `textbullet' on input line 73.
 
 [2
 
-] [3] <Bilder/Frage6.jpg, id=24, 554.07pt x 333.245pt>
+] [3] <Bilder/Frage6.jpg, id=27, 554.07pt x 333.245pt>
 File: Bilder/Frage6.jpg Graphic file (type jpg)
 
 <use Bilder/Frage6.jpg>
-Package pdftex.def Info: Bilder/Frage6.jpg used on input line 138.
+Package pdftex.def Info: Bilder/Frage6.jpg used on input line 142.
 (pdftex.def)             Requested size: 142.26378pt x 85.56364pt.
 
-Overfull \hbox (5.68916pt too wide) in paragraph at lines 138--139
+Overfull \hbox (5.68916pt too wide) in paragraph at lines 142--143
 [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 135--139
+Underfull \hbox (badness 10000) in paragraph at lines 139--143
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 152--157
+Underfull \hbox (badness 10000) in paragraph at lines 156--161
 
  []
 
 [4 <./Bilder/Frage6.jpg>] [5] [6] [7]
-<Bilder/fr18.pdf, id=40, 487.95636pt x 416.62321pt>
+<Bilder/fr18.pdf, id=43, 487.95636pt x 416.62321pt>
 File: Bilder/fr18.pdf Graphic file (type pdf)
  <use Bilder/fr18.pdf>
-Package pdftex.def Info: Bilder/fr18.pdf used on input line 288.
+Package pdftex.def Info: Bilder/fr18.pdf used on input line 292.
 (pdftex.def)             Requested size: 204.85846pt x 174.91063pt.
 
-[8 <./Bilder/fr18.pdf>] <Bilder/Frage20.jpg, id=59, 509.905pt x 634.37pt>
+[8 <./Bilder/fr18.pdf>] <Bilder/Frage20.jpg, id=62, 509.905pt x 634.37pt>
 File: Bilder/Frage20.jpg Graphic file (type jpg)
 
 <use Bilder/Frage20.jpg>
-Package pdftex.def Info: Bilder/Frage20.jpg used on input line 315.
+Package pdftex.def Info: Bilder/Frage20.jpg used on input line 319.
 (pdftex.def)             Requested size: 113.81102pt x 141.58488pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 312--317
+Underfull \hbox (badness 10000) in paragraph at lines 316--321
 
  []
 
 [9 <./Bilder/Frage20.jpg>]
-<Bilder/Frage21pV.jpg, id=65, 39.7485pt x 33.84645pt>
+<Bilder/Frage21pV.jpg, id=68, 39.7485pt x 33.84645pt>
 File: Bilder/Frage21pV.jpg Graphic file (type jpg)
 
 <use Bilder/Frage21pV.jpg>
-Package pdftex.def Info: Bilder/Frage21pV.jpg used on input line 333.
+Package pdftex.def Info: Bilder/Frage21pV.jpg used on input line 337.
 (pdftex.def)             Requested size: 142.26378pt x 121.18242pt.
 
-<Bilder/Frage21TS.jpg, id=66, 263.48438pt x 193.47281pt>
+<Bilder/Frage21TS.jpg, id=69, 263.48438pt x 193.47281pt>
 File: Bilder/Frage21TS.jpg Graphic file (type jpg)
 
 <use Bilder/Frage21TS.jpg>
-Package pdftex.def Info: Bilder/Frage21TS.jpg used on input line 334.
+Package pdftex.def Info: Bilder/Frage21TS.jpg used on input line 338.
 (pdftex.def)             Requested size: 170.71652pt x 125.36024pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 343--348
+Underfull \hbox (badness 10000) in paragraph at lines 347--352
 
  []
 
@@ -681,14 +681,14 @@ Kapitel 2.
 [12
 
 ] [13] [14]
-Overfull \hbox (4.57959pt too wide) in paragraph at lines 508--521
+Overfull \hbox (4.57959pt too wide) in paragraph at lines 512--525
 \OML/cmm/m/it/12 Z \OT1/cmr/m/n/12 = [] [] \OML/cmm/m/it/12 d[][] [] d[][] [][]
  $\OT1/cmss/m/n/12 NR: $[] \OML/cmm/m/it/12 dp[]dp[]dp[] [][] \OT1/cmr/m/n/12 =
  ([] \OML/cmm/m/it/12 dy [][]\OT1/cmr/m/n/12 )[][] 
  []
 
 [15] [16] [17] [18] [19] [20] [21]
-Overfull \hbox (12.80714pt too wide) in paragraph at lines 775--779
+Overfull \hbox (12.80714pt too wide) in paragraph at lines 779--783
 \OT1/cmss/m/sl/12 Wie []andert sich das gro^^Y-ka-no-ni-sche En-sem-ble falls i
 n-ne-re Frei-heits-gra-de (z.B. Spin) ber[]ucksichtigt
  []
@@ -699,10 +699,10 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 4283 strings out of 493308
- 55105 string characters out of 6143616
- 137439 words of memory out of 5000000
- 7628 multiletter control sequences out of 15000+600000
+ 4286 strings out of 493308
+ 55150 string characters out of 6143616
+ 137426 words of memory out of 5000000
+ 7631 multiletter control sequences out of 15000+600000
  14551 words of font info for 55 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  38i,11n,43p,714b,294s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -721,10 +721,10 @@ fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/pu
 blic/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/s
 ymbols/msam10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/ms
 bm10.pfb>
-Output written on fragenkatalog.pdf (24 pages, 322363 bytes).
+Output written on fragenkatalog.pdf (25 pages, 322874 bytes).
 PDF statistics:
- 170 PDF objects out of 1000 (max. 8388607)
- 116 compressed objects within 2 object streams
+ 174 PDF objects out of 1000 (max. 8388607)
+ 119 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  26 words of extra memory for PDF output out of 10000 (max. 10000000)
 

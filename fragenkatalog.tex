@@ -315,18 +315,14 @@ Beweise dass alle reversiblen Kreisprozesse den gleichen Wirkungsgrad haben
 müssen. Wie kann man dies zu einer thermodynamischen Definition der
 Temperatur nutzen?
 \end{myfrag} \quad \\
-\begin{wrapfigure}{r}{0.3\textwidth}
-\vspace{-35mm}
-\includegraphics[width=4cm]{Bilder/Frage20.jpg} 
-
-\end{wrapfigure}
+Siehe Abbildung 1.1: \\[2ex]
 Behauptung: Alle reversiblen Kreisprozesse haben den gleichen Wirkungsgrad.\\[2ex]
 Annahme: $\eta' <\eta$ \\[2ex]
-$\eta = \dfrac{|\Delta W|}{|\Delta Q_H |} \quad \eta' = \dfrac{|\Delta W|}{|\Delta Q_H' |}$ \\
-$\eta' < \eta \Rightarrow \dfrac{|\Delta W|}{|\Delta Q_H' |} < \dfrac{|\Delta W|}{|\Delta Q_H |} \\ \Rightarrow | \Delta Q_H'| > | \Delta Q_H | $ \\
+$$\eta = \dfrac{|\Delta W|}{|\Delta Q_H |} \quad \eta' = \dfrac{|\Delta W|}{|\Delta Q_H' |}$$ 
+$$\eta' < \eta \Rightarrow \dfrac{|\Delta W|}{|\Delta Q_H' |} < \dfrac{|\Delta W|}{|\Delta Q_H |} \\ \Rightarrow | \Delta Q_H'| > | \Delta Q_H | $$
 $\Rightarrow $ Wärme wird spontan von kalten zum heißen Reservoir überführt $\nRightarrow$ Zweiter Hauptsatz. \\[2ex]
 Wirkungsgrad reversibler Kreisprozesse: \\
-$\eta = 1 - \dfrac{T_K}{T_H} \qquad \dfrac{|\Delta Q_H|}{|\Delta Q_K|}$
+$$\eta = 1 - \dfrac{T_K}{T_H} \qquad \dfrac{|\Delta Q_H|}{|\Delta Q_K|} = \dfrac{T_H}{T_K}$$
 %TODO ok ist jetzt zweimal drin...
  
 \subsection{21}
@@ -337,6 +333,7 @@ Diagramme. Berechne den Wirkungsgrad für reversible Kreisprozesse
 \begin{figure}[H]
 \includegraphics[width=5cm]{Bilder/Frage21pV.jpg} 
 \includegraphics[width=6cm]{Bilder/Frage21TS.jpg} 
+\caption{\textbf{Links} P-V Diagramm \textbf{rechts} T-S Diagramm eines Carnot Prozesses}
 \end{figure}
 Carnot
 \begin{enumerate}
@@ -346,12 +343,15 @@ Carnot
 \item adiabatische Kompression
 \end{enumerate}
 Nach einem Durchgang gilt $ \Delta E = \Delta W + \Delta Q = 0$
-\\
+\\[2ex]
 $\left. \begin{array}{c} \Delta Q_H = \int_1 TdS = T_H(S_b-S_a) > 0 \\ \Delta Q_K = \int_1 TdS = T_K(S_a-S_b) > 0
-\end{array} \right\rbrace \Delta W + \Delta Q_H + \Delta Q_K = 0 \ \Rightarrow \ \Delta W = - \Delta Q_H - \Delta Q_K$ \\
-$\Rightarrow$ \\[2ex] Arbeit wird Produziert \\
+\end{array} \right\rbrace \Delta W + \Delta Q_H + \Delta Q_K = 0 \ \Rightarrow \ \Delta W = - \Delta Q_H - \Delta Q_K$ \\[1ex]
+$\Rightarrow$  Arbeit wird Produziert \\[2ex]
 
-$\eta = - \dfrac{\Delta W}{ \Delta Q_H} = \dfrac{\Delta Q_H + \Delta Q_K}{\Delta Q_H}= \dfrac{T_H(S_b-S_a) + T_K(S_a -S_b)}{T_H(S_b-S_a)}=\dfrac{T_H-T_K)(S_b-S_a)}{T_H(S_b-S_a)} = 1 -\dfrac{T_K}{T_H}$
+$$\eta = - \dfrac{\Delta W}{ \Delta Q_H}$$ 
+$$ = \dfrac{\Delta Q_H + \Delta Q_K}{\Delta Q_H}$$ $$= \dfrac{T_H(S_b-S_a) + T_K(S_a -S_b)}{T_H(S_b-S_a)}$$ 
+$$=\dfrac{T_H-T_K)(S_b-S_a)}{T_H(S_b-S_a)}$$ 
+$$ = 1 -\dfrac{T_K}{T_H}$$
 
 
 \subsection{22}
@@ -361,17 +361,48 @@ Diagramm. Wie könnte man einen realistischen Stirling Motor konstruieren?
 Beschreibe eine geeignete Kolbenanordnung und die einzelnen Schritte des
 Motors.
 \end{myfrag}
+\quad \\
+\begin{enumerate}
+\item isotherme Expansion
+\item isochore Wärmeabfuhr
+\item isotherme Kompression
+\item isochore Wärmezufuhr
+\end{enumerate}
+$$ W = Q_{zu}-|Q_{ab}|$$
+$$Q_{41} = |Q_{23}|$$
+Bestehend aus Verdränger- und Arbeitskolben, man braucht Wärmegefäße $\dfrac{\pi}{2} $ Phasenverschoben.
+\begin{figure}
+\includegraphics[width=7cm]{Bilder/Frage22pv.jpg} 
+\includegraphics[width=7cm]{Bilder/Frage22Aufbau.jpg} 
+
+\caption{\textbf{Links} P-V Diagramm \textbf{Mitte} T-S Diagramm \textbf{Rechts} Aufbau eines Axialen Stirlingmotors}
+\end{figure}
 \subsection{23}
 \begin{myfrag}
 Was sind wichtige Gründe, dass reale Maschinen einen geringeren Wirkungsgrad
 haben? Wie kann die Entropieproduktion errechnet werden?
 \end{myfrag}
+\quad \\
+\begin{itemize}
+
+
+\item Reibung: Arbeit $\Rightarrow$ Wärme \\
+Wärme wird bei endlichen Temperatursprüngen Überführt.
+\item Regeneratorwirkung ist beschränkt
+\item diskontinuierliche Kolbensteuerung
+\item Druckverlust
+\item Wärmeverlust
+\end{itemize}
+$$\dfrac{|\Delta Q|}{T_H} < \dfrac{| \Delta Q|}{T_K} \quad \Rightarrow \quad \Delta S_H + \Delta S_K > 0 $$ 
+Entropieproduktion durch endliche Temperatursprünge. 
+$$ \Delta S = \Delta Q \left( \dfrac{1}{T_K} - \dfrac{1}{T_H}\right) $$
 \subsection{24}
 \begin{myfrag}
 Argumentiere, dass für effiziente Prozesse die Temperaturunterschiede beim
 Überführen von Wärme möglichst klein sein sollten.
 \end{myfrag}
-
+\quad \\
+Entropieproduktion bei endlichen Temperatursprüngen. \\ $$ \Delta S = \Delta Q \left( \dfrac{1}{T_K} - \dfrac{1}{T_H}\right) $$
 
 \chapter{Statistische Mechanik}
 \section{Kombinatorik}

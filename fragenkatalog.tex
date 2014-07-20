@@ -1,9 +1,10 @@
 %Fragenkatalog
 \documentclass[12pt,a4paper]{report}
 
+%\usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[ngerman]{babel}
-\usepackage{amsmath}
+\usepackage{amsmath,xfrac}
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{euscript}
@@ -71,7 +72,7 @@ Was sind Zustandsgrößen?
 \end{myfrag} \qquad \newline
 Makrozustand 
 \begin{itemize}
-\item Beschreibt ein System mit vielen Freiheitsgraden durch einige wenige zustandsvariablen (z.B. T,p,V,..) viele Teilchen, gemittelte Parametr besteht aus Mikrozuständen mit Wahrscheinlichkeiten.
+\item Beschreibt ein System mit vielen Freiheitsgraden durch einige wenige Zustandsvariablen (z.B. T,p,V,..) viele Teilchen, gemittelte Parameter besteht aus Mikrozuständen mit Wahrscheinlichkeiten.
 \end{itemize}
 Mikrozustand:
 \begin{itemize}
@@ -286,7 +287,7 @@ TODO
 Was ist mit dem Begriff reversibler Kreisprozess gemeint? Was ist die praktische
 Bedeutung?
 \end{myfrag}
-Ein reversibler Kreisprozess ist ein Kreisprozess, der nur aus reversiblen Prozessen besteht. Praktische Bedeutung hat der Carnot-Prozess, der den maximal möglichen Wirkungsgrad realisiert. Dies kann mittels des folgenden Gedankenexperiments überprüft werden:
+Ein reversibler Kreisprozess ist ein periodischer Prozess, der nur aus reversiblen Prozessen besteht, die auf die selbe Arbeitssubstanz wirken. Praktische Bedeutung hat der Carnot-Prozess, der den maximal möglichen Wirkungsgrad realisiert. Dies kann mittels des folgenden Gedankenexperiments überprüft werden:
 \begin{figure}[H]
 \centering
 %h\begin{tabular}{cc}
@@ -432,6 +433,7 @@ Was besagt der zentrale Grenzwertsatz?
 \end{myfrag} \quad \\
 Der zentrale Grenzwertsatz besagt, dass für $ \Omega = \sum \limits_{i=1}^n y_i $ d.h. eine Summe von sehr vielen Zufallsvariablen $y_i$ mit beliebiger identischer Verteilung $P_y(y_i)$ gilt ( im Grenzwert $ n \rightarrow \infty) $ \\[1ex]
 $ P (\Omega ) = \dfrac{1}{\sqrt{2 \pi}\Delta \Omega } \exp\left(- \dfrac{1}{2} \left( \dfrac{\Delta \Omega - \left\langle \Omega \right\rangle ^2}{\Delta \Omega} \right) \right)$  \qquad $ \left\langle \Omega \right\rangle  = \sum \limits_{i=0}^n \left\langle y_i \right\rangle = n \left\langle y \right\rangle $
+\section{Mikrokanonisches ensemble}
 \subsection{30}
 \begin{myfrag}
 Was ist die Definition der Entropie von einer allgemeinen Wahrscheinlichkeitsverteilung?
@@ -521,6 +523,7 @@ Beschreibe einen Maxwellschen Dämon.
 \item\textit{Zermelo-Paradoxon:} Endliche Systeme kömmen durch statistische Veränderungen stets in endlicher Zeit beliebig nahe an ihren Ausgangszustand zurück.
 \item\textit{Maxwell-Dämon:} Blub.
 \end{enumerate}
+\section{Kanonisches Ensemble}
 \subsection{39}
 \begin{myfrag}
 Beschreibe das Konzept des Kanonischen Ensembles und leite es mit Hilfe des
@@ -774,10 +777,21 @@ Die Projektion aller Wechselwirkungen auf $q_j$ zeigt also, dass die mittlere En
 Leite die Verteilung der Geschwindigkeiten in eine Richtung $v_x$ und die
 Maxwellsche Geschwindigkeitsverteilung für $\betrag{\vec{v}}$ her.
 \end{myfrag}
+Da die Freiheitsgrade nach Raumtichtungen unabhängig sind, gilt
+\begin{align}
+p(v_x)\dif v_x&=\frac{e^{-\beta\epsilon(v_x)}\dif v_x}{\int\limits_0^\infty e^{-\beta\epsilon(v_x)}\dif v_x}=\frac{e^{-\beta\frac{mv_x^2}{2}}\dif v_x}{\int\limits_0^\infty e^{-\beta\frac{mv_x^2}{2}}\dif v_x}\\&=\sqrt{\frac{m}{2\pi k_BT}}e^{-\beta\frac{mv_x^2}{2}}\dif v_x
+\end{align}
+Daraus erhält man durch Einsetzen in $v=\betrag{\vec{v}}=\sqrt{v_x^2+v_y^2+v_z^2}$ und Integration
+\begin{alignat}{2}
+&P(v)&&=\int\limits_0^\infty\dif^3v\,p(v)\\
+&&&=\int\limits_0^{2\pi}\dif\phi\int\limits_0^\pi\dif\theta\int\limits_0^\infty\dif v\,v^2\cos\theta\left\lbrace\left(\frac{m}{2\pi k_BT}\right)^3e^{-\beta mv^2}\right\rbrace^{\sfrac{1}{2}}\\
+\Rightarrow\qquad&P(v)\dif v&&=4\pi\,v^2\dif v\left(\frac{m}{2\pi k_BT}\right)^{\sfrac{3}{2}}e^{-\beta\frac{mv^2}{2}}
+\end{alignat}
 \subsection{52}
+\newcommand{\vmax}{\ensuremath{v_{max}}}
 \begin{myfrag}
 Berechne die Erwartungswerte $\left\langle v_x \right\rangle , \left\langle |v| \right\rangle , \left\langle v^2 \right\rangle $ und die wahrscheinlichste
-Geschwindigkeit max $v_{max}$ für die Maxwellsche Geschwindigkeitsverteilung. Wie
+Geschwindigkeit \vmax\, für die Maxwellsche Geschwindigkeitsverteilung. Wie
 groß ist die Fluktuation der Geschwindigkeiten?
 \end{myfrag}
 \subsection{53}

@@ -1,0 +1,98 @@
+\section{Mikrokanonisches ensemble}
+\subsection{30}
+\begin{myfrag}
+Was ist die Definition der Entropie von einer allgemeinen Wahrscheinlichkeitsverteilung?
+\end{myfrag}
+\begin{equation}
+	S=P(n)\logn P(n)
+\end{equation}
+\subsection{31}
+\begin{myfrag}
+Beschreibe das Konzept des Mikrokanonischen Ensembles. Was ist die
+Wahrscheinlichkeitsverteilung im Mikrokanonischen Ensemble?
+\end{myfrag}
+Im Mikrokanonischen Ensemble wird angenommen, dass die Gesamtenergie und die Teilchenzahl erhalten sind, d.h. das System ist vollständig isoliert. Für die Verteilung von $n$ Energiequanten auf $N$ Oszillatoren oder ein vergleichbares Problem gilt
+\begin{equation}
+	Z_m=\Omega=\binkoef{N+n-1}{n}=\frac{(N+n-1)!}{(N-1)!n!}
+\end{equation}
+\subsection{32}
+\begin{myfrag}
+Mit welchem Ausdruck kann die Gesamtzahl der Zustände $\Omega$ im
+Mikrokanonischen Ensemble berechnet werden? Was ist die Entropie?
+\end{myfrag}
+Siehe Frage 31 %TODO was zum geier???
+\subsection{33}
+\begin{myfrag}
+Wann sind zwei Systeme im energetischen Gleichgewicht im Mikrokanonischen
+Ensemble? Was bedeutet das für die Entropie?
+\end{myfrag}
+Die Systeme müssen die gleiche Energie haben. Die Entropie bleibt gleich. %TODO stimmt das?
+\subsection{34}
+\begin{myfrag}
+Definiere Temperatur im Mikrokanonischen Ensemble. Wie werden
+generalisierte Kräfte berechnet?
+\end{myfrag}
+Die Temperatur ist
+\begin{equation}
+	\frac{1}{T}=\partddd SEV \Rightarrow T=\left(\partddd SEV\right)^{-1}.
+\end{equation}
+Allgemein berechnet man die generalisierte Kraft $f_\alpha$ zum Potential $\alpha$ als
+\begin{equation}
+	f_\alpha=\partdd S\alpha .
+\end{equation}
+\subsection{35}
+\begin{myfrag}
+Was besagen die Stabilitätsbedingungen?
+\end{myfrag}
+Ein System $(1,2)$ ist stabil, wenn jede Änderung der Zustandsgrößen in den Teilsystemen zu einer Erniedrigung der Entropie führt, d.h.
+\begin{align}
+	S_{max}&=S_1(E_1,V_1)+S_2(E_2,V_2)\\
+	\delta S&=S_1(E_1+\delta E_1,V_1+\delta V_1)+S_2(E_2+\delta E_2,V_2+\delta V_2)\le 0
+\end{align}
+\subsection{36}
+\begin{myfrag}
+Leite das Ideale Gasgesetz mit Hilfe des Mikrokanonischen Ensembles her.
+Zeige, dass die durchschnittliche Energie pro Teilchen E=3kT/2 ist.
+\end{myfrag}
+Offensichtlich ist die Einteilchen-Zustandssumme $\Omega_1$ proportional zum Volumen $V$, also gilt $\Omega\propto V^N$.Durch Logarithmieren erhält man
+\begin{equation}
+	S=k_B\,\logn\Omega=k_BN\,\logn V+\const
+\end{equation}
+Außerdem gilt
+\begin{alignat}{2}
+	&p&&=T\partddd SV{N,E}=\frac{k_BTN}{V}\\
+	\Leftrightarrow\qquad&pV&&=Nk_BT
+\end{alignat}
+\par Die Gesamtenergie erhält man, wenn man aus der Proportionalitätskonstante zwischen $V^N$ und $\Omega$ zusätzlich die Freiheitsgrade der Geschwindigkeit $v_i,\,i=x,y,z$ extrahiert. Wegen $v_x^2+v_y^2+v_z^2=\vec{v}^2=2mE$ für $N$ Teilchen erhält man
+\begin{alignat}{2}
+	&S&&=Nk_B\left(\logn V+\frac{3}{2}\logn E\right)+\const\\
+	&\frac{1}{T}&&=\partddd SEV=\frac{\dfrac{3}{2}Nk_B}{E}\\
+	\Leftrightarrow\qquad&E&&=\frac{3}{2}Nk_BT.
+\end{alignat}
+Damit ist die durchschnittliche Energie pro Teilchen $E=\frac{3}{2}k_BT$.
+\subsection{37}
+\begin{myfrag}
+Betrachte ein vereinfachtes quantisiertes Modell für ein „Polymer“, wobei die
+einzelnen Polymerglieder der Länge d nur nach links oder rechts zeigen können.
+Berechne die generalisierte Kraft konjugiert zur Länge L mit Hilfe des
+Mikrokanonischen Ensembles.
+\end{myfrag}
+%TODO
+\subsection{38}
+\begin{myfrag}
+Was versteht man unter dem Loschmidt Paradoxon und dem Zermelo Paradoxon?
+Beschreibe einen Maxwellschen Dämon.
+\end{myfrag}
+\begin{enumerate}[(i)]
+\item\textit{Lohschmidt-Paradoxon:} Solange die Zeitumkehrsymmetrie nicht gebrochen ist, können spontane Zustandsänderungen auch rückwärts ablaufen, d.h. die Entropie kann dadurch spontan sinken. Dies stünde im Widerspruch zum zweiten Hauptsatz.
+\item\textit{Zermelo-Paradoxon:} Endliche Systeme kömmen durch statistische Veränderungen stets in endlicher Zeit beliebig nahe an ihren Ausgangszustand zurück.
+\item\textit{Maxwell-Dämon:} Blub.
+\end{enumerate}
+\section{Kanonisches Ensemble}
+\subsection{39}
+\begin{myfrag}
+Beschreibe das Konzept des Kanonischen Ensembles und leite es mit Hilfe des
+Mikrokanonischen Ensembles her. Was ist die Boltzmann Verteilung?
+\end{myfrag}
+Im Gegensatz zum mikrokanonischen Ensemle ist das kanonische Ensemble nicht vollständig isoliert. Die Teilchenzahl wird weiter konstant gehalten, allerdings ist Energieaustausch mit einem Wärmebad möglich, die Temperatur ist damit weiter konstant.\\
+Wir schreiben zunächst die Energie als $E_\mathsf{ges}=\epsilon+E_\mathsf{Rest}$, wobei $\epsilon\ll E_\mathsf{Rest}$ die Energie im betrachteten System sei.

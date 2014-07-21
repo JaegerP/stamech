@@ -1,0 +1,110 @@
+\subsection{50}
+\begin{myfrag}
+Was ist das Äquipartitionstheorem? Leite es her!
+\end{myfrag}
+Das Äquipartitionstheorem besagt, dass die Energie in einem System gleichmäßig auf alle zur Gesamtenergie beitragenden Freiheitsgrade verteilt wird, sofern der Hamiltonian des betrachteten Systems bilinear in diesen Freiheitsgraden ist.
+\par\textbf{Beweis.} Wähle einen bilinearen Hamiltonian $\mathbf{H}=\vec{q}^{\,T}\mathbf{A}\vec{q}=\sum\limits_jk A_{jk}q_jq_k$. Die mittlere Energie \glqq in Richtung\grqq des Freiheitsgrades $q_j$ ist dann 
+\begin{align}
+	\langle E\rangle&=\left\langle q_j\partdd {\mathbf{H}}{q_j}\right\rangle\\
+	&=\left\langle 2q_j\sum\limits_k A_{jk}q_k\right\rangle\\
+	&=k_BT\nonumber
+\end{align} 
+Die Projektion aller Wechselwirkungen auf $q_j$ zeigt also, dass die mittlere Energie des Freiheitsgrades nach dem Virialsatz unabhängig von j ist.
+\subsection{51}
+\begin{myfrag}
+Leite die Verteilung der Geschwindigkeiten in eine Richtung $v_x$ und die
+Maxwellsche Geschwindigkeitsverteilung für $\betrag{\vec{v}}$ her.
+\end{myfrag}
+Da die Freiheitsgrade nach Raumtichtungen unabhängig sind, gilt
+\begin{align}
+p(v_x)\dif v_x&=\frac{e^{-\beta\epsilon(v_x)}\dif v_x}{\int\limits_0^\infty e^{-\beta\epsilon(v_x)}\dif v_x}=\frac{e^{-\beta\frac{mv_x^2}{2}}\dif v_x}{\int\limits_0^\infty e^{-\beta\frac{mv_x^2}{2}}\dif v_x}\\&=\sqrt{\frac{m}{2\pi k_BT}}e^{-\beta\frac{mv_x^2}{2}}\dif v_x
+\end{align}
+Daraus erhält man durch Einsetzen in $v=\betrag{\vec{v}}=\sqrt{v_x^2+v_y^2+v_z^2}$ und Integration
+\begin{alignat}{2}
+&P(v)&&=\int\limits_0^\infty\dif^3v\,p(v)\\
+&&&=\int\limits_0^{2\pi}\dif\phi\int\limits_0^\pi\dif\theta\int\limits_0^\infty\dif v\,v^2\cos\theta\left\lbrace\left(\frac{m}{2\pi k_BT}\right)^3e^{-\beta mv^2}\right\rbrace^{\sfrac{1}{2}}\\
+\Rightarrow\qquad&P(v)\dif v&&=4\pi\,v^2\dif v\left(\frac{m}{2\pi k_BT}\right)^{\sfrac{3}{2}}e^{-\beta\frac{mv^2}{2}}\label{eq:dichtefkt}
+\end{alignat}
+\subsection{52}
+\newcommand{\vmax}{\ensuremath{v_{max}}}
+\begin{myfrag}
+Berechne die Erwartungswerte $\left\langle v_x \right\rangle , \left\langle \betrag{\vec{v}}  \right\rangle , \left\langle v^2 \right\rangle $ und die wahrscheinlichste
+Geschwindigkeit \vmax\, für die Maxwellsche Geschwindigkeitsverteilung. Wie
+groß ist die Fluktuation der Geschwindigkeiten?
+\end{myfrag}
+Unter Verwendung der Geschwindigkeitsdichte aus \eqref{eq:dichtefkt} berechnet man den Erwartungswert eines Operators $\mathbf A(v)$ als
+\begin{equation}
+	\langle A\rangle=\int\limits_0^\infty\dif v\mathbf A(v)P(v).
+\end{equation}
+Damit erhält man für die gesuchten Erwartungswerte
+\begin{alignat}{2}
+	&\left\langle v_x \right\rangle&&=\int\limits_0^\infty\dif v_x\,v_xP(v_x)=\sqrt{\frac{m}{2\pi k_BT}}\int\limits_0^\infty\dif v_x\,v_xe^{-\beta m\frac{v_x^2}{2}}\nonumber\\
+	&&&=\sqrt{\frac{m}{2\pi k_BT}}\frac{2}{m\beta}=\sqrt{\frac{2}{\pi m\beta}},\\
+	&\left\langle \betrag{\vec{v}} \right\rangle&&=4\pi\int\limits_0^\infty\dif v\,v^2P(v)=4\pi\left(\frac{m\beta}{2\pi}\right)^{\sfrac{3}{2}}\int\limits_0^\infty\dif v\,v^3e^{-\beta m\frac{v^2}{2}}\nonumber\\
+	&&&\overset{x=\frac{\beta mv^2}{2}}{=}4\pi\left(\frac{m\beta}{2\pi}\right)^{\sfrac{3}{2}}\int\limits_0^\infty\dif x\,\frac{2}{\beta^2 m^2} xe^{-x}=\sqrt{\frac{8}{\pi m\beta}}\text{ und}\\
+	&\left\langle v^2 \right\rangle&&=\frac{2}{m}\left\langle\frac{1}{2}mv^2\right\rangle=\frac{2}{m}\left\langle H(v)\right\rangle=\frac{2}{m}\frac{3}{2}k_BT=\frac{3k_BT}{m}.
+\end{alignat}
+Die wahrscheinlichste Geschwindigkeit \vmax\, erhält man aus
+\begin{alignat}{2}
+	&0&&=\partdd{P(v)}v=2ve^{-\beta m\frac{v^2}{2}}-\beta mv^3e^{-\beta m\frac{v^2}{2}}\\
+	\Rightarrow\qquad&\vmax&&=\sqrt{\frac{2}{m\beta}}.
+\end{alignat}
+\section{Quantisierte Modelle}
+\subsection{53}
+\begin{myfrag}
+Welche zwei Bedingungen müssen gegeben sein, damit eine klassische
+Näherung von Quantenfreiheitsgraden sinnvoll ist?
+\end{myfrag}
+Effekte interferierender Wellenfunktionen müssen vernächlässigbar sein, d.h. man arbeitet bei niedrigen Dichten oder die thermischt Fluktuation ist klein gegen die Quantenfluktuation (Unschärfe) der Zustände.
+\subsection{54}
+\begin{myfrag}
+Wie ist die thermische Wellenlänge definiert? Vergleiche mit der De-Broglie
+Wellenlänge typischer Geschwindigkeiten aus der Maxwellschen
+Geschwindigkeitsverteilung. Welche Bedingung muss für die Dichte gelten,
+damit Quanteninterferenzeffekte vernachlässigbar sind?
+\end{myfrag}
+Die thermische Wiéllenlänge $\lambda_\mathsf{th}$ ist definiert als
+\begin{equation}
+	\lambda_\mathsf{th}=\frac{h}{\sqrt{2\pi mk_BT}}.
+\end{equation}
+Mit $v=\frac{p}{m}=\frac{h}{m\lambda}$ erhält man durch Vergleich $v=\sqrt{\pi}\vmax$.
+\subsection{55}
+\begin{myfrag}
+Berechne die Zustandssumme, den Energieerwartungswert und die
+spezifische Wärme für einen harmonischen Quantenoszillator.
+\end{myfrag}
+Die Einteilchen-Zustandssumme des harmonischen Oszillators ist
+\begin{equation}
+	Z_i
+\end{equation}
+\subsection{56}
+\begin{myfrag}
+Wie ist die Einteilchenzustandsdichte $g(\omega )$ definiert? Leite die
+Einteilchenzustandsdichte für den Fall von drei-dimensionalen
+Wellenvektoren mit linearer Dispersionsrelation her.
+\end{myfrag}
+\subsection{57}
+\begin{myfrag}
+Was ist das Plancksche Strahlungsgesetz? Leite es her. Was ist das
+Rayleigh-Jeans Gesetz für kleine Frequenzen?
+\end{myfrag}
+\subsection{58}
+\begin{myfrag}
+Beschreibe das Einstein Modell für die spezifische Wärme von Festkörpern.
+Leite den entsprechenden Ausdruck für die spezifische Wärme als Funktion
+der Temperatur her. Was ist der Dulong-Petit Grenzwert für die spezifische
+Wärme?
+\end{myfrag}
+\subsection{58}
+\begin{myfrag}
+Erkläre im Detail das Debye Modell für die spezifische Wärme von
+Festkörpern. Was sind die wichtigen Näherungen? Definiere die Debye
+Wellenvektor, Frequenz und Temperatur. Was ist das Tief- bzw.
+Hochtemperaturverhalten für die spezifische Wärme als Funktion der
+Temperatur?
+\end{myfrag}
+\subsection{59}
+\begin{myfrag}
+Welche Eigenschaften haben Materialen mit hoher bzw. niedriger Debye
+Temperatur. Warum?
+\end{myfrag}

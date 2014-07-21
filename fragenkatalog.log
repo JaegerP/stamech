@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.6.5)  21 JUL 2014 18:36
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.6.5)  21 JUL 2014 23:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -921,15 +921,15 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \tf@toc=\write3
 \openout3 = `fragenkatalog.toc'.
 
- [1
+ (./0.tex [1
 
 ]
 Kapitel 1.
 
 LaTeX Font Warning: Font shape `OT1/cmss/m/it' in size <12> not available
-(Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 69.
+(Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 4.
 
-LaTeX Font Info:    Try loading font information for TS1+cmss on input line 75.
+LaTeX Font Info:    Try loading font information for TS1+cmss on input line 10.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmss.fd
 File: ts1cmss.fd 1999/05/25 v2.5h Standard LaTeX font definitions
@@ -939,40 +939,40 @@ File: ts1cmss.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 <Bilder/Frage6.jpg, id=27, 554.07pt x 333.245pt>
 File: Bilder/Frage6.jpg Graphic file (type jpg)
  <use Bilder/Frage6.jpg>
-Package pdftex.def Info: Bilder/Frage6.jpg used on input line 144.
+Package pdftex.def Info: Bilder/Frage6.jpg used on input line 79.
 (pdftex.def)             Requested size: 142.26378pt x 85.56364pt.
 
-Overfull \hbox (5.68916pt too wide) in paragraph at lines 144--145
+Overfull \hbox (5.68916pt too wide) in paragraph at lines 79--80
 [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 141--145
+Underfull \hbox (badness 10000) in paragraph at lines 76--80
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 158--163
+Underfull \hbox (badness 10000) in paragraph at lines 93--98
 
  []
 
-[4 <./Bilder/Frage6.jpg>] [5] [6] [7]
+[4 <./Bilder/Frage6.jpg>]) (./1.tex [5] [6] [7]
 
 pdfTeX warning: pdflatex (file ./Bilder/fr18.pdf): PDF inclusion: found PDF ver
 sion <1.5>, but at most version <1.4> allowed
 <Bilder/fr18.pdf, id=43, 487.95636pt x 416.62321pt>
 File: Bilder/fr18.pdf Graphic file (type pdf)
  <use Bilder/fr18.pdf>
-Package pdftex.def Info: Bilder/fr18.pdf used on input line 294.
+Package pdftex.def Info: Bilder/fr18.pdf used on input line 110.
 (pdftex.def)             Requested size: 204.85846pt x 174.91063pt.
 
-[8 <./Bilder/fr18.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 318--322
+[8 <./Bilder/fr18.pdf>]) (./2.tex
+Underfull \hbox (badness 10000) in paragraph at lines 7--11
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 323--326
+Underfull \hbox (badness 10000) in paragraph at lines 12--15
 
  []
 
@@ -980,60 +980,60 @@ Underfull \hbox (badness 10000) in paragraph at lines 323--326
 File: Bilder/Frage21pV.jpg Graphic file (type jpg)
 
 <use Bilder/Frage21pV.jpg>
-Package pdftex.def Info: Bilder/Frage21pV.jpg used on input line 335.
+Package pdftex.def Info: Bilder/Frage21pV.jpg used on input line 24.
 (pdftex.def)             Requested size: 142.26378pt x 121.18242pt.
 
 <Bilder/Frage21TS.jpg, id=68, 263.48438pt x 193.47281pt>
 File: Bilder/Frage21TS.jpg Graphic file (type jpg)
 
 <use Bilder/Frage21TS.jpg>
-Package pdftex.def Info: Bilder/Frage21TS.jpg used on input line 336.
+Package pdftex.def Info: Bilder/Frage21TS.jpg used on input line 25.
 (pdftex.def)             Requested size: 170.71652pt x 125.36024pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 346--351
+Underfull \hbox (badness 10000) in paragraph at lines 35--40
 
  []
 
 [10 <./Bilder/Frage21pV.jpg> <./Bilder/Frage21TS.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 365--367
+Underfull \hbox (badness 10000) in paragraph at lines 54--56
 
  []
 
 <Bilder/Frage22pv.jpg, id=72, 399.31pt x 216.08pt>
 File: Bilder/Frage22pv.jpg Graphic file (type jpg)
  <use Bilder/Frage22pv.jpg>
-Package pdftex.def Info: Bilder/Frage22pv.jpg used on input line 376.
+Package pdftex.def Info: Bilder/Frage22pv.jpg used on input line 65.
 (pdftex.def)             Requested size: 199.16928pt x 107.77925pt.
 
 <Bilder/Frage22Aufbau.jpg, id=73, 425.59pt x 278.13pt>
 File: Bilder/Frage22Aufbau.jpg Graphic file (type jpg)
 
 <use Bilder/Frage22Aufbau.jpg>
-Package pdftex.def Info: Bilder/Frage22Aufbau.jpg used on input line 377.
+Package pdftex.def Info: Bilder/Frage22Aufbau.jpg used on input line 66.
 (pdftex.def)             Requested size: 199.16928pt x 130.16092pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 386--388
+Underfull \hbox (badness 10000) in paragraph at lines 75--77
 
  []
 
 [11 <./Bilder/Frage22pv.jpg> <./Bilder/Frage22Aufbau.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 405--406
+Underfull \hbox (badness 10000) in paragraph at lines 94--95
 
  []
 
 [12]
 Kapitel 2.
-[13
+) [13
 
-] [14] [15] [16]
-Overfull \hbox (4.57959pt too wide) in paragraph at lines 584--597
+] (./3.tex [14] [15]) (./4.tex [16]
+Overfull \hbox (4.57959pt too wide) in paragraph at lines 51--64
 \OML/cmm/m/it/12 Z \OT1/cmr/m/n/12 = [] [] \OML/cmm/m/it/12 d[][] [] d[][] [][]
  $\OT1/cmss/m/n/12 NR: $[] \OML/cmm/m/it/12 dp[]dp[]dp[] [][] \OT1/cmr/m/n/12 =
  ([] \OML/cmm/m/it/12 dy [][]\OT1/cmr/m/n/12 )[][] 
  []
 
 [17] [18]
-Underfull \hbox (badness 10000) in paragraph at lines 625--626
+Underfull \hbox (badness 10000) in paragraph at lines 92--93
 
  []
 
@@ -1041,87 +1041,87 @@ Underfull \hbox (badness 10000) in paragraph at lines 625--626
 File: Bilder/Frage45eins.jpg Graphic file (type jpg)
 
 <use Bilder/Frage45eins.jpg>
-Package pdftex.def Info: Bilder/Frage45eins.jpg used on input line 628.
+Package pdftex.def Info: Bilder/Frage45eins.jpg used on input line 95.
 (pdftex.def)             Requested size: 119.50148pt x 143.63551pt.
 
 <Bilder/Frage45zwei.jpg, id=105, 798.985pt x 915.42pt>
 File: Bilder/Frage45zwei.jpg Graphic file (type jpg)
 
 <use Bilder/Frage45zwei.jpg>
-Package pdftex.def Info: Bilder/Frage45zwei.jpg used on input line 648.
+Package pdftex.def Info: Bilder/Frage45zwei.jpg used on input line 115.
 (pdftex.def)             Requested size: 119.50148pt x 136.91595pt.
 
-Overfull \hbox (15.68594pt too wide) in paragraph at lines 627--667
+Overfull \hbox (15.68594pt too wide) in paragraph at lines 94--134
 []$[]$ $[]$ 
  []
 
 [19 <./Bilder/Frage45eins.jpg> <./Bilder/Frage45zwei.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 698--703
+Underfull \hbox (badness 10000) in paragraph at lines 165--170
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 703--703
+Underfull \hbox (badness 10000) in paragraph at lines 170--170
 
  []
 
 [20]
-Underfull \hbox (badness 10000) in paragraph at lines 704--704
+Underfull \hbox (badness 10000) in paragraph at lines 171--171
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 705--710
+Underfull \hbox (badness 10000) in paragraph at lines 172--177
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 710--712
+Underfull \hbox (badness 10000) in paragraph at lines 177--179
 
  []
 
-[21] [22]
-LaTeX Font Info:    Calculating math sizes for size <8.39996> on input line 789
-.
+[21]) [22] (./5.tex
+LaTeX Font Info:    Calculating math sizes for size <8.39996> on input line 27.
+
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <4.19998> not available
-(Font)              size <5> substituted on input line 789.
+(Font)              size <5> substituted on input line 27.
 
 
 LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <4.19998> not available
-(Font)              size <5> substituted on input line 789.
+(Font)              size <5> substituted on input line 27.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <4.19998> not available
-(Font)              size <5> substituted on input line 789.
+(Font)              size <5> substituted on input line 27.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <4.19998> not available
-(Font)              size <5> substituted on input line 789.
+(Font)              size <5> substituted on input line 27.
 
 
 LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <4.19998> not available
-(Font)              size <5> substituted on input line 789.
+(Font)              size <5> substituted on input line 27.
 
-[23] [24] [25]
-Underfull \hbox (badness 10000) in paragraph at lines 876--877
+[23] [24] [25]) (./6.tex
+Underfull \hbox (badness 10000) in paragraph at lines 8--9
 
  []
 
 [26] [27]
-Underfull \hbox (badness 10000) in paragraph at lines 920--921
+Underfull \hbox (badness 10000) in paragraph at lines 52--53
 
  []
 
-<Bilder/Frage62.jpg, id=136, 1204.5pt x 903.375pt>
+[28] <Bilder/Frage62.jpg, id=139, 1204.5pt x 903.375pt>
 File: Bilder/Frage62.jpg Graphic file (type jpg)
- <use Bilder/Frage62.jpg>
-Package pdftex.def Info: Bilder/Frage62.jpg used on input line 934.
+
+<use Bilder/Frage62.jpg>
+Package pdftex.def Info: Bilder/Frage62.jpg used on input line 66.
 (pdftex.def)             Requested size: 284.52756pt x 213.3959pt.
 
-[28]
-Overfull \hbox (10.9606pt too wide) detected at line 948
+Overfull \hbox (10.9606pt too wide) detected at line 80
 [][] \OT1/cmss/m/n/12 d\OML/cmm/m/it/12 l\OT1/cmr/m/n/12 (2\OML/cmm/m/it/12 l \
 OT1/cmr/m/n/12 + 1) [][] = [][] \OT1/cmss/m/n/12 d\OML/cmm/m/it/12 x [][] \OT1/
 cmr/m/n/12 = [] \OML/cmm/m/it/12 mit x \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 l\OT1
@@ -1130,48 +1130,48 @@ cmr/m/n/12 = [] \OML/cmm/m/it/12 mit x \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 l\OT1
 /m/n/12 d\OML/cmm/m/it/12 l
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 948--950
+[29 <./Bilder/Frage62.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 80--82
 
  []
 
-[29 <./Bilder/Frage62.jpg>] <Bilder/Frage63.jpg, id=144, 1204.5pt x 903.375pt>
+<Bilder/Frage63.jpg, id=144, 1204.5pt x 903.375pt>
 File: Bilder/Frage63.jpg Graphic file (type jpg)
-
-<use Bilder/Frage63.jpg>
-Package pdftex.def Info: Bilder/Frage63.jpg used on input line 958.
+ <use Bilder/Frage63.jpg>
+Package pdftex.def Info: Bilder/Frage63.jpg used on input line 90.
 (pdftex.def)             Requested size: 284.52756pt x 213.3959pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 975--981
-
- []
-
 [30 <./Bilder/Frage63.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 991--1008
+Underfull \hbox (badness 10000) in paragraph at lines 107--113
 
  []
 
 
-Overfull \hbox (18.8216pt too wide) detected at line 1008
+Underfull \hbox (badness 10000) in paragraph at lines 123--140
+
+ []
+
+[31]
+Overfull \hbox (18.8216pt too wide) detected at line 140
 \OML/cmm/m/it/12 Z[] \OT1/cmr/m/n/12 = [] [][] = [] [] [][](2\OML/cmm/m/it/12 l
  \OT1/cmr/m/n/12 + 1) + [] [] [][](2\OML/cmm/m/it/12 l \OT1/cmr/m/n/12 + 1)
  []
 
-[31] [32] [33] [34]
-Overfull \hbox (12.80714pt too wide) in paragraph at lines 1137--1141
+[32]) (./7.tex [33] [34]) (./8.tex
+Overfull \hbox (12.80714pt too wide) in paragraph at lines 15--19
 \OT1/cmss/m/sl/12 Wie []andert sich das gro^^Y-ka-no-ni-sche En-sem-ble falls i
 n-ne-re Frei-heits-gra-de (z.B. Spin) ber[]ucksichtigt
  []
 
-[35] [36] [37] [38] (./fragenkatalog.aux)
+[35]) (./9.tex [36]) (./10.tex [37]) [38] (./fragenkatalog.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 2.90001pt have occurred.
 
  ) 
 Here is how much of TeX's memory you used:
- 10370 strings out of 494939
- 184876 string characters out of 6178344
+ 10403 strings out of 494939
+ 185022 string characters out of 6178344
  240119 words of memory out of 5000000
  13398 multiletter control sequences out of 15000+600000
  22222 words of font info for 88 fonts, out of 8000000 for 9000
@@ -1197,7 +1197,7 @@ dist/fonts/type1/public/amsfonts/latxfont/line10.pfb></usr/share/texlive/texmf-
 dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-d
 ist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-di
 st/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on fragenkatalog.pdf (40 pages, 591833 bytes).
+Output written on fragenkatalog.pdf (40 pages, 592138 bytes).
 PDF statistics:
  242 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

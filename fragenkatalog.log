@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.6.5)  21 JUL 2014 01:27
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.6.5)  21 JUL 2014 18:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1104,24 +1104,24 @@ LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <4.19998> not available
 LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <4.19998> not available
 (Font)              size <5> substituted on input line 789.
 
-[23] [24]
-Underfull \hbox (badness 10000) in paragraph at lines 852--853
+[23] [24] [25]
+Underfull \hbox (badness 10000) in paragraph at lines 876--877
 
  []
 
-[25] [26]
-Underfull \hbox (badness 10000) in paragraph at lines 896--897
+[26] [27]
+Underfull \hbox (badness 10000) in paragraph at lines 920--921
 
  []
 
-[27] <Bilder/Frage62.jpg, id=136, 1204.5pt x 903.375pt>
+<Bilder/Frage62.jpg, id=136, 1204.5pt x 903.375pt>
 File: Bilder/Frage62.jpg Graphic file (type jpg)
-
-<use Bilder/Frage62.jpg>
-Package pdftex.def Info: Bilder/Frage62.jpg used on input line 910.
+ <use Bilder/Frage62.jpg>
+Package pdftex.def Info: Bilder/Frage62.jpg used on input line 934.
 (pdftex.def)             Requested size: 284.52756pt x 213.3959pt.
- [28 <./Bilder/Frage62.jpg>]
-Overfull \hbox (10.9606pt too wide) detected at line 924
+
+[28]
+Overfull \hbox (10.9606pt too wide) detected at line 948
 [][] \OT1/cmss/m/n/12 d\OML/cmm/m/it/12 l\OT1/cmr/m/n/12 (2\OML/cmm/m/it/12 l \
 OT1/cmr/m/n/12 + 1) [][] = [][] \OT1/cmss/m/n/12 d\OML/cmm/m/it/12 x [][] \OT1/
 cmr/m/n/12 = [] \OML/cmm/m/it/12 mit x \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 l\OT1
@@ -1131,49 +1131,49 @@ cmr/m/n/12 = [] \OML/cmm/m/it/12 mit x \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 l\OT1
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 924--926
+Underfull \hbox (badness 10000) in paragraph at lines 948--950
 
  []
 
-<Bilder/Frage63.jpg, id=140, 1204.5pt x 903.375pt>
+[29 <./Bilder/Frage62.jpg>] <Bilder/Frage63.jpg, id=144, 1204.5pt x 903.375pt>
 File: Bilder/Frage63.jpg Graphic file (type jpg)
- <use Bilder/Frage63.jpg>
-Package pdftex.def Info: Bilder/Frage63.jpg used on input line 934.
+
+<use Bilder/Frage63.jpg>
+Package pdftex.def Info: Bilder/Frage63.jpg used on input line 958.
 (pdftex.def)             Requested size: 284.52756pt x 213.3959pt.
 
-[29]
-Underfull \hbox (badness 10000) in paragraph at lines 951--957
+Underfull \hbox (badness 10000) in paragraph at lines 975--981
 
  []
 
 [30 <./Bilder/Frage63.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 967--984
+Underfull \hbox (badness 10000) in paragraph at lines 991--1008
 
  []
 
 
-Overfull \hbox (18.8216pt too wide) detected at line 984
+Overfull \hbox (18.8216pt too wide) detected at line 1008
 \OML/cmm/m/it/12 Z[] \OT1/cmr/m/n/12 = [] [][] = [] [] [][](2\OML/cmm/m/it/12 l
  \OT1/cmr/m/n/12 + 1) + [] [] [][](2\OML/cmm/m/it/12 l \OT1/cmr/m/n/12 + 1)
  []
 
-[31] [32] [33]
-Overfull \hbox (12.80714pt too wide) in paragraph at lines 1113--1117
+[31] [32] [33] [34]
+Overfull \hbox (12.80714pt too wide) in paragraph at lines 1137--1141
 \OT1/cmss/m/sl/12 Wie []andert sich das gro^^Y-ka-no-ni-sche En-sem-ble falls i
 n-ne-re Frei-heits-gra-de (z.B. Spin) ber[]ucksichtigt
  []
 
-[34] [35] [36] [37] (./fragenkatalog.aux)
+[35] [36] [37] [38] (./fragenkatalog.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 2.90001pt have occurred.
 
  ) 
 Here is how much of TeX's memory you used:
- 10368 strings out of 494939
- 184854 string characters out of 6178344
- 239106 words of memory out of 5000000
- 13396 multiletter control sequences out of 15000+600000
+ 10370 strings out of 494939
+ 184876 string characters out of 6178344
+ 240119 words of memory out of 5000000
+ 13398 multiletter control sequences out of 15000+600000
  22222 words of font info for 88 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  45i,19n,43p,10470b,345s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1197,9 +1197,9 @@ dist/fonts/type1/public/amsfonts/latxfont/line10.pfb></usr/share/texlive/texmf-
 dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-d
 ist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-di
 st/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on fragenkatalog.pdf (39 pages, 586761 bytes).
+Output written on fragenkatalog.pdf (40 pages, 591833 bytes).
 PDF statistics:
- 239 PDF objects out of 1000 (max. 8388607)
+ 242 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  51 words of extra memory for PDF output out of 10000 (max. 10000000)
 

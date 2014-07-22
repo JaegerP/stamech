@@ -75,19 +75,34 @@ spezifische Wärme für einen harmonischen Quantenoszillator.
 \end{myfrag}
 Die Einteilchen-Zustandssumme des harmonischen Oszillators ist
 \begin{equation}
-	Z_i
+	Z_i=\sum\limits_{n=0}^\infty e^{-\beta\hbar\omega n}\overset{\text{(geom. Reihe)}}=\frac{1}{1-e^{-\beta\hbar\omega}}\overset{\omega\rightarrow 0}\propto\frac{1}{\beta}\label{eq:1teil-quharmosz}.
 \end{equation}
+Für den Energieerwartungswert gilt
+\begin{equation}
+	\langle\epsilon\rangle=-\partdd{\logn Z_i}\beta=\frac{\hbar\omega e^{\beta\hbar\omega}\cdot\left(1-e^{-\beta\hbar\omega}\right)}{\left(1-e^{-\beta\hbar\omega}\right)^2}=\frac{\hbar\omega}{e^{\beta\hbar\omega}-1}
+\end{equation}
+Die Spezifische Wärme ist also
+\begin{equation}
+	C=\partdd ET=\frac{\left(\hbar\omega\right)^2}{\left(e^{\beta\hbar\omega}-1\right)^2}e^{\beta\hbar\omega}\frac{1}{k_BT^2}
+\end{equation}
+%TODO warum wird das negativ?
 \subsection{56}
 \begin{myfrag}
 Wie ist die Einteilchenzustandsdichte $g(\omega )$ definiert? Leite die
 Einteilchenzustandsdichte für den Fall von drei-dimensionalen
 Wellenvektoren mit linearer Dispersionsrelation her.
 \end{myfrag}
+Für stehende Wellen und mit der Annahme, dass die Summe über alle möglichen k durch ein Integral genähert werden kann, erhält man
+\begin{align}
+	g(\omega)&=2\sum\limits_{n_x,n_y,n_z}\delta\left(\omega-\omega_{\vec{k}}\right)\approx\frac{2V}{2\pi^2}\int\limits_0^\infty k^2\dif k\delta\left(\omega-\omega_{\vec{k}}\right)\\
+	&\overset{\omega_{\vec{k}}=ck}=\frac{V}{\pi^2c^3}\omega^2
+\end{align}
 \subsection{57}
 \begin{myfrag}
 Was ist das Plancksche Strahlungsgesetz? Leite es her. Was ist das
 Rayleigh-Jeans Gesetz für kleine Frequenzen?
 \end{myfrag}
+%TODO
 \subsection{58}
 \begin{myfrag}
 Beschreibe das Einstein Modell für die spezifische Wärme von Festkörpern.
@@ -95,6 +110,24 @@ Leite den entsprechenden Ausdruck für die spezifische Wärme als Funktion
 der Temperatur her. Was ist der Dulong-Petit Grenzwert für die spezifische
 Wärme?
 \end{myfrag}
+Jedes Atom im Festkörper wird durch unabhängige Quantenoszillatoren dargestellt. Es gilt also mit der Einteilchen-Zustandssumme aus \eqref{eq:1teil-quharmosz} $Z_1=Z_1^x=Z_1^y=Z_1^z$ für jede Richtung $x,y,z$. Die Gesamt-Zustandssumme von $N$ Teilchen ist 
+\begin{equation}
+	Z=\prod\limits_{\nu=x,y,z}\left(Z_1^\nu\right)^N=Z_1^{3N}.
+\end{equation}
+ Um die spezifische Wärme zu berechnen, bestimmt man zunächst die Energie:
+\begin{align}
+	E&=-\partdd{\logn Z}\beta=-3N\frac{1}{Z_1}\partdd{Z_1}\beta\\
+	&=-3N\frac{\hbar\omega e^{\beta\hbar\omega}}{e^{-\beta\hbar\omega}-1}=3\hbar\omega N\frac{1}{e^{\beta\hbar\omega}-1}
+\end{align}
+Die spezifische Wärme ist also
+\begin{align}
+	C_V&=\partdd ET=3N\frac{\left(\hbar\omega\right)^2}{\left(e^{\beta\hbar\omega}-1\right)^2}e^{\beta\hbar\omega}\frac{1}{k_BT^2}\\
+	&=3Nk_B\left(\hbar\omega\beta\right)^2\frac{e^{\beta\hbar\omega}}{\left(e^{\beta\hbar\omega}-1\right)^2}.
+\end{align}
+Im Doulong-Petit-Grenzfall für hohe Temperaturen (also kleine $\beta$) gilt
+\begin{equation}
+  C_V\underset{\beta\rightarrow 0}\longrightarrow3Nk_B,\qquad\text{da }\frac{x^2e^x}{\left(e^x-1\right)^2}\underset{x\rightarrow 0}\longrightarrow 1, \quad x=\hbar\omega\beta
+\end{equation}
 \subsection{58}
 \begin{myfrag}
 Erkläre im Detail das Debye Modell für die spezifische Wärme von
@@ -103,8 +136,23 @@ Wellenvektor, Frequenz und Temperatur. Was ist das Tief- bzw.
 Hochtemperaturverhalten für die spezifische Wärme als Funktion der
 Temperatur?
 \end{myfrag}
+In der Debye-Näherung verwendet man die Annahmen
+\begin{enumerate}[a)]
+	\item Alle Moden haben die gleiche, lineare Dispersion $\omega_k=vk$ und
+	\item Die Gesamtzahl der Moden ist 3N (optische Moden werden ignoriert, da Niedrigenergienäherung).
+\end{enumerate}
+Man setzt
+\begin{equation}
+	\sum\limits_kf(k)\approx\frac{v}{2\pi^2}\int\limits_0^\infty k^2\dif k\,f(x)\overset!=3N
+\end{equation}
+Die wesentliche Näherung ist, dass ab einem bestimmten $k_D$, dem Debye-Wellenvektor,\\$f(k>k_D)=0$ gelten muss, um diese Gleichung zu erfüllen. Aus dem Integral erhält man 
+\begin{equation}
+	k_D=6\pi^2\frac NV.
+\end{equation}
+Aus dem Debye-Wellenwektor erhält man die Debyefrequenz $\omega_D=vk_D$ und die Debyetemperatur $\Theta_D=\frac{\hbar\omega_D}{k_B}$. Für $T\ll\Theta_D$ steigt die spezifische Wärme $\propto T^3$, für $T\gg\Theta_D$ nähert sie sich der Konstanten $3Nk_B$.
 \subsection{59}
 \begin{myfrag}
 Welche Eigenschaften haben Materialen mit hoher bzw. niedriger Debye
 Temperatur. Warum?
 \end{myfrag}
+%TODO

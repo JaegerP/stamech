@@ -1,5 +1,5 @@
 %Fragenkatalog
-\documentclass[12pt,a4paper]{report}
+\documentclass[12pt,a4paper,notitlepage]{report}
 
 %\usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
@@ -7,7 +7,7 @@
 \usepackage{amsmath,xfrac}
 \usepackage{amsfonts,mathrsfs}
 \usepackage{amssymb}
-\usepackage{euscript}
+\usepackage{euscript,xspace}
 \usepackage{graphicx}
 \usepackage{geometry}
 \usepackage{amsthm}
@@ -16,12 +16,14 @@
 \usepackage{cancel}
 \usepackage{paralist}
 \usepackage{wrapfig} %hinzugefügt
+\usepackage{relsize}
 \setcounter{tocdepth}{1}
 \newcommand{\theauthor}{Maximilian Kiefer-Emmanouilidis, Philipp Jaeger}
 \author{\theauthor}
+\date{}
 
-\newcommand{\thetitle}{Thermodynamik und Statistik\\Prof. Eggert, Sommersemester 2014}
-\title{\thetitle}
+\newcommand{\thetitle}{Fragenkatalog zu Thermodynamik und Statistik\\\smaller{Prof. Eggert, Sommersemester 2014}}
+\title{\textbf{\thetitle}\vspace{25mm}}
 
 \geometry{a4paper,left=25mm,right=25mm, top=15mm, bottom=55mm}
 \fancyhead{}
@@ -59,10 +61,12 @@
 \numberwithin{equation}{section}
 \begin{document}
 \maketitle% sollte man als header verbauen
+\vspace{50mm}
 \begin{abstract}
-Die vorliegende Fragensammlung besteht aus den mit den Übungsblättern verteilten Verständ-nisfragen zur Vorlesung "Thermodynamik und Statistik" (früher "Statistische Mechanik") aus dem Sommersemester 2014 von Prof. Eggert, TU Kaiserslautern.\\
-Sie wurde als Hilfsmittel zur Klausur- und Prüfungsvorbereitung von Studenten für Studenten geschrieben und keineswegs fehlerfrei, eventuelle inhaaltliche Fehler werden aber gerne korrigiert. Rechschreibfehler dürfen vom Finder behalten werden.
+ Die vorliegende Fragensammlung besteht aus den mit den Übungsblättern verteilten Verständnisfragen zur Vorlesung \glqq Thermodynamik und Statistik\grqq\xspace (früher \glqq Statistische Mechanik\grqq) aus dem Sommersemester 2014 von Prof. Eggert, TU Kaiserslautern.\\
+Sie wurde als Hilfsmittel zur Klausur- und Prüfungsvorbereitung von Studenten für Studenten geschrieben und keineswegs fehlerfrei, eventuelle inhaltliche Fehler werden aber gerne korrigiert. Rechschreibfehler dürfen vom Finder behalten werden.
 \end{abstract}
+%\clearpage
 \tableofcontents%macht mir zu viel Gedöns, hätte aber gerne thematische Sortierung in sections
 %fragen 1-9
 \input{0.tex}

@@ -4,7 +4,7 @@
 %\usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[ngerman]{babel}
-\usepackage{amsmath,xfrac}
+\usepackage{amsmath,xfrac,mathtools}
 \usepackage{amsfonts,mathrsfs}
 \usepackage{amssymb}
 \usepackage{euscript,xspace}
@@ -26,6 +26,8 @@
 \title{\textbf{\thetitle}\vspace{25mm}}
 
 \geometry{a4paper,left=25mm,right=25mm, top=15mm, bottom=55mm}
+\setlength{\mathindent}{15mm}
+
 \fancyhead{}
 \fancyhead[R]{\textbf{\thetitle}\\\theauthor}
 \fancyfoot[C]{\thepage}
@@ -46,7 +48,11 @@
 \newcommand{\pseq}{\mathrel{\phantom{=}}}
 \newcommand{\binkoef}[2]{\left(\begin{array}{c}{#1}\\{#2}\end{array}\right)}
 \newcommand{\const}{\mathsf{const.}}
-%\newcommand{\hbar}{\mathchar'26\mkern-9mu h}
+\newcommand{\ket}[1]{\ensuremath {\mid #1 \rangle}}
+\newcommand{\bra}[1]{\ensuremath {\langle #1 \mid}}
+
+\let\oldoverset\overset
+\renewcommand{\overset}[2]{\oldoverset{\mathclap{#1}}{#2}\quad}
 
 \newtheorem{mydef}{Definition}
 %\newtheorem{myfrag}{}%Frage} doppelt nur die Nummerierung

@@ -9,7 +9,11 @@ $N$ und $E$ werden als Erwartungwerte bestimmt, d.h.
 	&=\partddd{\logn \mathscr{Z}}\alpha\beta=k_BT\partddd{\logn \mathscr{Z}}\mu\beta=-\partddd\Phi\mu\beta\text{ bzw.}\\
 	E&=\sum\limits_{N=0}^\infty\sum\limits_{E(N)}\frac{Ee^{-\beta E}e^{-\alpha N}}{\mathscr{Z}}=\partddd{\logn \mathscr{Z}}\beta\alpha.
 \end{align}
-$p$ und $S$ berechnet man wie üblich als Ableitung
+$p$ und $S$ berechnet man wie üblich als Ableitung. Durch analoge Rechnung erhält man
+\begin{align}
+	p&=-\partddd EVT=-\partddd \Phi V{T,\mu}\text{ und}\\
+	S&=-\partddd ETV=-\partddd \Phi T{V,\mu}.
+\end{align}
 \subsection{71}
 \begin{myfrag}
 Wende das Konzept des Großkanonischen Ensembles auf ein ideales
@@ -25,16 +29,51 @@ Summe über Einteilchenzustände ausgedrückt werden können. Was versteht
 man dementsprechend unter der Bose-Einstein und der Fermi-Dirac
 Verteilung?
 \end{myfrag}
+Zunächst betrachtet man allgemein nicht wechselwirkende Quantenteilchen, das bedeutet, dass $N=\sum\limits_rn_r$ und $E=\sum\limits_r\epsilon_rn_r$ gelten. dabei sind die \ket r die Eigenzustände des Einteilchensystems in der Basis der Besetzungszahlen. Die Zustandssumme ist also
+\begin{equation}
+	\mathscr Z=\sum\limits_{N=0}^\infty\sum\limits_{\lbrace n_r\rbrace}e^{-\beta\sum\limits_rn_r\epsilon_r}e^{-\alpha\sum\limits_rn_r}.
+\end{equation}
+Die erste Summe kann dabei wegfallen, da $N=\sum\limits_rn_r$ gilt. Die Summen in den $e$-Funktionen kann man als Produkte schreiben und diese nach dem Distributivgesetz mit der verbleibenden Summe vertausen. Man erhält dann
+\begin{align}
+	\mathscr Z&=\sum\limits_{\lbrace n_r\rbrace}e^{-\beta\sum\limits_rn_r\epsilon_r}e^{-\alpha\sum\limits_rn_r}=\sum\limits_{\lbrace n_r\rbrace}\prod\limits_re^{-\beta n_r\epsilon_r}e^{-\alpha n_r}\nonumber\\
+	&=\prod\limits_r\left(\sum\limits_{n_r=0}^\infty e^{-\beta n_r\epsilon_r}e^{-\alpha n_r}\right).
+\end{align}
+Ab hier muss unterschieden werden, ob Bosonen oder Fermionen berachtet werden, da für Fermionen nur die Besetzungszahlen $n_r=0,1$ möglich sind:
+\begin{itemize}
+	\item[\textbf{Bosonen:}]{
+	\begin{alignat}{2}
+		&\mathscr Z_B&&=\prod\limits_r\left(\sum\limits_{n_r=0}^\infty e^{-\beta n_r\epsilon_r}e^{-\alpha n_r}\right)\nonumber\\
+		&&&=\prod\limits_r\frac{1}{1-e^{-\beta\epsilon_r}e^{-\alpha}}=\prod\limits_r\frac{1}{1-ze^{-\beta\epsilon_r}}\\
+		\Rightarrow\qquad\qquad&\Phi_B&&=+k_BT\logn\mathscr Z_B=+k_BT\sum\limits_r\left(1-ze^{-\beta\epsilon_r}\right)
+	\end{alignat}}
+	\item[\textbf{Fermionen:}]{
+	\begin{alignat}{2}
+		&\mathscr Z_F&&=\prod\limits_r\left(\sum\limits_{n_r=0}^1 e^{-\beta n_r\epsilon_r}e^{-\alpha n_r}\right)\nonumber\\
+		&&&=\prod\limits_r\left(1+e^{-\beta\epsilon_r}e^{-\alpha}\right)=\prod\limits_r\left(1+ze^{-\beta\epsilon_r}\right)\\
+		\Rightarrow\qquad\qquad&\Phi_F&&=-k_BT\logn\mathscr Z_F=-k_BT\sum\limits_r\left(1+ze^{-\beta\epsilon_r}\right)
+	\end{alignat}}
+\end{itemize}
+
 \subsection{73}
 \begin{myfrag}
 Was ist die Entwicklung in z für die Bose-Einstein und die Fermi-Dirac
 Verteilung?
 \end{myfrag}
+Für $z\ll 1$ ist mit $\logn(1+\epsilon)\approx\epsilon$ $\Phi_B\approx\Phi_F\approx-k_BTz\sum\limits_re^{-\beta\epsilon_r}\approx\Phi_\mathsf{klassisch}$.
 \subsection{74}
 \begin{myfrag}
 Leite die Einteilchen-Zustandsdichte $g(\omega )$ für ein ideales Quantengas in drei
 Dimensionen her.
 \end{myfrag}
+\begin{align}
+	g(\epsilon)&=\sum\limits_k\delta\left(\epsilon-\epsilon_k\right)\nonumber\\
+	&\approx\int \frac{\dif^3k}{\Delta k^3}\delta\left(\epsilon-\frac{\hbar^2k^2}{2m}\right)\qquad\text{ mit }\Delta k^3=\frac{8\pi^3}{L^3}\\
+	&=4\pi\frac{V}{2\pi^2}\int k^2\dif k\delta\left(\epsilon-\frac{\hbar^2k^2}{2m}\right)\nonumber\\
+	&\overset{x=\frac{\hbar^2k^2}{2m}}{=}\frac{V}{2\pi^2}\int\frac{m}{\hbar^2}\dif x\sqrt{\frac{2mx}{\hbar^2}}\delta(\epsilon-x)\\
+	&=\begin{dcases}\frac{V}{2\pi^2}\left(\frac{m}{\hbar}\right)^{\sfrac{3}{2}}\sqrt{\epsilon}\qquad&\text{für }\epsilon>0\\
+	0\qquad&\text{für }\epsilon<0\end{dcases}
+\end{align}
+
 \subsection{75}
 \begin{myfrag}
 Finde Integralausdrücke für N und E als Funktion von z und T in einem

@@ -1,0 +1,2430 @@
+% ########################################################################################################################
+% stame2.tex: Fragenkatalog mit passenden Antworten der Vorlesung
+% Statistische Mechanik, WS 04/05, SS05
+% Dozent S. Eggert
+% Kombinierte Fassung Markus & Chris. Wohl noch massenhaft Fehler drin..
+% Korrekturgelesen und überarbeitet von Daniel, insofern jetzt hoffentlich weniger Fehler :)
+% Rewrite: 17.04.07 Chris
+% ########################################################################################################################
+\documentclass[a4paper,12pt]{scrartcl}
+
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{ngerman}
+
+\usepackage[paper=a4paper,left=30mm,right=30mm,top=25mm,bottom=40mm]{geometry}
+
+\usepackage{graphics,graphicx,subfigure}
+%\usepackage{times}
+\usepackage{latexsym}
+\usepackage{amsmath,amssymb}
+\usepackage{multicol}
+\usepackage{tabularx}
+\usepackage{stmaryrd}
+\usepackage{mathrsfs}
+\usepackage{framed}
+\usepackage{color}
+\usepackage{colortbl}
+\usepackage[
+	pdftitle={Zusammenfassung Fragenkatalog Statistische Mechanik},
+	pdfauthor={Daniel Steil, Markus Lührmann, Christoffer Elsen},
+	pdfsubject={Fragensammlung},
+	pdfkeywords={Statistische Mechanik, StaMe, Theorie, Physik},
+	pdfpagemode=UseOutlines,
+	colorlinks=true,
+	linkcolor=black,
+	filecolor=black,
+	urlcolor=black,
+	citecolor=black,
+	pdftex=true,
+	plainpages=false,
+	hypertexnames=false,
+	pdfpagelabels=true,
+	hyperindex=true,
+]{hyperref}
+
+%\usepackage{listings}
+%\usepackage{bracket}
+
+\allowdisplaybreaks[1]
+\author{Basierend auf einer Lösung von\\Daniel Steil\\\\Gesetzt und überarbeitet von\\Christoffer Elsen\\und\\ Markus 
+Lührmann\\}
+
+% ########################################################################################################################
+% Definitionen
+% ########################################################################################################################
+
+% QM-Notation
+\def\bra#1{\mathinner{\langle{#1}|}}
+\def\ket#1{\mathinner{|{#1}\rangle}}
+\def\braket#1{\mathinner{\langle{#1}\rangle}}
+\def\Bra#1{\left\langle#1\right|}
+\def\Ket#1{\left|#1\right\rangle}
+\def\Braket#1{\left\langle \mathcode`\|"8000 {#1}\right\rangle} 
+
+% Eigene Defs
+\def\ab#1#2#3{\genfrac{}{}{0mm}{#1}{#2}{#3}}		% Übereinandersetzen (Bruch ohne Strich)
+\def\f#1#2{\frac{#1}{#2}}				% Bruch
+\def\df#1#2{\dfrac{#1}{#2}}				% Bruch groß (Displaystyle)
+\def\pf#1#2{\frac{\partial #1}{\partial #2}}		% Partielle Ableitung
+\def\dpf#1#2{\dfrac{\partial #1}{\partial #2}}		% s.o. (Displaystyle)
+\def\pfq#1#2{\frac{\partial^2 #1}{\partial #2^2}}	% Doppelte partielle Ableitung
+\def\dpfq#1#2{\dfrac{\partial^2 #1}{\partial #2^2}}	% s.o. (Displaystyle)
+\def\rpf#1#2{\ka{\frac{\partial #1}{\partial #2}}}	% Geklammerte partielle Ableitung
+\def\dsum{\sum\limits}					% Summe mit Limits (Groß klappt noch nicht)
+\def\ka#1{\left(#1\right)}				% ( ... )
+\def\kb#1{\left\langle #1\right\rangle}			% < ... >
+\def\kc#1{\left\lbrace #1\right\rbrace} 		% { ... }
+\def\kd#1{\left[ #1\right]}				% [ ... ]
+\def\ke#1{\glq #1 \grq}					% " ... " (Deutsche Notation, d.h. oben u. unten)
+\def\abs#1{\left|{#1}\right|}				% | ... |
+\def\rk{\right)}					% )
+\def\lk{\left(}						% (
+\def\rek{\right]}					% ]
+\def\lek{\left[}					% [
+\def\rsp{\right>}					% >
+\def\lsp{\left<}					% <
+\def\la{\left(}						% (
+\def\ra{\right)}					% )
+\def\const{\mathrm{const}}				% "const." Mathemode
+\def\lz{\left,}						% Links leer
+\def\rz{\right,}					% Rechts leer
+\def\ol{\overline}					% Überstrichene Darstellung
+\def\RR{\ensuremath{\mathbb{R}}}			% Reelle Zahlen
+\def\ZZ{\ensuremath{\mathbb{Z}}}			% Ganze Zahlen
+\def\QQ{\ensuremath{\mathbb{Q}}} 			% Rationale Zahlen
+\def\d{\mathrm{d}}					% Differential d
+\def\ddd{\mathrm{d}^3}					% Differential d^{3}
+\def\dx#1{\mathrm{d}^{#1}}				% Differential d^{}
+\def\kB{k_\mathrm{B}}					% Boltzmann-Konstante
+\def\sp{\mathop{\rm Sp}}				% Spur-Operator
+\def\eggert{\par \noindent {\bf(Folgende Lösung nach \	% Eggert-Klausel
+Eggert SS05)} \par \noindent }
+
+% Counter für Fragen
+\newcounter{qc}\setcounter{qc}{1}
+
+% Frage-Box-Umgebung definieren
+\definecolor{shadecolor}{rgb}{.9,.9,1}
+\definecolor{framecolor}{rgb}{.1,.0,.7}
+\newenvironment{fshaded}{
+\def\FrameCommand{\fcolorbox{framecolor}{shadecolor}}
+\MakeFramed {\FrameRestore}}
+{\endMakeFramed}
+
+% Fragen-Header
+\def\frage#1{
+\begin{fshaded}
+\noindent
+\begin{tabularx}{0.99\textwidth}{@{}c!{\color{framecolor}\vline}X}
+{ \bf \rm \theqc }	&	\noindent #1
+\end{tabularx}
+\stepcounter{qc}
+\end{fshaded}
+}
+
+% Warnungen (foobar..) aussetzen
+\hbadness=10000
+\vbadness=10000
+\vfuzz=.5cm
+\hfuzz=.5cm
+
+% ########################################################################################################################
+% Dokumentenanfang
+% ########################################################################################################################
+
+\title{Zusammenfassung Fragenkatalog\\Statistische Mechanik}
+
+\begin{document}
+
+\maketitle
+\newpage
+
+\section*{Anmerkung des ursprünglichen Autors}
+Zunächst mal möchte ich mich bei Markus und Christoffer für das Setzen der Fragenzusammenfassung in \LaTeXe \ bedanken. Insgesamt war das eine Heidenarbeit und ich hoffe dass deshalb möglichst viele von diesem Dokument profitieren.\\
+Nun zu den weniger guten Dingen. Die Ursprungsversion entstand als Klausurvorbereitung für mich auf einem Haufen Papier in ziemlich kurzer Zeit. Das heißt leider auch, dass das Dokument betreffs der Nomenklatur und der Definitionen von Größen, o.ä. Inkonsistenzen aufweist. Ich habe zwar zusammen mit Markus nochmals korrekturgelesen und versucht zumindest einige Fehler und Unklarheiten zu beseitigen, aber es besteht auf jeden Fall noch großer Uberarbeitungsbedarf.\\
+Deshalb ist meine Hoffnung, daß spätere Leser weitere Verbesserungen und Ergänzungen vornehmen werden. Eine Version des Dokuments sollte dazu auf dem Fachschaftsrechner zu finden sein.\\
+
+Daniel Steil\\
+
+\section*{Allgemeine Anmerkungen}
+Diese Fragensammlung ist weit davon entfernt fehlerfrei zu sein, sie soll aber auch keinen Ersatz zur Vorlesung darstellen oder als Komplettlösung für Übungsaufgaben dienen. Daher sind die Lösungen kritisch zu überprüfen, Fehler und Verbesserungsvorschläge (auch zum Satz) sind gerne gesehen. Der Quelltext zu diesem Dokument ist offen und sollte über die Onlinepräsenz der Fachschaft Physik der TU Kaiserslautern beziehbar sein: \url{http://www.physik.uni-kl.de/328.html}.
+\par
+\begin{center} \textbf{Bitte helft uns Fehler zu finden!} \end{center}
+\newpage
+
+% ########################################################################################################################
+
+\frage{Beschreibe das Konzept des Mikrokanonischen Ensembles. Wann sind zwei Systeme im Gleichgewicht?}
+\noindent
+\textit{Mikrokanonisches Ensemble:}\\
+System mit definiertem Makrozustand $N,V,E$ (oder Intervall $\Delta E$), dessen Anzahl konkreter Realisierungsmöglichkeiten 
+durch die Zahl der mögl. Mikrozustände $\Omega(N,V,E)$ beschrieben wird (die alle gleiche Gesamtenergie haben).\\
+Das System ist dabei komplett von der Außenwelt isoliert (thermisch, Teilchenaustausch).\\
+Im mikrokan. Ensemble gilt, dass kein Punkt des Phasenraums gegenüber einem anderen ausgezeichnet ist, d.h. die 
+Energie-Hyperfläche des Phasenraums (auf der das System lebt) besitzt keine Punkte, die ein anderes statistisches Gewicht 
+besitzen als die anderen.\\
+Das bedeutet auch, dass im Gleichgewicht kein Punkt (oder Region) gegenüber einem anderen ausgezeichnet ist. Dies ist die 
+definierende Eigenschaft des mikrokanonischen Ensembles (Ergodenhypothese, Jeder Punkt symbolisiert Mikrozustand).\\
+Begründung: Verteilungsfunktion/Dichtematrix $\varrho$ vertauscht mit $H(q,p)$\\
+Mikrokan. Verteilungsfunktion:\\
+\[\varrho_{MK}=\left\{ 
+\begin{array}{*{2}{l}}
+  \dfrac{1}{\Omega(E)\Delta} & E \leq H(q,p) \leq E+\Delta\\
+  0 & sonst
+\end{array}
+\right.\]
+
+\[\Omega(E)=\int \frac{dq\,dp}{h^{3N}N!}\;\delta(E-H(q,p))\]
+Die Zählung erfolgt so, dass der Austausch identischer Teilchen berücksichtigt wird, daher kommt der Faktor $N!$ im Nenner. Der Faktor $h^{3N}$ hingegen ist mit dem Phasenraumvolumen verbunden, wird nur der Normierung wegen eingeführt. 
+
+% ########################################################################################################################
+
+\frage{Definiere die Begriffe \textit{Thermodynamischer Limes, Makrozustand, Mikrozustand, Erwartungswert, Phasenraum, 
+intensive und extensive Variablen}}
+\noindent
+\textit{Thermodynamischer Limes:}\\
+\[N \rightarrow \infty\]
+\[V \rightarrow \infty\]
+\[\frac{N}{V}=const=n \mbox{ (Teilchendichte)}\]
+\textit{Makrozustand:}\\Zustand mit definiertem makroskop. $N,V,E$ (als Zeitmittelwert)\\
+\textit{Mikrozustand:}\\Tatsächliche Realisierung eines Makrozustandes, auf mikroskopischem Level. Es gilt $\Omega(N,V,E)=$ 
+mögl. Realisierungen eines Makrozustands (u.U. auch unabh. Lösung $\phi(x)$ der Schrödingergleichung für den jeweiligen 
+Eigenwert $E$ des Hamiltonian).\\
+\textit{Erwartungswert:}
+\[\lsp{A(x)}\rsp=\sum p_i\,x_i\]
+\[\lsp{x}\rsp=\int_{-\infty}^{\infty} w(x)\,x\,dx\]
+mit $w(x)$ Wahrscheinlichkeitsdichte
+\[\mbox{wobei } \int_{-\infty}^{\infty}w(x)\,dx=1\]
+$F(x)$ Funktion der Zufallsvariable $X$
+\[\Rightarrow \quad\lsp{F(x)}\rsp=\int w(x)\,F(x)\,dx\]
+\textit{Phasenraum:}\\Raum der $6N$ Koordinaten und Impulse $(q_v,p_v)$\\
+\textit{intensive Variable:}\\
+$T,p,\mu$: Unabhängig von der Systemgröße\\
+\textit{extensive Variable:}\\
+$S,E,V,\Phi,N,F,G$: Abhängig von der Systemgröße\\
+
+% ########################################################################################################################
+
+\frage{Definiere \textit{Entropie, Temperatur, Druck} und \textit{chemisches Potential} im Mikrokanonischen Ensemble}
+\noindent
+\textit{Entropie:}
+\[S=k_\mathrm{B}\ln{\Omega}\]
+Entropie ist ein Maß für die Größe des zugänglichen Phasenraums eines Systems und somit für die Ungewissheit des 
+mikroskopischen Zustands eines Systems. Ebenso kann man Entropie als ein Maß für die Unordnung eines Systems sehen und 
+ungekehrt als den Informationsgehalt der Dichtematrix des Systems (Geringere Entropie $\rightarrow$ mehr Information 
+$\rightarrow$ exakt ein Zustand $\rightarrow$ Entropie 0).\\
+Im Mikrokanonischen Ensemble gilt:
+\[S_\mathrm{MK}=-\kB  Sp(\varrho_\mathrm{MK} \ln{\varrho_\mathrm{MK}}) \quad \Rightarrow \quad \kB \,\ln{(\Omega(E,V,N) \Delta)}\]
+\[\varrho=\kb{-\kB \,\ln{\varrho}}\]
+d.h. S ist proportional zum $ln$ des zugänglichen Phasenraumvolumens, bzw. quantenmechanisch zum $ln$ der Zahl der 
+realisierbaren Zustände. Die Entropie des Mikrokan. Ensembles ist gegenüber allen anderen Ensembles maximal.\\
+\textit{Temperatur:}
+\[\frac{1}{T} =\kB  \frac{\partial}{\partial T} \ln{\Omega(E,V,N)}= \left. \frac{\partial S(E,V,N)}{\partial E} \right|_{V,N}\]
+Für das ideale Gas gilt dann: $T \propto E/N$
+\[T=\lk{\kB \frac{\partial\overline{\Omega}(E,V,N)}{\partial E}}\rk^{-1}\]
+\textit{Druck:}
+\[\frac{P}{T}=\left. \frac{\partial S}{\partial V} \right|_{E,N}\]
+\textit{chemisches Potential:}
+\[\frac{\mu}{T}=\left. \frac{\partial S}{\partial N} \right|_{E,V}\]
+
+% ########################################################################################################################
+
+\frage{Wie werden Erwartungswerte im Mikrokanonischen Ensemble bestimmt?}
+\noindent
+Erwartungswerte im mikrokanonischen Ensemble (für Wahrscheinlichkeitsdichte):
+\[\lsp{A}\rsp=\int \frac{dq\,dp}{h^{3N}N!}\; \varrho_\mathrm{MK}A\]
+Für diskrete Wahrscheinlichkeiten:
+\[\kb X=\frac{\Sigma X_i}{\Omega}=\Sigma P_iX_i\]
+Jeder Zustand hat Wahrscheinlichkeit $p_i=\frac 1 {\Omega(E)}$, $X_i$ ist Observable.
+
+% ########################################################################################################################
+
+\frage{Leite des Ideale Gasgesetz mit Hilfe des Mikrokanonischen Ensembles her.}
+\noindent
+%z.Z.: Aufgabe 6: $\braket{E}=\frac{3}{2}\kB  T$\\
+Es gilt:
+\begin{align*}
+\varepsilon_p&=\frac{p^2}{2m} \\
+\intertext{Aufstellen Hamilton:}
+ H&=\sum_{i=1}^{N} \frac{p_i^2}{2m}+V_{Wand} \\
+ \Omega(E)&=\frac{1}{h^{3N}N!} \int_V d^3 x_1 \; \cdots \; \int d^3 x_N \; \int d^3 p_1 \; \cdots \; \int p^3 p_N \; \delta 
+\left(E-\sum_{i=1}^{N} \frac{p_i^2}{2m} \right) \\
+\intertext{Hamilton koordinatenunabhängig $\rightarrow \quad V^N$}
+ \Rightarrow \quad \Omega(E)&=\frac {V^N 2 \pi m (2 \pi m E)^{\frac{3N}{2}-1} } {h^{3N}N! \left( \frac{3N}{2} -1 \right)! } \\
+\intertext{Für $N\rightarrow \infty$}
+ \Omega(E) &\approx \overline{\Omega}(E) \approx \left(\frac{V}{N} \right)^N \left( \frac{4 \pi m E}{3h^2 N} 
+\right)^{\frac{3N}{2}}e^{\frac{5N}{2}}\frac{1}{E} \frac{3N}{2} \\
+ \mbox{bzw. } \overline{\Omega}(N)&=\frac{1}{h^{3N}N!} \int_V d^3 x_1 \; \cdots \; \int d^3 x_N \; \int d^3 p_1 \; \cdots \; 
+\int p^3 p_N \; \Theta(E-\sum_i p_i^2/2m) \\
+ \Rightarrow \overline{\Omega}(E)&=\frac{V^N (2 \pi m E)^{\frac{3N}{2}}}{h^{3N}N!\left(\frac{3N}{2}\right)!} \\
+\intertext{$N \rightarrow \infty$}
+ \overline{\Omega}(E) &\approx \left( \frac{V}{N} \right)^N \left( \frac{4 \pi m E}{3 \hbar^2 N} 
+\right)^{\frac{3N}{2}}e^{\frac{5N}{2}} \\
+ \overline{\Omega}(E) \rightarrow S_\mathrm{MK}&=\kB  \log{\overline{\Omega}(E)} \stackrel{\mbox{N groß}}{=} \kB  \log{\Omega(E)\,E} \\
+ \Rightarrow S(E,V)&=\underbrace{\kB \,N\,ln \left[ \frac{V}{N} \left( \frac{4 \pi m E}{3 h^2 N} \right)^{\frac{3}{2}} 
+\right]e^{\frac{5}{2}}}_{Sackur-Tetrode-Gleichung} \\
+ \Rightarrow \frac{1}{T}&=\left( \frac{\partial S}{\partial E} \right)_V = \kB  N \frac{3}{2} E^{-1} \\
+ \Rightarrow E&=\frac{3}{2}N \kB  T \\
+ \Rightarrow S(T,V)&=\kB  N ln \left[ \frac{V}{N} \left( \frac{4 \pi m E}{3 h^2 N} \right)^{\frac{3}{2}} \right] 
+e^{\frac{5}{2}} \\
+ \Rightarrow p&=T\left.\left( \frac{\partial S}{\partial V} \right)\right|_E = \frac{\kB  T N}{V} \\
+ \Rightarrow pV&=N\kB  T
+\end{align*}
+\eggert
+Jedes Atom hat $\vec r_i$ und $\vec v_i$, es gibt keine WW - ideal. $\Rightarrow$ $\vec r_i$ sind vollständig unabhängig\\
+\begin{align*}
+\Omega &\propto \text{jedes Teilchen im Raum anzuordnen} \propto \int (\ddd r)^N=V^N\\
+\ln \Omega&=N\ln V + \const\\
+S&=\kB N\ln V+\const\\
+p&=T\ka{\pf SV}_{N,E}=\frac{\kB TN}V\\
+\Leftrightarrow pV&=\kB NT\quad\text{ideales Gasgesetz}\\
+\end{align*}
+
+% ########################################################################################################################
+
+\frage{Zeige, dass die durchschnittliche Energie pro Atom im Idealen Gas $E=3\kB T/2$ ist.}
+\noindent
+\begin{align*}
+E=&\sum_i\frac m 2\ka{v_{x_1}^2+v_{x_2}^2+v_{x_3}^2}\quad\text{kinetische Energie}\\
+\Omega=&\ka{\int_V\ddd r_i}^N\prod_{i=1}^N\int\limits_{R^2=\frac{2E}m}\ddd v_i\quad\sim\quad 
+V^N\ka{\frac{2E}m}^\frac{3N-1}2\\
+\frac{2E}m=&\sum_{i=1}^N\sum_{j=1,2,3}v_{ij}^2\quad\text{Radius$²$ im 3N-dim. Geschwindigkeitsraum}\\
+\vec r_i,\vec v_i:\text{ Phasenraum}\\
+\int\limits_{R^2=\frac{2E}m}\prod_{i=1}^N\ddd v_i\quad\sim&\quad R^{3N-1}=\ka{\frac{2E}m}^\frac{3N-1}2\\
+S=&\kB \ln\Omega\\
+=&\kB \ka{N\ln V+\frac{3N-1}2\ln E +\const}\\
+\stackrel{N\sim 1\text{mol}}{\approx}&\kB N\ka{\ln V+\frac3 2\ln E +\const}\\
+\frac 1T=&\ka{\pf SE}_{N,V}=\frac 32\frac{\kB N}E\\
+\Leftrightarrow E=&\frac 32\kB NT\\
+\end{align*}
+
+% ########################################################################################################################
+
+
+\frage{Beschreibe das Konzept des Kanonischen Ensembles und leite es mit Hilfe des Mikrokanonischen Ensembles her.}
+\noindent
+Das Kanonische Ensemble beschreibt ein System, das in ein größeres Wärmebad eingebettet ist und mit diesem Wärmebad Energie 
+austauschen kann (jedoch keine Teilchen).\\
+Das Gesamtsystem ist dabei isoliert und kann also durch ein Mikrokanonisches Ensemble beschrieben werden.\\
+$T=const$ für das Gesamtsystem
+ \[ E=E_W+E_S \quad \Rightarrow \quad \frac{E_S}{E}=\left( 1- \frac{E_W}{E} \right) \ll 1 \]
+$E_S$ ist jetzt nicht mehr fixiert sondern $T$.\\
+$\Rightarrow$ System kann mit best. Wahrscheinlichkeitsverteilung alle möglichen Mikrozustände $i$ mit verschiedenen Energien 
+$E_i$ annehmen (jedoch sind vermutlich große $E_i$ selten).\\
+Die Frage, die man sich stellt ist: Wie groß ist die Wahrscheinlichkeit $P_i$ das System in einem best. Mikrozustand $i$ mit 
+Energie $E_i$ zu finden?
+ \[ P_i \propto \Omega_W(E_W)=\Omega_W(E-E_i) \]
+d.h. proportional zu $\Omega_W(E_W)$, die gleichbedeutend mit $\Omega_W(E-E_i)$ sind, das $S$ ein bestimmtes $i$ angenommen 
+hat.\\
+i.A. $\quad E_i \ll E \quad \Rightarrow \quad$ Wir entwickeln $\quad \Omega_W \rightarrow E_i$\\
+Entwickeln Entropie $S_W$
+ \[ \kB \,\ln{\Omega_W(E-E_i)} \approx \kB \,\ln{\Omega_W(E)}-\frac{\partial}{\partial E}(\kB \,\ln{\Omega_W(E)})\,E_i+\cdots \]
+Es gilt:
+ \[ \pf{}{E}(\kB \,\ln{\Omega_W(E)})=\pf{S_W}{E}=\frac{1}{T} \] 
+Einsetzen und exponieren liefert:
+ \[ \Omega_W(E-E_i) \approx \underbrace{\Omega_W(E)}_{\const\text{, da}\,E=\const} \exp{} \left\{ -\frac{E_i}{\kB  T} \right\}  \] 
+{\bf Mikrozustände nehmen exponentiell mit der Energie des Systems ab!}
+ \[ \Rightarrow P \propto \exp{} \left\{ -\frac{E_i}{\kB  T} \right\} \] 
+$\Rightarrow$ Alle Mikrozustände mit derselben Energie $E_i$ haben wieder die gleiche Wahrscheinlichkeit, nur ist die Energie 
+nicht mehr fixiert, sondern das System kann für festes $T$ auf allen möglichen Energieflächen sein, jedoch mit abnehmender 
+Wahrscheinlichkeit für steigende Energie $E_i$.\\
+Normierung $P_i$ s.d. $\sum_i P_i=1$
+ \[ P_i=\frac{\exp{} \left\{ -\frac{E_i}{\kB  T} \right\}}{\sum_i \exp{} \left\{ -\frac{E_i}{\kB  T} \right\}} \] 
+bzw. kontinuierlich: $\ka{i \rightarrow (q_v,p_v);\quad \sum_i \rightarrow {h^{-3N}}\int \dx{3N}q\,\dx{3N}p}$\\
+ \[ \varrho(q_v,p_v)=\frac{\exp{\{-\beta H\}}}{\frac{1}{h^{3N}}\int d^{3N}q\,d^{3N}p\,\exp{\{-\beta H\}} } \] 
+(klassische Phasenraumdichte)\\
+ \[ F(T,V,N)=-\kB  T \ln{Z(T,V,N)} \] 
+Die freie Energie ist im Gleichgewicht minimal.\\
+
+\eggert
+Das Kanonische Ensemble beschreibt ein System, das in ein größeres Wärmebad eingebettet ist und mit diesem Wärmebad Energie 
+austauschen kann (jedoch keine Teilchen).\\
+Das Gesamtsystem ist dabei isoliert und kann also durch ein Mikrokanonisches Ensemble beschrieben werden.\\
+$T=const$ für das Gesamtsystem. Annahme Teilsystem eines großen Systems $E_{ges}$\\
+\[E_{ges}=\epsilon+E_{Rest}=\const\]
+\[\epsilon\ll E_{Rest}\leq E_{ges}\]
+Gesamtsystem mit dem Mikrokanonischen Ensemble behandeln
+\[\Omega_{ges}=\Omega(\epsilon)\Omega_{Rest}(E_{Rest})=\Omega(\epsilon)\Omega_{Rest}(E_{ges}-\epsilon)\]
+{\bf Ziel:} Bestimme $ P(\epsilon )$ Wahrscheinlichkeit für das Teilsystem im Mikrozustand mit Energie $\epsilon$
+\[p(\epsilon)\sim\Omega_{ges}(\epsilon)\sim\Omega(\epsilon)\Omega_{Rest}(E_{ges}-\epsilon)=\Omega_{Rest}(E_{ges}-E_{Rest})\]
+Hier Annahme: Teilsystem hat nur einen Zustand mit $E=\epsilon$; d.h. $\Omega(\epsilon)=1$.
+\begin{align*}
+\ln \Omega_{Rest}(E_{ges}-\epsilon)\approx&\ln\Omega_{Rest}(E_{ges})-\epsilon\left.{\pf{\ln\Omega_{Rest}(E)}{ 
+E}}\right|_{E=E_{ges}}\\
+P(\epsilon)\sim&e^{\ln\Omega_{Rest}(E_{ges}-\epsilon)}\sim\Omega_{Rest}(E_{ges})e^{-\beta\epsilon}\quad\beta=\frac 1{\kB T}\\
+\Rightarrow P(\epsilon)=&\const\cdot e^{-\beta\epsilon}\\
+P(\epsilon)=&\frac{e^{-\beta\epsilon}}{\sum_\epsilon e^{-\beta\epsilon}}\quad\text{($\Rightarrow$ Normierung: $\sum_\epsilon 
+P(\epsilon)=1$) Boltzmannverteilung}\\
+Z=&\sum_\epsilon e^{-\beta\epsilon}\quad\text{Zustandssumme der Teilsysteme}\\
+P(\epsilon)=&\frac{e^{-\beta\epsilon}}{\sum_\epsilon e^{-\beta\epsilon}}=-\frac{\pf{}{\epsilon}\ka{e^{-\beta\epsilon}}}{\sum_\epsilon e^{-\beta\epsilon}}\frac 1\beta=-\frac 1\beta\pf{}{\epsilon}\ln Z\\
+\end{align*}
+ 
+% ########################################################################################################################
+
+
+\frage{Was ist die Zustandssumme? Was ist das Zustandsintegral?}
+\noindent
+\[ Z_K=\sum \exp{\{-\beta E_i\}} \]
+\[ Z_K=\frac{1}{h^{3N}} \int d^{3N}q\,d^{3N}p\,\exp{\{-\beta H\}} \]
+Aus $Z$ kann mit $F(T,V,N)=-\kB  T \ln{Z(T,V,N)}$ die freie Energie berechnet werden. $Z$ beschreibt auch den Normierungsfaktor 
+für das kanonische Ensemble!\\
+\eggert
+\[ Z_K=\sum \exp{\{-\beta\epsilon_i\}}\quad\text{Zustandssumme}\]
+Freiheitsgrade $\vec v_j, \vec r_j$
+\[Z=\int\prod_{j=1}^N\ddd r_j\int\prod_{j=1}^N\ddd v_j e^{-\beta\epsilon\ka{\vec r_1,\ldots,\vec r_N,\vec 
+v_1,\ldots,\vec v_N}}=\int\d\Gamma e^{-\beta\epsilon}\quad\text{Zustandsintegral}\]
+Integrieren in den Phasenraum = alle Positionen alle Geschwindigkeiten
+\[\prod_{j=1}^N\ddd r_j\prod_{j=1}^N\ddd v_j:=\d\Gamma\quad\text{6N-dimensionaler Phasenraum}\]
+Erwartungwerte: \[\kb x=\frac{\int\d\Gamma xe^{-\beta\epsilon}}Z\]
+
+% ########################################################################################################################
+
+
+\frage{Was ist der Virialsatz? Leite ihn her!}
+\noindent
+\begin{align*}
+\left< x_i\,\pf{E}{x_j} \right> &= \frac{1}{Z} \int\d\Gamma\,e^{-\beta E(x_i,p_i)}x_i \pf{E}{x_j}\\
+\text{Nebenrechnung:}\quad &\pf{e^{-\beta E}}{x_j}=-\beta e^{-\beta E}\pf E{x_j}\quad\Leftrightarrow\quad -\frac 
+1\beta\pf{e^{-\beta E}}{x_j}=e^{-\beta E}\pf E{x_j}\\
+&= \frac{1}{Z} \int \d\Gamma\, \pf{e^{-\beta E}}{x_j}x_i \left( - \frac{1}{\beta} \right)\\
+&= -\frac{1}{\beta Z} \int \d\Gamma\,(-uv')+\underbrace{uv|_{Rand}}_{=0 \,\text{($u=e^{-\beta E}$ fällt stark genug ab)}\hidewidth }\\
+&= \frac{1}{\beta Z} \int \d\Gamma\,e^{-\beta E}\pf{x_i}{x_j}\quad\text{mit: }\pf{x_i}{x_j}=\delta_{ij}\\
+&= \kB  T \delta_{ij}
+\intertext{Klassischer Virialsatz:}
+E&=E_{kin}(p_i)+V(x_i)\\
+\left< x_i \pf{V(x_1,\cdots,x_N)}{x_j} \right> &= \kB  T \delta_{ij}\\
+\intertext{Angewandt auf Harmonischen Oszillator:}
+V&=\frac{1}{2}mx^2\\
+\left< x \pf{V(x)}{x} \right> &= \kb{mx^2}=\kB  T\\
+\left< \frac{1}{2}mx^2 \right> &= \frac{\kB  T}{2}
+\end{align*}
+Die potentielle Energie eines jeden Freiheitsgrads besitzt also im Mittel den Wert $\kB  T/2$.
+% ########################################################################################################################
+
+
+\frage{Was ist das Äquipartitionstheorem (Gleichverteilungssatz)? Leite es her!}
+\noindent
+(Nach Schwabel 2.6 Kanonische Ensemble)\\
+Die mittlere kinetische Energie pro Freiheitsgrad ist $\frac{1}{2}\kB  T$
+\begin{align*}
+E_{kin}&=\sum_{i,k=1}^{6N} a_{ik}p_i p_k \quad a_{ik}=a_{ki}\\
+\pf{E_{kin}}{p_i}&=\sum_k (a_{ik}p_k+a_{ki}p_k)=\sum_k 2a_{ik}p_k\\
+p_i+\sum_k\;\Rightarrow \sum_i p_i \pf{E_{kin}}{p_i} &= \sum_{i,k} 2a_{ik}p_i p_k = 2E_{kin}\\
+\Braket{\sum_i p_i \pf{H}{p_i}}  &= 2 \Braket{E_{kin}} = 3N\kB  T
+\end{align*}
+\eggert
+Energie ist Summe von bilinearen Termen
+\[E=\sum_{j,k=1}^{6N}\alpha_{jk}q_jq_k=\sum_{j=1}^{6N}\sum_{k=1}^{6N}\alpha_{jk}q_jq_k=\sum_{j=1}^{6N}E_j,\quad 
+E_j=\sum_{k=1}^{6N}\alpha_{jk}q_jq_k\]
+Energie die vom Freiheitsgrad $q_j$ herrührt
+\begin{align*}
+\pf E{q_j}=&2\sum_{k=1}^{6N}\alpha_{jk}q_k\\
+q_j\pf E{q_j}=&2\sum_{k=1}^{6N}\alpha_{jk}q_jq_k=2E_j\\
+\frac 12\kb{q_j\pf E{q_j}}=&\kb{E_j}=\frac{\kB T}2\quad\text{Äquipartitionstheorem, Gleichverteilungssatz}
+\end{align*}
+Die Energie $E_j$ eines klassischen Freiheitsgrades $q_j$ der nur in bilinearen Termen in $E(q_1,\ldots,q_N)$ vorhanden ist 
+ist gegeben durch
+\[\kb{E_j}=\frac{\kB T}2\]
+
+% ########################################################################################################################
+
+
+\frage{
+Wie ist die Entropie definiert \ldots{}
+\begin{enumerate}
+\item im Mikrokanonischen Ensemble (sog. Boltzmann Definition)
+\item im Kanonischen Ensemble (Wahrscheinlichkeitstheoretische Definition)
+\item in der Thermodynamik (Clausius Definition)?
+\end{enumerate}
+}
+\noindent
+\textit{Definition der Entropie:}
+\begin{enumerate}
+\item \textit{im Mikrokanonischen Ensemble (sog. Boltzmann Definition)}
+\begin{align*}
+S_\mathrm{MK}&=-\kB  Sp(\varrho_\mathrm{MK} \ln{\varrho_\mathrm{MK}})\\
+S_\mathrm{MK}&=\kB  \ln{\Omega(E)\Delta}
+\end{align*}
+$S$ ist somit proportional zum Logarithmus des zugänglichen Phasenraumvolumens bzw. quantenmechanisch zum Logarithmus der Zahl 
+der realisierbaren Zustände. Für alle Ensembles, deren Energie im Intervall $[E,E+\Delta]$ liegt ist die Entropie des 
+Mikrokan. Ensembles am größten.
+\eggert
+\[S=\kB \ln\Omega=-\kB \sum_rP_r\ln P_r\quad P_r=\frac 1{\Omega(E,N,V)}\quad\text{Wahrscheinlichkeit}\]
+\item \textit{im Kanonischen Ensemble (Wahrscheinlichkeitstheoretische Definition)}
+\[ S_K=-\kB \kb{\ln{\varrho_K}}=\frac{1}{T}\overline{E}+\kB  \ln{Z}; \quad \overline{E}=\kb{H} \]
+Von allen Ensembles mit gleicher mittlerer Energie besitzt das Kanonische Ensemble die größte Entropie.
+\eggert
+\[S=\frac{\kb E}T+\kB \ln Z=-\kB \sum_rP_r\ln P_r\quad P_r=\frac {e^{-\beta E_r}}Z\quad\text{Wahrscheinlichkeit}\]
+\item \textit{in der Thermodynamik (Clausius Definition)}
+\[ \delta Q=TdS \quad \quad \Delta S=\frac{\Delta Q}{T} \]
+Clausius-Prinzip: Die Entropie eines geschlossenen Systems kann nur anwachsen: $\Delta S > 0$
+\end{enumerate}
+
+% ########################################################################################################################
+
+
+\frage{
+Leiten Sie die Eigenschaften der Zustandssumme her \ldots{}
+\begin{enumerate}
+\item im Falle einer Energieverschiebung des Grundzustandes
+\item für zwei unabhängige Systeme
+\end{enumerate}
+Was passiert mit den Besetzungswahrscheinlichkeiten?
+}
+\noindent
+\begin{enumerate}
+\item \textit{Energieverschiebung des Grundzustandes}
+\begin{align*}
+\varepsilon_n^*&=\varepsilon_n+E_0\\
+Z^*&=\sum_n e^{-\beta \varepsilon_n^*}=e^{-\beta E_0}\sum_n e^{-\beta \varepsilon_n}= Ze^{-\beta E_0}\\
+\ln{Z^*}&=\ln{Z}-\underbrace{\beta E_0}_{\mbox{=const}}\\
+\intertext{Ändert keine Erwartungswerte}
+P(\epsilon_n^*)&=\frac{e^{-\beta \varepsilon_n^*}}{Z^*}=\frac{e^{-\beta \varepsilon_n}e^{-\beta E_0}}{Ze^{-\beta 
+E_0}}=P(\epsilon_n)
+\end{align*}
+$\Rightarrow$ Wahrscheinlichkeiten bleiben erhalten!
+\item \textit{Zwei unabhängige Systeme A,B}\\
+Zustandssummen multiplizieren sich
+\begin{align*}
+E&=E_A+E_B\\
+Z&=\sum_{n_A,n_B}e^{-\beta E}=\sum_{n_A,n_B}e^{-\beta (E_A+E_B)}=\sum_{n_A}e^{-\beta E_A}\sum_{n_B}e^{-\beta E_B}=Z_A\cdot 
+Z_B\\
+\ln{Z}&=\ln{Z_A}+\ln{Z_B}\\
+\intertext{Wahrscheinlichkeiten:}
+P_n&=\frac{e^{-\beta \varepsilon_n}}{Z}=\frac{e^{-\beta (\varepsilon_n A+\varepsilon_n B)}}{Z_A Z_B}
+\end{align*}
+$\Rightarrow$ Wahrscheinlichkeiten multiplizieren sich
+\end{enumerate}
+
+% ########################################################################################################################
+
+
+\frage{Wenden Sie die Methoden des Kanonischen Ensembles auf das \textit{Ideale Klassische Gas} an. Rechnen Sie die 
+\textit{Erwartungswerte} für den \textit{Druck}, die \textit{Energie} und die \textit{Entropie} aus.}
+\noindent
+Ideales Gas im Kanonischen Ensemble:
+\[\kb{\;} \mbox{ für } P,E,S\]
+\[Z=\sum_i e^{-\beta H} \qquad H(q_v,p_v)=\sum_{v=1}^{3N} \frac{p_v^2}{2m}\]
+\[\rightarrow\; Z(T,V,N)=\frac{1}{N!h^{3N}} \int d^{3N}q\,d^{3N}p\,\exp{\{-\beta H\} }\]
+H im Idealen Gas koordinatenunabhängig
+\begin{align*}
+\rightarrow\;\int_V d^{3N}q &= V^N\\
+Z(T,V,N) &= \frac{1}{N!h^{3N}}V^N \prod_{v=1}^{3N} \int_{-\infty}^{\infty} dp_v\,\exp{\{ -\beta \frac{p_v^2}{2m} \}}\\
+\intertext{(Summen in Exponenten faktorisieren)}
+\Rightarrow\; Z(T,V,N) &= \frac{V^N}{N!} \left( \frac{2 \pi m \kB  T}{h^2} \right)^{\frac{3N}{2}}\\
+\Rightarrow\; Z(T,V,N) &= \frac{V^N}{N!} \frac{1}{\lambda^{3N}} \mbox{ mit } \lambda=\left( \frac{h^2}{2 \pi m \kB  T} 
+\right)^{\frac{1}{2}}\\
+\Rightarrow\; F(T,V,N) &= -\kB  T \ln{Z}\\
+\Rightarrow\; p&=- \left.\pf{F}{V}\right|_{T,N}=\frac{N \kB  T}{V} \quad \Rightarrow pV=N \kB  T\\
+S &= -\left.\pf{F}{T}\right|_{V,N}\\
+E&=-\pf{}{\beta}\kB {\ln Z}\\
+S_K&=\frac{1}{T}(\ol{E}+\kB  T \ln 2)\\
+\end{align*}
+\eggert
+\begin{align*}
+	E(\vec v_1,\ldots,\vec n_N,\vec r_1,\ldots,\vec r_N)=&\sum_{i=1}^N\frac 12m\vec v_i^2\\
+	Z=&\int\prod_{i=1}^N\ddd r_i\prod_{j=1}^N\ddd v_j \, e^{-\beta\sum_{k=1}^N\frac 12m\vec v_k^2}\\
+	=&\ka{\int\ddd r\int\ddd v e^{-\beta\frac 12m\vec v^2}}^N=Z_1^N\\
+	Z_1=&\int\ddd r \int\ddd v e^{-\beta\frac 12m\vec v^2}\\
+	\int_{-\infty}^\infty e^{-\alpha x^2}\d x=&\ka{\int_{-\infty}^\infty e^{-\alpha x^2}\d x\int_{-\infty}^\infty 
+e^{-\alpha x^2}\d x}^\frac 12\\
+	=&\ka{\int_0^{2\pi} \d v\int_{-\infty}^\infty\d r\, e^{-\alpha x^2}}^\frac 12 	\stackrel{z=x^2}{=}\sqrt{2\pi\int_0^\infty\frac{\d z}2e^{-\alpha Z}}=\sqrt{\frac\pi\alpha}\\
+	\Rightarrow Z_1=&V\ka{\frac{2\pi}{\beta m}}^\frac 32\quad\text{da 3-dim.}\\
+	Z=&V^N\ka{\frac{2\pi}{\beta m}}^\frac{3N}2\\
+	F=&-\frac 1\beta\ln Z=-\frac N\beta\ln Z_1=-\frac N\beta\ka{\ln V-\frac32\ln\beta+\frac32\ln\frac{2\pi}m}\\
+	E=&-\pf{\ln Z}\beta=-N\pf{\ln Z_1}\beta=\frac32\frac N\beta=\frac32N\kB T\\
+	p=&-\ka{\pf FV}=\frac N{\beta V}=\frac{N\kB T}V\\
+	S=&\frac{\kb E}T+\kB \ln Z=N\kB \ka{\ln V-\frac32\ln\beta+\underbrace{\frac32\ka{\ln\frac{2\pi}m+1}}_{\const}}\\
+\end{align*}
+Die hier relevanten Ausdrücke sind der Gleichverteilungssatz $E=\frac32N\kB T$ und das ideale Gas-Gesetz $pV=N\kB T$.
+
+% ########################################################################################################################
+
+
+\frage{Was ist eine generalisierte Kraft (im Mikrokanonischen Ensemble)? Erläutere dies am Beispiel des Druckes. Wie sind 
+generalisierte Kräfte mit den Begriffen \textit{Arbeit} und \textit{Wärme} verbunden?}
+\noindent
+\[F_A=-\pf EA\quad\text{Generalisierte Kraft $F_A$ (konjugiert zu $A$) externer Parameter $A$}\]
+\begin{align*}
+	p=&-\ka{\pf EV}\qquad\text{ändere $A$ bei konstantem $S$:$\quad\dpf SA=0$}\\
+	\frac{\d S(E(A),A)}{\d A}=&\ka{\pf EA}\ka{\pf SE}_A+\ka{\pf SA}_{\d E=0}=0\\
+	-\ka{\pf EA}=&F_A=\ka{\pf SE}^{-1}\ka{\pf SA}=T\ka{\pf SA} \quad \text{mit}\quad\dpf SE=T^{-1}\\
+	p=&T\ka{\pf SV}_E=T\kB \eta
+\end{align*}
+
+% ########################################################################################################################
+
+
+\frage{Erläutern Sie ausführlich das \textit{Gibbsche Paradoxon} und dessen Lösung}
+\noindent
+Betrachtet man ein abgeschlossenes System mit zwei Kammern, welche durch eine Trennwand separiert sind, in dessen Kammern sich 
+zwei gleich große Mengen identischer Stoffe befinden und berechnet die Mischentropie, falls man die Trennwand entfernt und 
+vergleicht diese mit der Summe der beiden Einzelentropien, so sind beide nicht gleich, d.h. wir erhalten eine 
+Entropiedifferenz $\Delta S > 0$ was aber offensichtlich falsch ist, da sich das System vorher wie nachher im Gleichgewicht 
+befindet ($\rightarrow \Delta S = 0$!).\\
+\begin{align*}
+&\text{Vorher} &S_{total}^{(0)} &= S_A^{(0)}(T,V_A,N_A) + S_B^{(0)}(T,V_B,N_B)\\
+&\text{Nachher} &S_{total}^{(1)} &= S_A^{(1)}(T,V_A+V_B,N_A) + S_B^{(1)}(T,V_B+V_A,N_B)\\
+&&S&=N\kB \ka{\ln V-\frac32\ln\beta+\sigma}\\
+&\Rightarrow &\Delta S &= S_{total}^{(1)} - S_{total}^{(0)} = N_A \kB  \ln{} \left\{ \frac{V_A+V_B}{V_A} \right\} +  N_B \kB  
+\ln{} \left\{ \frac{V_A+V_B}{V_B} \right\} > 0
+\end{align*}
+Lösung: Klassisch gesehen sind Teilchen unterscheidbar durchnummeriert und somit würden sich die nummerierbaren Teilchen 
+(Informationsträger) irreversibel vermischen. Quantenmechanisch betrachtet sind Atome aber unterscheidbar.\\
+$\Rightarrow$ Dies muss beim Abzählen der Mikrozustände berücksichtigt werden, d.h. zwei Mikrozustände sind nur dann 
+verschieden, wenn sie sich nicht nur durch Umnummerierung von Teilchen unterscheiden.\\
+Für N Teilchen existieren $N!$ Möglichkeiten, diese umzunummerieren. 
+\begin{align*}
+	Z=&\sum_{r_1,r_2}\frac{e^{-\beta\sum_iE_i}}{N!}=\frac{Z_1^N}{N!}\quad\text{gilt für austauschbare Teilchen}\\
+	S=&\kB \ka{\beta E+\ln Z}=\kB \ka{N\ka{\ln V-\frac 32\ln\beta+\sigma}-\ln N!}\quad\ln N!=N\ln N-N\\
+	=&\kB N\ka{\ln V-\frac32\ln \beta-\ln N+1+\sigma}=\kB N\ka{\ln\frac VN-\frac32\ln\beta+\sigma_0}\\
+	\intertext{Nun gilt für das System mit $V_A=V_B=V$ und $N_A=N_B=N$:}
+	S_{total}^{(0)}=&2\kB N\ka{\ln\frac{2V}{2N}-\frac32\beta+\sigma_0}\\
+	S_{total}^{(1)}=&S_A^{(1)}+S_B^{(1)}=2\kB N\ka{\ln\frac{V}{N}-\frac32\beta+\sigma_0}=S_{total}^{0}\\
+\end{align*}
+Mischentropie von unterschiedlichen Gasen ist gleich, aber von identischen Gasen ist Mischentropie = 0.
+
+% ########################################################################################################################
+
+
+\frage{Vergleichen Sie die Konzepte im \textit{Kanonischen und Mikrokanonischen Ensemble}. Was sind die 
+Unterschiede/Gemeinsamkeiten, wie werden \textit{Entropie, Energie, Wahrscheinlichkeiten, Erwartungswerte, Druck, 
+Gleichgewichtszustand} etc. definiert/errechnet?}
+\noindent
+\begin{tabularx}{\textwidth}{@{}p{.5\textwidth}|X}
+\textbf{Mikrokanon. Ensemble} & \textbf{Kanonisches Ensemble}\\
+\hline{}
+\\
+$\Omega(E,N,V)$ & $Z(T,N,V)$ \\
+$P_n=\dfrac{1}{\Omega}$ & $P_n=\dfrac{e^{-\beta \varepsilon_n}}{Z}$\\
+$\begin{aligned}[t] S&=\kB  \ln \Omega\\ &=-\kB \sum_n P_n\ln P_n \end{aligned}$ & $S=-\kB  \sum_n P_n \ln P_n = -\kB  \kb{\ln 
+P_n}$\\
+Gleichgewicht: $\Omega,\,S$ maximal & Gleichgewicht: $F=E-TS=-\dfrac{1}{\beta}\ln Z$ minimal\\
+$\beta=\dfrac{1}{\kB  T}=\dpf{\ln \Omega}{E}$ & $\begin{aligned}[t] E&=-\pf{}{\beta}\ln Z\;(=\sum_n \varepsilon_n p_n)\\ 
+p&=-\left( \dpf{E}{V} \right) \end{aligned}$
+\end{tabularx}
+\vspace{.5cm}
+
+\noindent Kanonisches Ensemble wird beschrieben als Einbettung eines Systems mit Wärmeaustausch in Mikrokanonisches 
+Wärmereservoir.\\
+
+\noindent \eggert 
+\begin{tabularx}{\textwidth}{@{}X|X|p{3cm}}
+	\textbf{Mikrokanon. Ensemble} & \textbf{Kanonisches Ensemble}\\
+	\hline
+	Anzahl der Mikrozustände &Zustandssumme&Zustandsgröße\\
+	$\Omega(E,N,V)$&$Z(T,N,V)=\sum_ie^{-\beta E_i}$\\
+	\hline
+	isoliert&Wärmebad&Physikalisches System\\
+	$E$ geg. $\frac1T=\ka{\pf SE}_{NV}$&$T$ geg. $\kb E=-\pf{\ln Z}\beta$\\
+	\hline
+	$P_r=\frac1{\Omega(E,N,V)}$&$P_r=\frac{e^{-\beta E_r}}Z$&Wahrscheinlichkeit\\
+	\hline
+	$S=\kB \ln\Omega$&$S=\frac{\kb E}T+\kB \ln Z$&Entropie\\
+	$\quad=-\kB \sum_rP_r\ln P_r$& $\quad=\kB \sum_rP_r\ln P_r$ &\\
+	$\d S=\frac{\d E}T+\frac pT\d V-\frac\mu T\d N$& &\\
+	d.h.:$\ka{\pf SE}_{V,N}=\frac1T$&$F=-\frac1\beta\ln Z$&\\
+	$\ka{\pf SV}_{E,N}=-\frac\mu T$&$S=\frac{\kb E}T-\frac FT$&\\
+	$\ka{\pf SN}_{E,V}=\Omega$&$F=E-TS$&\\
+	\hline
+	Entropie $S$&Freie Energie $F$&Thermodyn. Funktion\\
+	Maximum im Gleichgewichts\-zustand&Minimum im Gleichgewichts\-zustand\\
+\end{tabularx}
+% ########################################################################################################################
+
+
+\frage{Rechnen Sie die \textit{Energiefluktuation eines Idealen Gases} im Kanonischen Ensemble als Funktion der Teilchenzahl 
+$N$ aus.}
+\noindent
+\eggert
+\begin{align*}
+	\kb{\ka{\kb E -E}^2}=&\kb{E^2-e\kb EE+\kb e^2}=\kb{E^2}-e\kb E\kb E+\kb E^2=\kb{E^2}-\kb E^2\\
+	\Rightarrow\kb{E^2}\ge&\kb E^2 \qquad \text{Der Erwartungswert dieses quadratischen Ausdrucks ist $\geq 0$}\\
+	(\Delta E)^2=&\kb{E^2}-\kb E^2\\
+	\kb{E^2}=&\ka{\int\d\Gamma E^2e^{-\beta E}}\frac1Z=\ka{\pfq{}{\beta}\int\d\Gamma e^{-\beta E}}\frac1Z\\
+	=&\pf{}\beta\frac1Z\pf Z\beta+\frac1{Z^2}\ka{\pf Z\beta}^2\\
+	=&\pf{}\beta\pf{\ln Z}\beta+\ka{\pf{\ln Z}\beta}^2=-\pf{\kb E}\beta+\kb E^2\\
+	&\text{mit}\quad \dfrac{1}{Z}\,\dpf{Z}{\beta}=\dpf{\ln Z}{\beta}\\
+	\kb{E^2}-\kb E^2=&-\pf{\kb E}\beta=\kB T^2\pf ET=\kB Tc_V=\kB ^2T^2\frac32N=(\Delta E)^2\\
+	&\text{mit}\quad c_V\equiv\ka{\pf ET}_V=\frac32N\kB \\
+\end{align*}
+Relativer Fluktuationsstrom: $\frac{\Delta E}E=\frac{\kB T\sqrt{\frac32N}}{\frac32\kB TN}=\sqrt{\frac2{3N}}$
+% ########################################################################################################################
+
+
+\frage{Beschreiben Sie das Konzept des \textit{Großkanonischen Ensembles} und leiten Sie es mit Hilfe des des 
+\textit{Mikrokanonischen Ensembles} her.}
+\noindent
+System, das in ein größeres eingebettet ist mit dem Wärme- und Teilchenaustausch stattfinden kann, wobei das Gesamtsystem 
+isoliert ist.
+\[ \quad E=E_S+E_W\,; \quad N=N_S+N_W\,; \quad V=V_S+V_W \]
+unabhängige Variablen $T,V,\mu$\\
+
+\noindent Es gilt wieder:
+\[ \dfrac{E_S}{E}=\left(1-\dfrac{E_W}{E} \right) \ll 1 \qquad \dfrac{N_S}{N}=\left(1-\dfrac{N_W}{N} \right) \ll 1 \]
+$S$ kann $N_S \in [0,\ldots,N];\quad E \in [0,\ldots,E]$ annehmen.\\
+
+\noindent Nimmt das System einen bestimmten Wert $N_S$ und ein $E_i=E_S$ an, so hat das Reservoir noch $\Omega_W$ 
+Mikrozustände mit $E_W=E-E_i$ und $N_W=N-N_S$ zur Verfügung. Wahrscheinlichkeit das System im Mikrozustand $i$ bei 
+Teilchenzahl $N_S$ zu finden:
+\begin{align*}
+P_{i,N_S} &\approx \Omega_W(E_W,N_W)=\Omega_W(E-E_i,\,N-N_S)\\
+\Rightarrow \Omega_W(E-E_i,\,N-N_S) &\approx \Omega_W(E,N) \exp \left\{ -\dfrac{E_i}{\kB  T} + \dfrac{\mu N_S}{\kB  T} \right\} 
+\\
+\Rightarrow P_{i,N_S} &\propto \exp \left\{ -\dfrac{E_i}{\kB  T} + \dfrac{\mu N_S}{\kB  T} \right\}\\
+\intertext{Normiert:}
+P_{i,N_S} &=\dfrac{\exp \{ -\beta(E_i-\mu N) \} }{\sum_N\,\sum_i \exp \{ -\beta(E_i-\mu N_S) \}}\\
+\intertext{Phasenraumdichte:}
+\varrho_{GK}(N,q_v,p_v)&=\dfrac{ \exp \{ -\beta(H(q,p)-\mu N) \} }{\sum_{N=0}^{\infty} {h^{-3N}}\int d^{3N}q\,d^{3N}p\,\exp \{ -\beta(H(q,p)-\mu N) \} }\\
+Z_{GK}&=\dsum_{N=0}^{\infty} \frac{1}{h^{3N}}\int d^{3N}q\,d^{3N}p\,\exp \{ -\beta(H(q,p)-\mu N) \}\\
+\Phi(T,V,\mu)&=-\kB  T \ln Z(T,V,\mu)\\
+Z_{GK}(T,V,\mu)&=\sum_{N=0}^{\infty}\left( \exp \left\{ \dfrac{\mu}{\kB  T} \right\} \right)^N\,Z_K(T,V,N)\\
+\end{align*}
+Alle Ensembles sind über Laplace-Transformation verbunden. $Z$ aus $g(E)$ (Phasenraumdichte) gewichtet mit Boltzmann-Faktor 
+$e^{-\beta E}$
+\begin{align*}
+Z(T,V,N)&=\sum_E g(E)\,e^{-\beta E}\\
+Z_{GK}(T,V,\mu)&=\sum_N e^{\beta \mu N}Z(T,V,N)
+\end{align*}
+
+
+% ########################################################################################################################
+
+
+\frage{Geben Sie Ausdrücke für die \textit{Erwartungswerte der Energie}, der \textit{Entropie}, und des \textit{Druckes} als 
+Funktion der \textit{Kanonischen Zustandssumme}. Wie lauten die Ausdrücke für die obigen \textit{Erwartungswerte und der 
+Teilchenzahl} als Funktion der \textit{Großkanonischen Zustandssumme}}
+\noindent 
+\begin{tabularx}{\textwidth}{@{}p{.5\textwidth}|X}
+\textbf{Kanonisches. Ensemble} & \textbf{Großkanonisches Ensemble}\\
+\hline{}
+\\
+$E=-\dpf{\ln Z_K}{\beta}$ & $\kb E=-\dpf{}{Z_{GK}}\,\dpf{Z_{GK}}{\beta}=-\dpf{\ln Z_{GK}}{\beta}$\\
+$\begin{aligned}[t] S_K&=\dfrac{E}{T}+\kB  \ln Z_K \\ &=-\kB \,\kb{\ln \varrho_K} \end{aligned}$ & 
+$\begin{aligned}[t] S_{GK}&=\dfrac{1}{T}(\ol{E}-\mu \ol{N})+\kB  \ln Z_{GK}\\ &=-\kB \,\kb{\ln \varrho_{GK}} \end{aligned}$ 
+\\
+$p= \kB  T \dpf{\ln Z_K}{V}$ & $p= \left( \dpf{\Phi}{V} \right)_{T,\mu}=\kB  T \dpf{\ln Z_{GK}}{V}$\\
+& $N=\left.\dpf{\Phi}{\mu}\right|_{T,V}=\kB  T \left.\dpf{\ln Z}{\mu}\right|_{T,V}$
+\end{tabularx}
+
+% ########################################################################################################################
+
+
+\frage{Wenden Sie die Methoden des Großkanonischen Ensembles auf das Ideale Klassische Gas an. Rechnen Sie die 
+\textit{Erwartungswerte} für die \textit{Teilchenzahl}, den \textit{Druck}, die \textit{Energie} und die \textit{Entropie} 
+aus.}
+\noindent
+\begin{align*}
+&\text{Wissen:} &Z(T,V,\mu)&=\exp \{e^{ \dfrac{\mu}{\kB  T} } Z(T,V,1) \} \\
+&\text{mit} &Z(T,V,1)&=\dfrac{V}{\lambda^3} \qquad \lambda=\left( \dfrac{h^2}{2 \pi m \kB  T} \right)^{\frac{1}{2}}\\
+&\Rightarrow &\Phi(T,V,\mu)&=-\kB  T \ln Z_{GK} = -\kB  T e^{ \frac{\mu}{\kB  T} } V  \left( \dfrac{2 \pi m \kB  T}{h^2} 
+\right)^{\frac{3}{2}} \\
+&\Rightarrow &-\left.\dpf{\Phi}{T} \right|_{V,\mu} &= S(T,V,\mu)\\
+&\Rightarrow &-\left.\dpf{\Phi}{V} \right|_{T,\mu} &= p(T,V,\mu)=-\kb{ \dpf{\varepsilon}{V} } \\
+&\Rightarrow &-\left.\dpf{\Phi}{\mu} \right|_{T,V} &= N(T,V,\mu)=-\kb{ \dpf{\ln Z}{\alpha} } \\
+\end{align*}
+
+
+% ########################################################################################################################
+
+
+\frage{Definieren Sie die Dichtematrix. Wie können \textit{Erwartungswerte} mit dem \textit{Dichtematrixoperator} ausgedrückt 
+werden? Wie kann man die \textit{Dichtematrix im Kanonischen Ensemble} ausdrücken? Wie kann die \textit{Entropie} mit Hilfe 
+der \textit{Dichtematrix} definiert werden?}
+\noindent
+\begin{align*}
+%\kb A&=\sum_n p_n \kb{n|A|n}\\
+\varrho&=\sum_n P_n\left|{n}\right>\left<n\right| \qquad \text{Dichtematrix}\\
+\kb A&=\sp \varrho A=%\sum_n \kb{n\left|{\ka{\sum_n p_n|n'><n'|A}}\right|n}\\
+\sum_n P_n \left<{n|A|n}\right> \\ %\qquad \left<{n|n'}\right>=\delta_{nn'}\\
+\text{Eigenschaften: }\quad \sp \varrho&=1;\quad\varrho^+=\varrho\\
+\intertext{Im Mikrokanonischen Ensemble:}
+P_n&=\dfrac{1}{\Omega(E)}\delta(E-H)\\
+\intertext{Kanonisch:}
+P_n&=\frac{e^{-\beta \varepsilon_n}}{Z}\\
+\varrho &= \sum_n \dfrac{e^{-\beta \varepsilon_n}}{Z}\left|n\right>\left<n\right|=\dfrac{1}{Z}\sum_n e^{-\beta 
+H}\left|n\right>\left<n\right|=\dfrac{e^{-\beta H}}{Z}\\
+S&=-\kB \left<{\ln \varrho}\right>=\frac{\kb E}T+\kB \ln Z\\
+\end{align*}
+
+% ########################################################################################################################
+
+
+\frage{Welche Bedingungen müssen gegeben sein, damit eine \textit{klassische Näherung von Quantenfreiheitsgraden mit einem 
+Zustandsintegral} sinnvoll ist}
+\noindent
+\begin{enumerate}
+\item \textit{keine Interferenz; Abstand $R\ll$ $\lambda$ De-Broglie-Wellenlänge $\ka{R^3=\frac VN}$}\\
+\[\lambda=\frac hp;\quad R=\sqrt[3]{\frac VN};\quad \frac{p^2}{2m}=\frac32\kB T\]
+\[\lambda=\sqrt{\frac{h^2}{3m\kB T}}\ll\ka{\frac VN}^{\frac13}\]
+Gut erfüllt für hohe $T$, kleine $p$\\
+\item \textit{Energiestufen $<$ als $\frac{1}{2}\kB  T$}\\
+kin. Energie $\dfrac{n^2 h^2}{2mL^2} \approx \dfrac{1}{2}\kB  T \quad \Rightarrow \quad n^2 \approx \dfrac{\kB  T m L^2}{h^2}$
+\[ \Delta E ~ ((n+1)^2-n^2)\dfrac{h^2}{2mL^2} \quad \Delta E \ll \kB  T \]
+
+\end{enumerate}
+% ########################################################################################################################
+%23
+
+\frage{Schreiben Sie den Ausdruck für die \textit{Zustandssumme über die quantisierten kinetischen Freiheitsgrade eines 
+Gases}. Unter welcher Bedingung kann diese Summe durch ein Integral genähert werden? Ist die normalerweise zulässig? Berechnen 
+Sie das Integral.}
+\noindent
+Allgemein gilt für die kinetische Energie:
+\begin{align*}
+E_{kin}&=\frac{p_x^2+p_y^2+p_z^2}{2m}=\frac{\sum_i p_i^2}{2m}\\
+&=\frac{\hbar^2(k_x^2+k_y^2+k_z^2)}{2m}\\
+\intertext{Wobei periodische Randbedingungen gelten:}
+(n \in \ZZ) \quad k_x&=n\frac{2\pi}{L_x}\quad \text{(Stehende Welle)}\\
+\rightarrow Z_x&=\sum_{n=-\infty}^{\infty}e^{-\beta \frac{n_x^2 \hbar^2}{2m} \left( \frac{2 \pi}{L_x} \right)^2}\\
+Z_{kin}&=Z_x Z_y Z_z \quad \text{unabhängige Zustandsfkt. sind multiplikativ}\\
+\end{align*}
+Falls $(\kB  T) \gg \frac{\hbar^2}{2m} \left( \frac{2 \pi}{L_x} \right)^2$ kann man die Summe durch ein Integral ersetzen. Das 
+ist normalerweise für Gase zulässig ($T$ groß, $p$ klein).
+\begin{align*}
+p_x&=n_x \frac{2 \pi \hbar}{L_x} \qquad dp_x=\d n_x\frac{2 \pi \hbar}{L_x}\\
+Z_x&\approx \int e^{-\beta \frac{p_x^2}{2m}}dp_x \frac{dn}{dp_x}=\sqrt{\dfrac{2 \pi m}{\beta}} \frac{L_x}{h}\\
+Z_{kin}&=Z_x Z_y Z_z = \dfrac{L_x L_y L_z}{h^3} \left( \dfrac{2 \pi m}{\beta} \right)^{\frac{3}{2}}=\frac{V}{h^3} \left( 
+\frac{2 \pi m}{\beta} \right)^{\frac{3}{2}}\\
+\end{align*}
+
+% ########################################################################################################################
+
+
+\frage{Schreiben Sie einen Ausdruck für die \textit{Zustandssumme über die quantisierten Rotationsfreiheitsgrade eines 
+zweiatomigen Moleküls}. Was muss beachtet werden, wenn das Molekül aus identischen Atomen besteht? Wie sieht dann die 
+Zustandssumme für die Fälle aus, dass der Kernspin $s$ ganz- oder halbzahlig ist?}
+\noindent Allgemein gilt:
+\[ \frac{l_x^2}{2I_x}+\frac{l_y^2}{2I_y}+\underbrace{\frac{l_z^2}{2I_z}}_{\text{fällt weg (entlang Verbindungsachse der Atome)} \hidewidth} \]
+Rotationsenergie:
+\[ \frac{l_{tot}^2}{2I} \quad l_{tot}^2=l(l+1)\hbar^2\quad l=0,1,2,\ldots\quad l_z=n\hbar \quad -l \leq n \leq l \quad 
+\rightarrow Entartung (2l+1) \]
+\[ I_x=I_y=I; \quad I_z=0; \quad Z=\sum_n g_n\,e^{-\beta \varepsilon_n}; \quad 
+\varepsilon_n=\frac{l_{tot}^2}{2I}=\frac{l(l+1)\hbar^2}{2I} \]
+Gleichartige Moleküle (Pauli-Prinzip beachten). Allgemein gilt mit Kernspin $s$:
+\begin{align*}
+&s_{ganz}: &\kd{(s+1)Z_{gerade}+sZ_{ungerade}}(2s+1)\\
+&s_{halb}: &\kd{sZ_{gerade}+(s+1)Z_{ungerade}}(2s+1)\\
+%& \Rightarrow & Z=3Z_{ungerade}+Z_{gerade} \quad \text{(z.B. H$_2$,D$_2$)}  Wie kommst du denn darauf?!
+\end{align*}
+
+% ########################################################################################################################
+
+
+\frage{Berechnen Sie die \textit{Zustandssumme über die quantisierten Schwingungsfreiheitsgrade} (harmonischer Oszillator). 
+Berechnen Sie die \textit{Energie} und die \textit{spezifische Wärme} als Funktion der
+Temperatur.}
+\noindent
+\begin{align*}
+E_{vib}&=\hbar\omega(n+\frac{1}{2})\\
+Z&=e^{-\beta \hbar \omega/2} \cdot \sum_{n=0}^{\infty}e^{-n \beta \hbar \omega}=(*)\\
+&\Rightarrow \dfrac{e^{-(n+1)\beta \hbar \omega}}{e^{-n \beta \hbar \omega}} = \dfrac{1}{e^{\beta \hbar \omega}}=const.\\
+\intertext{mit geometrischer Reihe}
+&\dfrac{a_{k+1}}{a_k}=q=\const\\&a+aq+aq^2+ \cdots + aq^{N-1}=\sum_{k=1}^{N} 
+aq^{k-1}=\dfrac{a(q^N-1)}{q-1}\\
+&\stackrel{a=1}{\Rightarrow} \dfrac{ \left( e^{-\beta \hbar \omega} \right )^N-1}{e^{-\beta \hbar \omega}-1} 
+\stackrel{(N=\infty)}{=} \dfrac{-1}{e^{-\beta \hbar \omega}-1}\\ %n=\infty durch N=\infty ersetzt!
+\intertext{also gilt:}
+(*)\quad Z&=e^{-\beta \hbar \omega/2} \cdot \dfrac{-1}{e^{-\beta \hbar \omega}-1}=\dfrac{1}{2 \sinh \left( \frac{\hbar \omega 
+\beta}{2} \right)}\\
+\text{Erinnerung:}\quad&\sinh z=\frac12\ka{e^z-e^{-z}}\quad\cosh z=\frac12\ka{e^z+e^{-z}}\quad\coth 
+z=\frac{e^{2z}+1}{e^{2z}-1}\\
+E&=-\dpf{\ln Z}{\beta}=-\dfrac{1}{2}\,\dpf{Z}{\beta}=-\dfrac{\hbar \omega}{2}-\dfrac{2 \sinh \left( \frac{\hbar \omega 
+\beta}{2} \right) \cdot \cosh \left( \frac{\hbar \omega \beta}{2} \right)}{\left( \sinh \left( \frac{\hbar \omega \beta}{2} 
+\right) \right)^2}\\
+&=\dfrac{\hbar \omega}{2} \coth \dfrac{\hbar \omega \beta}{2}=\hbar \omega \left( \dfrac{1}{2}+\dfrac{1}{e^{-\hbar \omega 
+\beta}-1} \right)\\
+\intertext{$\left[ \text{Klass. Limit:} \quad \hbar \rightarrow 0; \qquad E \rightarrow \dfrac{\hbar \omega}{1+\hbar \omega 
+\beta}\quad = \kB  T = \dfrac{1}{\beta} \right]$}
+c_V&=\dpf{E}{T}=\left( \dfrac{\hbar \omega}{2} \right)^2 \dfrac{\kB }{T^2} \dfrac{1}{\left( \sin \frac{\hbar \omega}{2 \kB  T} 
+\right)^2}
+\end{align*}
+
+% ########################################################################################################################
+
+
+\frage{Was ist der Ausdruck der \textit{quantenmechanischen Zustandssumme} im Falle von \textit{entarteten Zuständen}? Was 
+versteht man unter \textit{Zustandsdichte}?}
+\noindent
+\begin{align*}
+\text{Zustandssumme:}\quad Z&=\sum_n q_n e^{-\beta \varepsilon_n}; \quad q_n \text{: Entartung}\\
+\text{Zustandsdichte:}\quad g(\varepsilon)&=\dfrac{1}{2 \pi} \int_{-\infty}^{\infty} Z(\beta ' + i\beta)e^{(\beta ' + 
+i\beta)\varepsilon}\\
+\text{Allg.:}\quad  v(\varepsilon)&= \dfrac{V g(\varepsilon)}{(2 \pi h)^3} \int d^3\! p \delta(\varepsilon-\varepsilon_p)
+\end{align*}
+Zustandsdichte: mittlere Anzahl Zustände pro Energieintervall.
+
+% ########################################################################################################################
+
+
+\frage{Beschreiben Sie das \textit{Einstein-Modell für die spezifische Wärme von Festkörpern}. Leiten Sie den entsprechenden 
+Ausdruck für die \textit{spezifische Wärme} als Funktion der Temperatur her.}
+\noindent
+\[E_{ion}^i=\dfrac{p_i^2}{2m}+\dfrac{m\omega^2\Delta x_i^2}{2} \quad \text{Gitterschwingungen $\hat{=}$ Phononen $\hat{=}$ 
+Bosonen} \]
+3D-unabhängige Oszillatoren, Klassisch $3N$ Freiheitsgrade $\rightarrow$ $c_V=3N\kB $ (Dulong-Petit)\\
+\[ E_n^i=n_i \hbar \omega; \quad E=\kb{n}\hbar \omega; \quad E=3N \hbar \omega \dfrac{1}{e^{\hbar \omega \beta}-1} \]
+\[ c_V=\pf{E}{T} \quad \Rightarrow \quad  c_V=3N\dfrac{(\hbar \omega)^2}{\kB  T^2}\dfrac{e^{\hbar \omega 
+\beta}}{\ka{e^{\hbar \omega \beta}-1}^2} =3N\kB f(x)\]
+\[ \frac{x^2e^x}{\ka{e^x-1}^2}=f(x)\quad\text{(Einstein-Funktion)}\qquad\dfrac{\hbar \omega}{\kB }=\theta_E 
+\quad\text{(Einstein-Temperatur)} \]
+\[ c_V=3N\kB f(\beta\hbar\omega)=3N\kB f\ka{\frac{\theta_E}T}\]
+
+% ########################################################################################################################
+
+
+\frage{Berechnen Sie die \textit{Dispersionsrelation} $\Omega_k$ für ein einfaches Modell einer atomaren Kette.}
+\noindent
+Bewegungsgleichung für jedes Atom d. Massen $M$ in der Ebene $s$ ist:
+\begin{align*}
+M \cdot \dpf{{}^2\xi_s}{t^2} &= \sum_n c_n(\xi_{s+n}-\xi_s)\\
+\intertext{$c_n:$ Rückstellkonstante bei der Änderung des Gleichgewichtabstands $na$ zwischen Atomen $(s)$ und $(s+n)$}
+\intertext{zeitabh. Auslenkungen: }
+\xi_{s+n}&=\xi(0)\cdot e^{2[(s+n)k\,a-\Omega\,t]}\\
+\Rightarrow \quad \Omega^2 \cdot M &= - \sum_n C_n(e^{inka}-1)\\
+\intertext{Stellt Schallwelle mit Wellenzahl $k$ und Frequenz $\Omega$ dar. Für einatomige Kristallgitter gilt:}
+C_n&=C_{-n}\\
+\Rightarrow \quad \Omega^2 \cdot M &= - \sum_{n>0} C_n(e^{inka}+e^{-inka}-2)\\
+&=2\cdot \sum_{n>0} C_n(1-\cos(nka))\\
+\intertext{Für kurzreichweitige Kräfte gilt:}
+C_1&=C\\
+\stackrel{1-cos(x)=2\sin^2 x/2}{\Rightarrow} \Omega^2&=(4\,C/M)\cdot \sin^2 \left( \frac{1}{2}\,ka\right)\\
+\Rightarrow \Omega&=\sqrt{4\,C/M}\left| \sin \frac{1}{2} ka \right| && \text{Dispersionsrelation}
+\end{align*}
+\eggert
+\begin{align*}
+	E=&\sum_n\frac{p_n{^2}}{2m}+\frac f2(x_n-x_{n+1})^2
+	\intertext{Für kleine Auslenkungen ist Rückstellkraft proportional zur Auslenkung. Auf $n$-tes Atom wirkt die Kraft:}
+	F_n=&m\ddot x_n=-\pf E{x_n}\\
+	=&-f(x_{n+1}-x_n)-f(x_n-x_{n-1})-f(2x_n-x_{n+1}-x_{n-1})\\
+	\text{Ansatz:}\quad x_n=&e^{ikna}u(t)\\
+	\quad me^{ikna}\ddot u(t)=&-fu(t)\ka{2e^{ikna}-e^{ik(n+1)a}-e^{ik(n-1)a}}\\
+	\quad m\ddot u(t)=&-fu(t)\ka{2-e^{ika}-e^{-ika}}=-fu(t)\ka{2-2\cos(ka)}\\
+	=&-4fu(t)\ka{\sin\frac{ka}2}^2\\
+	u(t)=&ce^{i\sqrt{4\frac fm\ka{\sin\frac{ka}2}^2}t}=e^{i\omega_kt}\quad\text{mit}\quad \omega_k=2\sqrt{\frac 
+fm}\sin\frac{ka}2\quad\text{Dispersionsrelation}\\
+	\intertext{Periodische Randbedingung:}
+	x_1=&x_{n+1}\quad e^{ika}=e^{i(N+1)ka}\quad kNa=2\pi j\quad j\in\ZZ\\
+	\intertext{$N$-Lösungen mit Quantenzahlen}
+	k=&\frac{2\pi}{Na}j=\frac{2\pi}Lj;\quad-\frac N2\leq j\leq \frac N2\\
+	\intertext{$N$ unabhängige Oszillatoren}
+	E_{n_x}=&\ka{n_x+\frac12}\omega_k\hbar\\
+\end{align*}
+
+% ########################################################################################################################
+%29
+
+\frage{Beschreiben Sie im Detail das \textit{Debye-Modell für die spezifische Wärme von Festkörpern}. Definieren Sie die 
+\textit{Debye-Wellenzahl, -Frequenz und -Temperatur}. Leiten Sie den entsprechenden Ausdruck für die \textit{spezifische Wärme als Funktion der Temperatur} her.}
+\noindent
+Jetzt 3D-abhängige Oszillatoren:\\
+\textit{BILD}\\
+\begin{align*}
+E&=\sum_n \ka{\df{p_n^2}{2n}+\df{(x_n-x_{n+1})^2}{2}k} \qquad \text{Period. RB:}\quad x_{n+1}=x_1\\
+x_n(t)&\sim e^{ikn}\,u(t)\\
+\intertext{In 3D:$\quad k_x,\,k_y,\,k_z$ $\Rightarrow$ 2 transversale, 1 longitudinale Mode}
+E&=\sum_S\,\sum_k \hbar \omega_k \ka{\df{1}{e^{\beta \hbar \omega_k}-1}}\\
+\intertext{V alle gleich:$\quad\d f{1}{V^3}=\df{1}{3}\sum_S \df{1}{V_S^3},\quad k_x=n_x \df{2 \pi}{L_x},\quad \d k_x=\d n_x \df{2 
+\pi}{L_x}$}
+E&=3L^3\int \df{\ddd k}{(2\pi)^3} \hbar vk \df{1}{e^{\beta \hbar vk}-1}\\
+\df{k^2}{2\pi^2}dk &= \text{Anzahl erlaubte $k$-Werte in $[k,\,k+dk]$}\\
+x&=\beta \hbar vk,\quad \d x=\beta \hbar v \,\d k\\
+\Rightarrow E&=\df{3V}{2\pi^2} \int_0^{k_D/(\beta \hbar v)} \df{\d x}{\beta \hbar v} \df{\hbar v x^3}{\beta^3\hbar^3v^3} 
+\ka{\df{1}{e^x-1}}\\
+&=\df{3V}{2\pi^2}\,\df{(k_bT)^4}{(\hbar v)^3}\int_0^{T/\Theta_D} \df{x^3}{e^x-1}\d x\\
+T &\ll \Theta_D \quad \rightarrow \quad \df{V \pi^2}{10}\,\df{(\kB  T)^4}{(\hbar v)^3}\\
+\Rightarrow C_V &= \df{3}{5} \pi \ka{\df{\kB  T}{\hbar v}}^3
+\end{align*}
+\begin{tabularx}{\textwidth}{@{}llX}
+Debye-Wellenzahl& $k_D:$ & $\Theta_D=\df{\hbar \omega_D}{\kB }=\df{\hbar v k_D}{\kB }$\\
+Debye-Frequenz& $\omega_D:$ & Frequenz, bei der Spektrum abgeschnitten wird, da im Festkörper nur $\lambda>$Gitterkonstante 
+existieren können\\
+Debye-Temperatur& $\Theta_D:$ & $\hbar\omega_D=\kB  \Theta_D$
+\end{tabularx}\\
+\eggert
+\begin{align*}
+	Z=&\prod_{k_x,k_y,k_z}\sum_{n_x,n_y,n_z}e^{-\beta\ka{\hbar\omega_x(\vec k)\ka{n_x+\frac12}+\hbar\omega_y(\vec 
+k)\ka{n_y+\frac12}+\hbar\omega_z(\vec k)\ka{n_z+\frac12}}}=\prod_{k_x,k_y,k_z}Z_{\vec k}\\
+	E=&-\pf{\ln Z}\beta=-\sum_{n_x,n_y,n_z}\pf{\ln Z_k}\beta\\
+	=&\int g(\omega)\ka{-\pf{\ln Z_\omega}{\beta}}\d\omega =\int g(k)\ka{-\pf{\ln Z_k}{\beta}}\d k\\
+	\omega_s(\vec k)=&\underbrace{v_s|{\vec k}|}_{\text{Annahme von Debye} \hidewidth}\quad\text{Entartung! $\rightarrow$ Zustandsdichte 
+}
+	\intertext{Wie viele Eigenzustände habe ich für jeder $\vec k$?}
+	\sum_{\vec k}f(\vec k)=&\int g(\omega)f(\omega)\d\omega\\
+	\sum_{\vec k}f(|\vec k|)=&4\pi\int\frac{\d k k^2}{(\Delta k)^3} f(k)=\frac{4\pi L^3}{(2\pi)^3}\int\frac{\d\omega\ 
+\omega^2}{v^3} f(\omega)=\frac{V}{2\pi^2v^3}\int\d\omega\omega^2f(\omega)\\
+	&\text{wobei}\,\Delta k=\frac{2\pi}L
+	\intertext{d.h. es gibt$\frac{V}{2\pi^2v^3}\omega^2$ unabhängige Lösungen im Intervall $[\omega,\omega+\d\omega]$. 3 
+unabhängige Moden (2 transversal +1 longitudinal) pro Lösung}
+	\text{Zustandsdichte:}&\quad g(\omega)=\frac32\frac V{\pi^2v^3}\omega^2\\
+	Z_\omega=&\sum_{n=0}^\infty e^{-\beta\omega\hbar\ka{n+\frac12}}=\frac{e^{\beta\omega\hbar/2}}{e^{\beta\omega\hbar}-1}\\
+	E=&\int_0^\infty g(\omega)\ka{-\pf{\ln Z_\omega}{\beta}}\d\omega=\int_0^\infty 
+g(\omega)\hbar\omega\ka{\frac12+\frac1{e^{\beta\omega\hbar}-1}}\d\omega\\
+	=&\frac32\frac V{\pi^2v^3\hbar^2}\int_0^\infty\d\omega\frac{(\beta 
+\hbar\omega)^3}{e^{\beta\omega\hbar}-1}\frac1{\beta^3}\\
+	=&\frac32\frac V{\pi^2}\frac{(\kB T)^4}{(\hbar v)^3}\underbrace{\int_0^\infty\frac{x^3}{e^x-1}\d	
+x}_{=\frac{\pi^4}{15}}\qquad x=\hbar\omega\beta\quad\d\omega=\frac{\d x}{\hbar\beta}
+	\intertext{Gesamtzahl der Lösungen ist $N$}
+	\sum_{\vec k}=&N=4\pi\int_0^{k_D}\frac{L^3}{(2\pi)^3}k^2\d k=\frac V{v^32\pi^2}\int_0^{\omega_D}\omega^2\d\omega\\
+	\frac NV=&\frac 1{v^32\pi^2}\frac13\omega_D^3=\frac{\omega_D^3}{6\pi^2v^3}=\frac{k_D^3}{6\pi^2}\quad\text{$k_D$ Debye 
+Wellenvektor}\\
+	\omega_D=&vk_D;\quad\omega_D=\ka{\frac NV}^{\frac 13}v(6\pi^2)^{\frac 13}\quad\text{$\omega_D$ Debye Frequenz}\\
+	\frac{\hbar\omega_D}{\kB }=&\theta_D\quad\text{Debye Temperatur}
+\end{align*}
+\begin{enumerate}
+	\item $T\ll\theta_D$
+		\[ E\approx\frac32\frac V{\pi^2}\frac{(\kB T)^4}{(\hbar v)^3}\frac{\pi^4}{15};\quad c_V\propto T^3 \]
+	\item $T\gg\theta_D$
+		\[ \int_0^{\frac{\theta_D}T}\frac{x^3}{e^x-1}\d	x\approx\int_0^{\frac{\theta_D}T}x^2\d 
+x=\frac13\ka{\frac{\theta_D}T}^3 \]
+		\[ \Rightarrow E=3N\kB T\quad\text{(Dulong-Petit)}\qquad c_V=3N\kB  \]
+\end{enumerate}
+% ########################################################################################################################
+
+
+\frage{Welche Eigenschaften haben Materialien mit hoher bzw. mit niedriger \textit{Debye-Temperatur}. Warum?}
+\noindent
+\noindent
+\begin{tabularx}{\textwidth}{@{}lX}
+$\Theta_D$ klein: &weich und schwer (Blei)\\
+$\Theta_D$ groß: &hart und leicht (Diamant)\\
+&$\rightarrow$ harter, inkompressibler Kristall\\
+&$\rightarrow$ hohe Anregungsenergie für Gitterschwingungen
+\end{tabularx}
+ 
+% ########################################################################################################################
+
+
+\frage{Leiten Sie einen Ausdruck für die \textit{Anzahl der Wellenvektoren} mit Betrag zwischen $k$ und $k+dk$ pro 
+Volumeneinheit sowie einen Ausdruck für die Anzahl der Schwingungsmoden in einem Hohlraum zwischen $\omega$ und $\omega + 
+d\omega$ pro Volumeneinheit her.}
+\noindent
+Es wird also nach der Anzahl der Wellenvektoren im Intervall gesucht, im Hohlraum bilden sich stehenden Wellen aus, Bedingung 
+hierfür:
+\begin{equation*}
+k_x=n_x \df{2\pi}{L_x},\quad dk_x=dn_x \df{2\pi}{L_x}
+\end{equation*}
+\begin{align*}
+\sum_k &= V \int \df{dk_x\,dk_y\,dk_z}{(2\pi)^3} \stackrel{\text{Kugelkoord.}}{=}\df{V}{(2\pi)^3}\int dk\,k^2 d\cos \vartheta 
+d\varphi\\
+&=\df{V}{2\pi^2} \int k^2\,dk
+\end{align*}
+\begin{tabularx}{\textwidth}{@{}lX}
+$\Rightarrow$ & Im Intervall $[k,k+dk]$ gibt es $\df{V}{2\pi^2} k^2\,dk$ unabhängige Wellenvektoren. Für EM-Strahlung gilt: 
+Feldrichtung $\perp$ Ausbreitungsrichtung\\
+$\Rightarrow$ & 2 Moden (transversal pro Wellenvektor)
+\end{tabularx}
+\begin{align*}
+\omega=ck,\quad \df{2V}{2\pi^2}k^2\,dk=\df{V\omega^2}{\pi^2 c^3}d\omega\quad \text{Anzahl Schwingungsmoden}
+\end{align*}
+
+% ########################################################################################################################
+
+\frage{Was ist das \textit{Rayleigh-Jeans-Strahlungsgesetz} und wie kann es begründet werden? Was ist mit 
+\textit{Ultraviolett-Katastrophe} gemeint?}
+\noindent
+Pro Oszillator haben wir die Energie $\kB  T$. Problem:\\
+\[ \int_0^\infty \df{V\omega^2}{\pi^2c^3}\kB  T d\omega\; \rightarrow\; \infty \]
+Dies wird als die Ultraviolett-Strahlungskatastrophe bezeichnet.\\
+Strahlungsgesetz von Rayleigh-Jeans:
+\[ u(\omega)=\df{\kB  T \omega^2}{\pi^2 c^3}\]
+Zugrunde liegt: klassisches Wellenbild oder klassische Oszillatoren mit kontinuierlicher Anregung.\\
+Nur gültig für $\hbar \omega \ll \kB  T$!
+
+% ########################################################################################################################
+
+
+\frage{Was ist das \textit{Wiensche Strahlungsgesetz}? Beschreibt es das Verhalten korrekt für große oder kleine Frequenzen?}
+\noindent
+Das Wiensche Strahlungsgesetz lautet:
+\[ u(\omega)=\df{\hbar \omega^3}{\pi^2 c^3} e^{-\hbar \omega/(\kB  T)} \]
+Näherung nur für große $T$ gültig: $\hbar \omega \gg \kB  T$\\
+Zugrunde liegt: Ultrarel. Gas über Maxwell-Boltzmann-Verteilung. Es lag jedoch keine Teilcheninterpretation zugrunde 
+(unterscheidbar).
+
+% ########################################################################################################################
+
+
+\frage{Was ist das Plancksche Strahlungsgesetz? Leiten Sie es her!}
+\noindent
+Plancksches Strahlungsgesetz:
+\begin{align*}
+u(\omega)&=\df{\hbar \omega^3}{\pi^2 c^3}\,\df{1}{e^{\hbar \omega/(\kB  T)}-1}\\
+\intertext{\textit{BILD}}
+\intertext{Zugrunde liegt: Ununterscheidbare Teilchen mit Bose-Verteilung oder unterscheidbare Oszillatoren mit diskreten 
+Anregungsstufen.}
+\kb{n_ {\vec{p},\,\lambda}}=&\df{1}{e^{\varepsilon_{\vec{p}}/(\kB  T)}-1}\quad \text{(Bosonen)}\\
+\text{mit} \quad \varepsilon_{\vec{p}}&=\hbar \omega_{\vec{p}} = cp\\
+\kb{n_{\vec{p},\,\lambda}} \equiv& \df{\sum_{n_{\vec{p},\,\lambda}=0}^{\infty} 
+n_{\vec{p},\,\lambda}\,e^{-n_{\vec{p},\,\lambda}\varepsilon_p/(\kB  T)} 
+}{\sum_{n_{\vec{p},\,\lambda}=0}^{\infty}e^{-n_{\vec{p},\,\lambda}\varepsilon_p/(\kB  T)}}\\
+\intertext{$\rightarrow\quad$mittlere Besetzungszahl entspricht der atomarer oder molekularer freier Bosonen mit $\mu=0$}
+\intertext{Mit dem Hamilton-Operator freier Teilchen:}
+\sum_p \cdots \;=&\; g\sum_p\;=\;\cdots\;=\;g\df{1}{\beta}\sum_p\cdots\;=\;g\df{V}{(2 \pi \hbar)^3} \int d^3\! p\\
+\Rightarrow N(\varepsilon) =& \kb{n_ {\vec{p},\,\lambda}} \df{2V}{(2 \pi \hbar)^3}d^3\! p
+\intertext{und im Intervall $[p,p+\d p]$}
+&\kb{n_ {\vec{p},\,\lambda}} \df{V}{\pi^2 \hbar^3}d^2p\,p
+\intertext{$\Rightarrow \quad$Anzahl der besetzten Zustände in $[\omega,\omega+d\omega]$:}
+&\df{V}{\pi^2 c^3}\,\df{\omega^2\,d\omega}{e^{\hbar \omega/(\kB  T)}-1}\quad(*)
+\intertext{$\Rightarrow \quad$Spektrale Energiedichte $u(\omega)=$ Energie pro Volumen und Frequenzeinheit}
+&(*)\,\cdot\,\df{\hbar \omega}{V \d\omega}\\
+u(\omega)=&\df{\hbar \omega^3}{\pi^2 c^3}\,\df{1}{e^{\hbar\omega/(\kB  T)}-1}\\
+\intertext{Die jeweiligen Grenzfälle finden sich in den vorhergehenden Fragen}
+\end{align*}
+
+% ########################################################################################################################
+
+
+\frage{Was ist das \textit{Stefan-Boltzmann-Gesetz}? Leiten Sie es vom Planckschen Strahlungsgesetz her.}
+\noindent
+\[ I_E(T)=\sigma T^4;\quad \sigma=\df{\pi^2 k^4}{60 \hbar^3 c^2} \]
+\begin{tabularx}{\textwidth}{@{}X}
+Strahlung, die von der Öffnung eines Hohlraums ausgeht (isotrop). Das Stefan-Boltzmann-Strahlungsgesetz 
+beschreibt die Abstrahlung eines (schwarzen) Körpers in Abhängigkeit von der Temperatur.\\\\
+Wärmeabstrahlung mit Frequenz $\omega$ in $d\Omega$: $u(\omega)\df{d\Omega}{4\pi}$\\\\
+Pro Zeiteinheit durch Einheitsfläche austretende Strahlungsenergie:\\\\
+$\begin{aligned}[t] I(\omega,T)=&\df{1}{4\pi} \int d\Omega\,c\,u(\omega) \cos \vartheta) \\ =&
+\df{1}{4\pi} \int_0^{2\pi} dn\,n\,c\,u(\omega))=\df{c}{4}u(\omega)
+\end{aligned}$\\\\
+Energiefluß: $I_E(T)=\int d\omega\,I(\omega,T)=\sigma T^4$\\
+\end{tabularx}\\
+\eggert
+\begin{align*}
+	\frac{I(\omega,T)}{A}=&\frac c{4\pi}\int\d\cos\theta\d\varphi\epsilon(\omega)=\frac c4\epsilon(\omega)\\
+	\d\omega\epsilon(\omega)=&\int_0^\infty\d\omega\df{\hbar \omega^3}{\pi^2 c^3}\,\df{1}{e^{\hbar\omega/(\kB 
+	T)}-1}\\
+	=&\frac\hbar{\pi^2c^3}\frac1{(\beta\hbar)^4}\int_0^\infty\frac{x^3}{e^x-1}=\frac{\pi^2(\kB T)^4}{\hbar^3c^315}\\
+	\text{Stefan-Bolzmann-Gesetz}\quad\frac{I(T)}{A}=&\frac{\pi^2\kB ^4}{60\hbar^3c^2}T^4=\sigma T^4\quad\text{Intensität pro Fläche}
+\end{align*}
+
+% ########################################################################################################################
+
+
+\frage{Was ist die \textit{Maxwellsche Geschwindigkeitsverteilung}? Leiten Sie Sie her.}
+\noindent
+\begin{align*}
+\intertext{Energie:}
+E&=\df{1}{2} m (v_x^2+v_y^2+z_z^2)=\df{1}{2}mv^2\\
+\intertext{Geschwindigkeitsverteilung der Komponenten muss unabhängig sein:}
+&\Rightarrow f(v_x^2+v_y^2+z_z^2) \sim f(v_x^2)\,f(v_y^2)\,f(v_z^2)\\
+\intertext{Maxwell-Geschwindigkeitsverteilung:}
+f(\vec{v})&=\ka{\df{m}{2\pi \kB  T}}^{\f{3}{2}}\, \exp \kc{-\df{m \vec{v}^2}{2\kB  T}}
+\intertext{Wahrscheinlichkeit pro Teilchen in $[v,v+dv]$ zu sein:}
+p(\vec{v})d^3\! v&=\df{1}{Z} e^{-\beta \f{1}{2}m\vec{v}^2}d^3\! v\\
+Z&=\int e^{-\beta \f{1}{2}m\vec{v}^2}d^3\! \vec{v} = \ka{\df{2\pi}{m \beta}}^{\f{3}{2}}\\
+\intertext{Gaußverteilung in jede Richtung ($\vec{v}=(v_x,\,v_y,\,v_z)$) z.B. für $x$:}
+x:\;p(v_x)dv_x &=\ka{\df{2\pi}{m \beta}}^{\f{1}{2}}e^{-\beta \f{1}{2}m v_x^2}dv_x\\
+\intertext{Verteilung von $|\vec{v}|=v$:}
+d^3\! v&=v^2 dv \underbrace{\sin \vartheta d\vartheta d\varphi}_{4\pi}\\
+\Rightarrow p(v)dv&=4\pi \ka{\df{m}{2\pi \kB  T}}^{\f{3}{2}}v^2 e^{-\beta \f{1}{2}m v^2}dv
+\end{align*}\\
+\eggert
+\[ \text{Wie groß ist die absolute Geschwindigkeit}\quad\abs{v}=\sqrt{v_x^2+v_y^2+v_z^2} \]
+\begin{align*}
+	\kb{\abs{v}}=&\frac{\int\ddd v\sqrt{v_x^2+v_y^2+v_z^2}e^{-\frac12\beta m\vec v^2}}{\int\ddd 
+ve^{-\frac12\beta m\vec v^2}}=\ka{\frac{\beta m}{2\pi}}^{\frac32}\int\d v\d\theta\d\varphi\sin\theta
+	v^2e^{-\frac12\beta mv^2}v\\
+	=&\ka{\frac{\beta m}{2\pi}}^{\frac32}4\pi\int\d vv^2e^{-\frac12\beta mv^2}v\\
+	\intertext{absolute Geschwindigkeitsverteilung:}
+	p(v)=&(\beta m)^{\frac32}\sqrt{\frac2\pi}v^2e^{-\frac12\beta mv^2}\quad\text{Maxwell Verteilung}
+\end{align*}
+
+% ########################################################################################################################
+
+
+\frage{Berechnen Sie die \textit{Erwartungswerte} $\kb{v_x},\,\kb{v},\,\kb{v^2}$ und die \textit{wahrscheinlichste 
+Geschwindigkeit} \~v für eine Maxwellsche Geschwindigkeitsverteilung (mit Hilfe einer Integraltabelle)}
+\noindent
+\begin{align*}
+\kb{v}&=\int v p(v)dv = \sqrt{\df{8 \kB  T}{\pi m}}=\kb{\abs{v}}\\
+\sqrt{\kb{v^2}}&=\sqrt{\df{3 \kB  T}{m}}\\
+\tilde{v}&=\sqrt{\df{2 \kB  T}{m}}\qquad\text{(aus $p'(v)=0$ berechnen)}
+\end{align*}
+
+% ########################################################################################################################
+
+
+\frage{Wie hängt der Spin eines Teilchens mit dessen \textit{Quantenstatistik} zusammen?}
+\noindent
+Der Spin bestimmt, ob es sich um die Bose-Einstein- (Spin ganzzahlig) oder Fermi-Dirac-Statistik handelt (Spin halbzahlig, 
+Pauli-Prinzip). Bei der Bose-Einstein-Statistik können alle Teilchen den untersten Quantenzustand einnehmen, bei der 
+Fermi-Dirac-Statistik muss dem Pauli-Prinzip gefolgt werden. Wichtig ist hier die Fermienergie für $T \rightarrow 0$.
+
+% ########################################################################################################################
+
+
+\frage{Beschreiben Sie, was wir unter \textit{Fermionen} und \textit{Bosonen} verstehen. Warum ist es wahrscheinlicher für 
+zwei Bosonen im selben Zustand zu sein als für klassische Teilchen? Warum ist die Anzahl der verfügbaren Zustände wichtig?}
+\noindent
+Fermionen sind Teilchen, die einen halbzahligen Spin besitzen, die Wellenfunktion ist antisymmetrisch unter Vertauschung 
+zweier Teilchen.\\
+
+\noindent Bosonen sind Teilchen, die einen ganzzahligen Spin besitzen, die Wellenfunktion ist hier symmetrisch unter 
+Vertauschung zweier Teilchen.\\
+
+\noindent Da für klassische Teilchen die Anzahl der möglichen Zustände größer ist ($N^2$) als für Bosonen ($N(N+1)/2$), jedoch 
+Bosonen diesselbe Anzahl symmetrischer Zustände besitzen ist es für Bosonen wahrscheinlicher im selben Zustand zu sein als für 
+Fermionen ($N(N-1)/2$).
+
+% ########################################################################################################################
+
+
+\frage{Leiten Sie einen Ausdruck für die \textit{großkanonische Zustandssumme} für Bosonen her und vereinfachen Sie ihn zu 
+einer Summe über Einteilchenzustände.}
+\noindent
+\begin{align*}
+Z&=\sum_{N=0}^\infty \sum_{E} e^{-\alpha N-\beta E}\quad \alpha=-\mu \beta\quad E=\sum_j \varepsilon_j n_j\\
+\intertext{unabhängige Zustände:}
+\sum_j n_j&=N \quad n_j=\left\lbrace \begin{array}{ll} 0,1 & \text{Fermionen} \\ 0,1,2,\ldots & \text{Bosonen} \end{array} 
+\right.\\
+\Rightarrow Z&=\sum_{N=0}^\infty \sum_{\kc{n_j}} e^{-\beta \sum_j \varepsilon_j n_j - \alpha \sum_j n_j}\\
+&=\sum_{\kc{n_j}} e^{-\beta \sum_j (\varepsilon_j n_j - \mu n_j)}\\
+&=\sum_{\kc{n_j}} \prod_j e^{-\beta (\varepsilon_j-\mu)n_j}=\prod_j \sum_{\kc{n_j}} e^{-\beta (\varepsilon_j-\mu)n_j}
+\intertext{Produkt über Summe = Summe über alle möglichen Einzelzustände $\rightarrow$ geom. Reihe}
+\intertext{Für $\epsilon_j>\mu\;\forall j$ tritt Konvergenz ein und es gilt:}
+\quad Z&=\prod_j \df{1}{1-e^{-\beta(\varepsilon_j-\mu)}}\\
+\ln Z &= -\sum_j \ln \kd{1-e^{-\beta(\varepsilon_j-\mu)}}
+\end{align*}
+
+% ########################################################################################################################
+
+
+\frage{Was ist die \textit{Bose-Einstein-Verteilung}? Leiten Sie sie mit Hilfe des Großkanonischen Ensembles her. }
+\noindent
+\begin{align*}
+\kb{n_j}&=\df{1}{Z} \sum_{N=0}^\infty \sum_{\kc{n_j}} n_j e^{-\alpha N}e^{-\beta \sum_j \varepsilon_j n_j}\\
+&=-\df{1}{\beta} \dpf{Z}{\varepsilon_j} \df{1}{Z} = -\df{1}{\beta} \dpf{\ln Z}{\varepsilon_j}\\
+&=\ldots=\df{1}{e^{\beta (\varepsilon_j-\mu)}-1}
+\end{align*}\\
+\eggert
+\[ \kb{n_j}=-\frac1\beta\pf{\ln Z}{\epsilon_j}=\df{1}{e^{\beta 
+(\varepsilon_j-\mu)}-1}\qquad\text{Bose-Einstein-Verteilung} \] 
+klassisch: $\kb{n_j}=e^{-\beta (\varepsilon_j-\mu)}\quad$ Boltzmann-Verteilung. Falls $\beta$ groß oder $\epsilon_j\gg\mu$ 
+geht die Bose-Einstein-Verteilung in die Boltzmann-Verteilung über.\\
+
+% ########################################################################################################################
+%46
+
+\frage{Wenden Sie das Großkanonische Ensemble auf ein ideales Bose Gas an. Schreiben Sie den Ausdruck für die Erwartungswerte der Teilchenzahl, der Energie und des Druckes.}
+\noindent
+\begin{align*}
+\varepsilon_p&=\df{\vec{p}^2}{2m} \quad p=\hbar k = \df{\hbar 2 \pi}{L_x}n_x \quad {usw.}
+\intertext{Übergang von der Summe zum Integral:}
+\sum_p&=\df{V}{(2 \pi \hbar)^3}\int d^3\! p \qquad dp_x=\df{\hbar \,2 \pi}{L_x}dn_x\\
+\Rightarrow\quad &=\df{V}{2 \pi^2 \hbar^3} \int p^2\,\d p\quad\text{(Kugelkoordinaten)}\\
+\phi&=-\kB  T \ln Z = \kB  T \sum_p \ln (1-e^{-\beta (\varepsilon_p-\mu)})\\
+&=\df{\kB  T V}{2 \pi^2 \hbar^3} \int_0^\infty p^2 \ln \kd{1-e^{-\beta (p^2/(2m)-\mu)}}\d p\\
+\intertext{Mit $x=\df{\beta p^2}{2m}, \quad \d x=\df{\beta p}{m}\d p$ folgt:}
+\phi&=\df{\kB  T V m (2m) \sqrt{\beta}}{2 \pi^2 \hbar^3 \beta^2 m} \int_0^\infty \sqrt{x} \ln (1-e^{-x}z)\d x
+\intertext{Mit $z=e^{\beta \mu}$ Fugazität (Flüchtigkeit)}
+\d p&=\df{m}{\beta p}\d x=\sqrt{\df{\beta}{mx}}\d x\\
+\phi&=\df{(\kB  T)^{5/2}}{\sqrt{2}}\df{V m^{3/2}}{\pi^2 \hbar^3} \int_0^\infty \sqrt{x} \ln(1-z\,e^{-x})\d x\\
+&\int_0^\infty \sqrt{x} \ln(1-z\,e^{-x})\d x=-\int_0^\infty \df{2}{3} x^{3/2} \df{z\,e^{-x}}{1-z\,e^{-x}}\\
+&=-\df{2}{3} \int_0^\infty \df{x^{3/2}}{z^{-1}e^x-1}\d x=\df{\sqrt{\pi}}{2}g_{5/2}(z)\quad\text{Wobei 
+$g_n(z)=\sum_{l=1}^{\infty}\df{z^l}{l^n}$}\\
+\intertext{Quanten: $z \rightarrow 1$}
+\phi&=-V \kB  T \ka{\df{2 \pi m \kB  T}{h^2}}^{3/2} g_{5/2}(z) = -\df{V \kB  T}{\lambda^3} g_{5/2}(z)\\
+\text{mit:}\quad\lambda&=\frac{h}{\sqrt{2 \pi m \kB  T}}\quad\text{Thermische De-Broglie-Wellenlänge}\\
+N&=-\dpf{\phi}{\mu}=\sum_p \df{1}{e^{\beta (\varepsilon_p-\mu)}-1} = \df{V}{2 \pi^2 \hbar^3} \int p^2 
+\df{1}{e^{\beta(p^2/(2m)-\mu)}-1}\d p\\
+&=\df{V(\kB  T m)^{3/2}}{\sqrt{2} \pi^2 \hbar^3} \int_0^\infty \df{\lambda^{3/2}}{z^{-1}e^x-1}\d x=\df{V}{\lambda^3} 
+g_{3/2}(z)\\
+E&=-\dpf{\ln Z}{\beta} = \df{3}{2 \beta} \df{x}{\lambda^3} g_{5/2}(z) = -\df{3}{2}\phi\\
+\ln Z &= - \df{\phi}{\kB  T}= \df{V}{\lambda^3} g_{3/2}(z)\\
+p&=-\df{\phi}{V}=\df{\kB  T}{\lambda^3} g_{5/2}(z)
+\end{align*}
+
+% ########################################################################################################################
+
+
+\frage{Leiten Sie den Ausdruck $2E=3pV$ für ein ideales bosonisches Gas in drei Dimensionen her.}
+\noindent
+\begin{align*}
+E&=-\df{3}{2} \phi &\text{und}&  &p&=-\df{\phi}{V}\\
+\Rightarrow p&=\df{2}{3} \df{E}{V} &\Rightarrow&  &3Vp&=2E
+\end{align*}
+
+% ########################################################################################################################
+
+\frage{Was versteht man unter einer Virialentwicklung? Welche Parameter müssen klein sein?}  
+\noindent
+Wir entwickeln in kleinen Größen $z$ (Fugazität) $\rightarrow$ Virialentwicklung
+\begin{align*}
+N&=\df{V}{\lambda^3} g_{3/2}(z)=\df{V}{\lambda^3}\ka{z+\df{z^2}{(2)^{3/2}}+\cdots}\\
+\Rightarrow z &= \df{\lambda^3 N}{V}-\df{1}{2^{3/2}} \ka{\df{\lambda^3 N}{V}}^2 + \cdots\\
+\intertext{$z$ klein $\Leftrightarrow$ $\df{\lambda^3 N}{V}$ klein}
+\varrho&=\df{\kB  T}{\lambda^3} \ka{z+\df{z^2}{(2)^{3/2}}+\cdots} = \df{\kB  T N}{V} 
+\ka{1-(\df{1}{2^{3/2}}+\df{1}{2^{5/2}})\df{\lambda^3 N}{V}+\cdots}\\
+\df{\varrho V}{N \kB  T} &\approx 1 - \df{1}{4 \sqrt{2}} \df{\lambda^3 N}{V} + \cdots \quad \text{Verringerung des Drucks}\\
+\intertext{i.A.:$\quad \df{pV}{N \kB  T} = \dsum_{l=0}^\infty a_l \ka{\df{\lambda^3 N}{V}}^l$}\\
+\Rightarrow \quad a_0&=1,\quad a_1=-\df{1}{4 \sqrt{2}},\quad a_2=-\ka{\df{2}{9 \sqrt{3}}}-\df{1}{8} \approx -0.0033,\quad a_3 
+\approx -0.00011
+\end{align*}\\
+\eggert
+\begin{align*}
+	\frac NV=&\frac{g_{\frac32}(z)}{\lambda^3(T)}\\
+	\text{Klassischer Grenzfall:}\quad g_v=&\sum_{n=1}^\infty\frac{z^n}{n^v}\\
+	g_{\frac32}(z)=&z+\frac{z^2}{2^{\frac32}}+\ldots\\
+	g_{\frac52}(z)=&z+\frac{z^2}{2^{\frac52}}+\ldots\\
+	g_{\frac32}(z)=&\underbrace{\frac NV}_\text{klein}\lambda^3(T)\quad g_{\frac32}(z)\text{ klein $\rightarrow$ $z$ klein}\\
+	\Rightarrow E=&\frac32N\kB T;\quad pV=N\kB T
+	\intertext{Entwicklung in $z$, bzw. $\frac NV\lambda^3$ Viralentwicklung}
+	pV=&\frac23E=\frac{V\kB T}{\lambda^3}g_{\frac52}(z)=N\kB T\frac{g_{\frac52}(z)}{g_{\frac32}(z)}\\
+	\approx&N\kB T\ka{ \frac {1+\frac{z}{2^{5/2} }} 
+{1+\frac{z}{2^{3/2}}}}=N\kB T\ka{1+\ka{\frac1{2^{5/2}}-\frac1{2^{3/2}}}z+\ldots}\\
+	=&N\kB T\ka{1-\ka{\frac1{4\sqrt2}}z+\ldots}\\
+	\frac NV\lambda^3=&g_{\frac32}(z)=z+\frac{z^2}{2^{\frac32}}+\ldots\\
+	z=& \df{\lambda^3 N}{V}-\df{1}{2^{3/2}} \ka{\df{\lambda^3 N}{V}}^2 + \cdots\\
+	\frac{pV}{N\kB T}=&\sum_{n=0}^\infty\ka{\df{\lambda^3 N}{V}}^na_n\\
+	\Rightarrow \quad a_0&=1,\quad a_1=-\df{1}{4 \sqrt{2}},\quad a_2=-\ka{\df{2}{9 \sqrt{3}}}-\df{1}{8} \approx -0.0033\\
+	\frac{pV}{N\kB T}\approx&1-\frac1{4\sqrt2}\frac NV\lambda^3\\
+	\intertext{2. Term negativ $\rightarrow$ verringerter Druck $\rightarrow$ effektive Anziehung}\\
+\end{align*}
+
+% ########################################################################################################################
+
+
+\frage{Warum kommt es zur Bose-Einstein-Kondensation? Warum muss der Grundzustand gesondert behandelt werden? Wie wird die 
+kritische Temperatur bestimmt?}
+\noindent
+Bei einem idealen Bose-Gas kommt es durch eine makroskopische Besetzung des Grundzustandes bei $T \rightarrow 0$ zur einer 
+Bose-Einstein-Kondensation ($\vec{p}=0$)\\\\
+Lässt man $z=e^{\mu / (\kB  T)}$ für Bosonen gegen $z=1$ laufen (Maximalwert für $z$), so erhalten wir aus 
+${\lambda^3}/{V}=g_{3/2}(z)$:\\
+\[ \kB  T_c(v)=\df{2 \pi \hbar^2}{m (2.612)^{2/3}} \]
+eine charakteristische kritische Temperatur $T_c$. Wenn $z$ gegen 1 geht, so muss der Grenzübergang von $\sum_p \rightarrow 
+\int d^3\! p$
+sorgfältiger durchgeführt werden, da ansonsten der Grundzustandsterm divergieren würde. Es erfordert hier also eine gesonderte 
+Behandlung des Grundzustandes:
+\begin{align*}
+N&=\sum_p \df{1}{e^{\beta (\varepsilon_p - \mu)}-1} = 
+\underbrace{\df{1}{z^{-1}-1}}_{p=0}+\underbrace{\df{V}{\lambda^3}g_{3/2}(z)}_{\ab{1}{p \neq 0}{ \text{gleichförmig 
+besetzt}\,\rightarrow\,\text{Integral}}}\\
+N&=N_0+\df{V}{\lambda^3}g_{3/2}(z)\\
+\end{align*}
+$N_0:$ Anzahl der Teilchen im Grundzustand\\
+kritische Temperatur = $\lambda$-Übergang
+
+% ########################################################################################################################
+
+
+\frage{Zeichnen Sie den ungefähren Verlauf von $z$, der Teilchenzahl im Grundzustand $N_0$ und der spezifischen Wärme $c_V$ 
+als Funktion von $T$ in der Nähe eines bosonischen Gases auf. Welche Temperaturabhängigkeit hat der Druck in der kondensierten 
+Phase und in der \ke{klassischen} Phase?}
+\noindent
+\textit{BILD}\\\\
+\begin{tabularx}{\textwidth}{@{}lX}
+Kondensiert: & $p=\df{\kB  T}{\lambda^3}g_{5/2}(z)$\\\\
+Klassisch: & $p=\df{\kB  T}{\lambda^3}\xi(5/2)$
+\end{tabularx}
+
+% ########################################################################################################################
+
+
+\frage{Wenden Sie das Grosskanonische Ensemble auf ein bosonisches Photonengas mit Entartung $g=2$ und $E_P=pc$ an. Berechnen 
+Sie die Erwartungswerte der Teilchenzahl, der Energie und des Druckes.}
+\noindent
+\eggert
+\begin{align*}
+	\epsilon_p=&cp=c\hbar \kB =\hbar\omega\qquad\mu=0\\
+	x=&\beta cp;\quad\d x=\beta c\d p\\
+	N=&\sum_p\frac1{e^{\beta cp}-1}=\frac{V}{2\pi^2\hbar^3}2\int_0^\infty p^2\frac1{e^{\beta 
+cp}-1}=\frac{V}{\pi^2\hbar^3}\ka{\frac{\kB T}{c}}^3\int_0^\infty \frac{x^2}{e^{x}-1}
+	\intertext{Die 2 vor dem Integral für die beiden Polarisationen (Entartung $g=2$) des Lichtes.}
+	N=&\frac{V}{\pi^2\hbar^3}\ka{\frac{\kB T}{c}}^32G(3)\quad G(3)\approx2,40411\\
+	E=&\sum_p\frac{pc}{e^{\beta cp}-1}=\frac{cV}{\pi^2\hbar^3}\ka{\frac{k_bT}c}^4\underbrace{\int_0^\infty\frac{x^3}{e^x-1}\d 
+x}_{=\frac{\pi^4}{15}}=\frac{V\pi^2\kB ^4}{15\hbar^3c^3}T^4=\frac{4\sigma}cT^4\\
+	\Phi=&-\kB T\ln Z=-\frac{\kB TV}{\pi^2\hbar^3}\int_0^\infty p^2\ln\ka{1-e^{-\beta pc}}\d p\\
+	=&-\frac{(\kB T)^4V}{\pi^2\hbar^3c^3}\underbrace{\int_0^\infty x^2\ln\ka{1-e^{-x}}\d x}_{=-\frac{\pi^4}{45}}\\
+	=&\frac{(\kB T)^4V\pi^2}{45\hbar^3c^3}\\
+	p=&-\pf\Phi V=\frac{\pi^2(\kB T)^4}{45\hbar^3c^3}=\frac43\frac\sigma cT\approx0,9\frac{N\kB T}V\\
+\end{align*}
+% ########################################################################################################################
+
+\frage{Beschreiben Sie das Konzept der Zweiten Quantisierung für Bosonen. Wie werden die Wellenfunktionen, Einteilchen und 
+Zweiteilchen Operatoren dargestellt?}
+\noindent
+\begin{align*}
+	\text{QM-Wellenanregung}\quad\Leftrightarrow&\quad\text{Bosonische Teilchen}\\
+	\epsilon_n=\ka{n+\frac12}\hbar\omega\quad&\quad\epsilon=cp\\
+	\intertext{2. Quantisierung}
+	a=&\sqrt{\frac{m\omega}{2\hbar}}\hat x+i\sqrt{\frac1{2m\omega\hbar}}\hat p\\
+	a^+=&\sqrt{\frac{m\omega}{2\hbar}}\hat x-i\sqrt{\frac1{2m\omega\hbar}}\hat p\\
+	\kd{a_p,a_{p'}^+}=&\delta_{pp'}\\
+	a\left|n\right>=&\sqrt n\left|{n-1}\right>;\quad a^+\left|n\right>=&\sqrt{n+1}\left|{n+1}\right>;\quad a^+a=\hat n\\
+	\intertext{Effektiv gesehen geht es darum, daß man die Felder selbst durch Teilchen, also Quanten beschreibt. Antworten 
+auf diese Frage findet man in fortgeschrittenen QM-Lehrbüchern.}
+\end{align*}
+
+% ########################################################################################################################
+%53
+
+\frage{Was ist die Fermi-Dirac Verteilung? Leiten Sie sie mit Hilfe des Grosskanonischen Ensembles her.}
+\noindent
+\eggert
+Fermionen: antisymmetrische Wellenfunktion $\rightarrow$ halbzahliger Spin\\
+$\Rightarrow$ Pauli Prinzip: jeder Einteilchenzustand kann nur einfach besetzt werden.\\
+Besetzungswahrscheinlichkeit $P(\epsilon)\propto e^{-\beta E}$, $P_0$ Wahrscheinlichkeit für kein und $P_1$ Wahrscheinlichkeit 
+für ein Teilchen.\\
+Pauli: $P_0+P_1=1\quad P_n=Ae^{-\beta n(\epsilon-\mu)}$\\
+\begin{align*}
+	P_0+P_1=&A+Ae^{-\beta(\epsilon-\mu)}=1\quad\Rightarrow\quad A=\frac1{1+e^{-\beta(\epsilon-\mu)}}=P_0\\
+	P_1=&\frac{e^{-\beta(\epsilon-\mu)}}{1+e^{-\beta(\epsilon-\mu)}}=\frac1{1+e^{\beta(\epsilon-\mu)}}\\
+	\kb n=&\sum_nnP_n=P_1=\frac1{1+e^{\beta(\epsilon-\mu)}}\quad\text{Fermi-Dirac-Verteilung}
+\end{align*}
+\begin{align*}
+	Z=&\sum_{N=0}^\infty \exp(-\alpha N)^{\sum_{\{n_p\}}\exp(-\beta\sum_pn_p\epsilon_p)}\quad\text{Großkanonische 
+Zustandssumme}\\
+	=&\sum_{\{n_p\}}^\infty e^{-\alpha\sum_pn_p -\beta\sum_pn_p\epsilon_p}=\sum_{\{n_p\}}\prod_pe^{-\alpha n_p -\beta 
+n_p\epsilon_p}\qquad\alpha=-\beta\mu\\
+	\intertext{Pauli Prinzip $n_p=0$ oder $1$}
+	Z=&\prod_p\sum_{n_p=0}^1e^{-\alpha n_p -\beta n_p\epsilon_p}=\prod_p\ka{1+e^{-\beta(\epsilon_p-\mu)}}\\
+	\ln Z=&\sum_p\ln\ka{1+e^{-\beta(\epsilon_p-\mu)}}\\
+	\kb {n_p}=&-\frac1\beta\pf{\ln Z}{\epsilon_p}=\frac1{1+e^{\beta(\epsilon_p-\mu)}}\quad\text{Fermi-Dirac-Verteilung}\\
+%	\ln Z_{Fermionen}=&\sum_p\ln\ka{1+Ze^{-\beta\epsilon_p}}\\											%Hmmmm steht so im Skript, was macht das Z vor der e-Funktion?! Was it mit \mu?
+%	\ln Z_{Bosonen}=&-\sum_p\ln\ka{1-Ze^{-\beta\epsilon_p}}=-\ln\ka{Z_{Ferminonen}(-Z)}\\
+\end{align*}
+
+% ########################################################################################################################
+
+\frage{Erläutern Sie die Unterschiede in der Viralentwicklung zwischen dem idealen Fermionen und Bosonen-Gas. Woran erkennt 
+man die statistische Anziehung/Abstossung?}
+\noindent
+\begin{tabularx}{\textwidth}{@{}lll}
+	$T\rightarrow0$ :&Bosonen:&$p \propto T^{\frac52}$\\
+	&klassisch:&$p \propto T$\\
+	&Fermionen:&$p \propto T^0$\\
+\end{tabularx}\\
+Bosonen: Anziehung $\rightarrow$ Kondensation (symmetrische Wellenfunktion)\\
+Fermionen: Abstoßung $\rightarrow$ endlicher Druck für $p=0$ (antisymmetrische Wellenfunktion, Pauli)
+
+% ########################################################################################################################
+
+\frage{Wenden Sie das Grosskanonische Ensemble auf ein ideales Fermionengas an. Schreiben Sie einen Ausdruck für die 
+Erwartungswerte der Teilchenzahl, der Energie und des Druckes.}
+\noindent
+\eggert
+\begin{align*}
+	\epsilon_p=&\frac{p^2}{2m}\qquad\text{Spinentartung: $g$ [Elektronen]}\\
+	\sum_pf(p)=&\frac V{2\pi^2\hbar^3}\int\d pp^2f(p)\\
+	\ln Z=&g\frac V{2\pi^2\hbar^3}\int p^2\ln\ka{1+e^{-\beta\frac{p^2}{2m}}z}\d p=g\frac 
+{V\kB T}{\lambda^3}g_{\frac52}(-z)=-g\frac {V\kB T}{\lambda^3}f_{\frac52}(z)\\
+	-g_v(-z)=&f_v(z)=\sum_{n=0}^\infty(1)^{n+1}\frac{z^n}{n^v}\\
+	N=&\sum_p\frac1{1+e^{\beta(\epsilon_p-\mu)}}=g\frac V{2\pi^2\hbar^3}\int\frac{p^2}{1+z^{-1}e^{\beta\frac{p^2}{2m}}}\d p\\
+	=&g\frac {(\kB T)^{\frac32}m^{\frac32}V}{\sqrt2\pi^2\hbar^3}\int\frac{\sqrt x}{1+z^{-1}e^x}\d x =g\frac V{\lambda^3}f_{\frac32}(z)\\
+	\lambda=&\sqrt{\frac{\hbar^2}{2\pi m\kB T}}=\sqrt{\frac{\hbar^2\beta}{2\pi m}}\quad\text{thermische Wellenlänge}\\
+	E=&-\pf{\ln Z}\beta=g\frac32\frac {\kB TV}{\lambda^3}f_{\frac52}(z)\\
+	p=&-\pf\Phi V=g\frac {\kB T}{\lambda^3}f_{\frac32}(z)=\frac23\frac EV\qquad\Phi=-kt\ln Z\\
+	\Rightarrow E=&\frac32pV\\
+\end{align*}
+
+% ########################################################################################################################
+
+\frage{Was versteht man unter einem Fermi-See (auch Fermi-Kugel genannt)?}
+\noindent
+Gut definierter Vielteilchenzustand bei $T=0$, $N$ niedrigste Einteilchenzustände $\left|p\right>$ einfach besetzt.\\
+Falls die Energie nur von $\vec p$ abhängt, kommt jeder Wert von $\vec p$ g-fach entartet vor. Für die Dispersionsrelation 
+$\epsilon_p=\frac{\vec p²}{2m}$ sind deshalb die Impulse innerhalb einer Kugel (der Fermikugel),
+deren Radius man Fermiimpuls $p_F$ nennt besetzt.\\
+
+\noindent \textit{Fermikugel/Fermisee}: gefüllte Zustände unter $p \leq p_F$.
+
+% ########################################################################################################################
+
+\frage{Definieren Sie Fermi-Energie, Fermi Impuls und Fermi Geschwindigkeit. Berechnen Sie diese Grössen für ein ideales 
+Fermigas als Funktion von $N$ und $V$.}
+\noindent
+\begin{align*}
+	\text{Fermi-Impuls:}\quad p_F=&\sqrt{2m\mu}=\hbar\ka{\frac{6\pi^2}{g}\frac NV}^{\frac13}\\
+	\text{Fermi-Energie:}\quad E_F=&\mu(T=0)=\frac{p_F^2}{2m}=\frac{\hbar^2}{2m}\ka{\frac{6\pi^2}{g}\frac NV}^{\frac23}\\
+	\text{Fermi-Geschwindigkeit:}\quad v_F=&\frac{p_F}{m}\\
+\end{align*}
+Herleitung Fermi-Impuls:
+\begin{align*}
+	\text{Quantenfall}\quad\ka{\frac VN}^{\frac13}\ll&\lambda\\
+	z\rightarrow&\infty,\quad T\rightarrow0\qquad z=e^{\beta\mu}\\
+	n_p=&\frac{1}{1+z^{-1}e^{\beta\epsilon_p}}=\frac{1}{1+e^{\beta(\epsilon_p-\mu)}}\\	
+	\stackrel{\beta\rightarrow\infty}{\longrightarrow}&	
+	\left\{
+		{
+		\begin{minipage}[c]{5.2cm}
+			$0\qquad\epsilon_p>\mu$\\
+			$1\qquad\epsilon_p<\mu$
+		\end{minipage}
+		}
+	\right.
+	\intertext{Grundzustand: alle Zustände mit $\epsilon<\mu$ gefüllt und alle Zustände mit $\epsilon>\mu$ leer}
+	N=&\sum_p\kd{n_p}=\frac{gV}{2\pi^2\hbar^3}\int p^2n_p\d p\\
+	\rightarrow&\frac{gV}{2\pi^2\hbar^3}\int_{\epsilon_p<\mu} p^21\d 
+p=\frac{gV}{2\pi^2\hbar^3}\frac{p_F^3}3=\frac{gV}{6\pi^2\hbar^3}p_F^3\\
+	\epsilon_p=&\frac{p^2}{2m}<\mu\qquad p<p_F\\
+\end{align*}
+
+% ########################################################################################################################
+
+\frage{Berechnen Sie den Druck eines idealen Fermi Gases bei $T=0$ als Funktion von $N$ und $V$.}
+\noindent
+\begin{align*}
+	\kb E=&\frac{gV}{2\pi^2\hbar}\int_{\epsilon_p<\epsilon_F}p^2\d 
+p\frac{p^2}{2m}=\frac{gV}{20\pi^2\hbar^3m}p_F^5=\frac35NE_F\\
+	p=&\frac23\frac\epsilon V=\frac25\frac NVE_F=\frac{\hbar^2}{5m}\frac{6\pi^2}{g}\ka{\frac NV}^{\frac52}\\
+	&\text{klassisch:}\quad E=\frac32\kB T\stackrel{T\rightarrow0}{\longrightarrow}0\quad 
+p=\frac{N\kB T}V\stackrel{T\rightarrow0}{\longrightarrow}0\\
+	&\text{hier endlicher Druck bei $T=0$}
+\end{align*}
+
+% ########################################################################################################################
+\frage{Was ist die Sommerfeld Entwicklung? Leiten Sie her.}
+\noindent
+\begin{align*}
+	\text{Allgemein:}\quad I=&\int f(\epsilon)n(\epsilon)\d\epsilon\quad\text{für kleine $T$}\\
+	&\text{$f(\epsilon)$ beliebig, $n(\epsilon)$ Fermi-Dirac-Verteilung}\\
+	x=&\frac{\epsilon-\mu}{\kB T}\\
+	n(x)=&\frac1{e^x+1}\\
+	n'(x)=&\frac{e^x}{\ka{e^x+1}^2}=\ka{\frac1{e^x+1}}\frac{e^x+1-1}{e^x+1}=n(x)(1-n(x))\\
+	I\stackrel{p.I.}{=}&\-\int_{-\infty}^\infty F(\epsilon)n'(\epsilon)\d 
+\epsilon+\left.{F(\epsilon)n(\epsilon)}\right|_{-\infty}^\infty\\
+	F(\epsilon)=&\int_{-\infty}^\epsilon f(\epsilon)\d\epsilon\qquad
+		{
+		\begin{minipage}[c]{5.2cm}
+		\begin{align*}	
+			n(\infty)&=0\\
+			F(-\infty)&=0
+		\end{align*}
+		\end{minipage}
+		}
+	\intertext{Entwickle um $\epsilon=\mu$}
+	F(\epsilon)=&F(\mu)+(\epsilon-\mu)F'(\mu)+\frac{(\epsilon-\mu)^2}{2!}F''(\mu)+\ldots\\
+	I=&-\int_{-\infty}^\infty F(\mu)n'(\epsilon)\d\epsilon+\int_{-\infty}^\infty\d\epsilon 
+n'(\epsilon)\sum_{l=1}^\infty\frac{(\epsilon-\mu)^l}{l!}F^{(l)}(\mu)=F(\mu)+\ldots\\
+	\intertext{Nebenrechnung:}
+	&\int_{-\infty}^\infty n'(\epsilon)\frac{(\epsilon-\mu)^l}{l!}\d\epsilon=(\kB T)^l\int_{-\infty}^\infty 
+n'(x)\frac{x^l}{l!}\d x\quad x=\frac{\epsilon-\mu}{\kB T}\\
+	\Rightarrow&\stackrel{l \text{ ungerade}}{=}0\qquad\text{(da $n'(x)$ gerade)}\\
+	\Rightarrow&\stackrel{l \text{ gerade}}{=}(\kB T)^l2\sum_{k=1}^\infty(-1)^{k+1}\frac1{k^l}=(\kB T)^l2f_l(1)=(\kB T)^la_l\\
+	I=&F(\mu)+\sum_{l\text{ gerade}}(\kB T)^la_lF^{(l)}(\mu)\\
+	=&F(\mu)+\frac{\pi^2}{6}(\kB T)^2F''{\mu}+\frac{7\pi^2}{360}(\kB T)^4F^{(4)}{\mu}+\ldots\\
+	F(\epsilon)=&\int_{-\infty}^\infty f(\epsilon)\d\epsilon\\
+	I=&\int_{-\infty}^\infty f(\epsilon)\d\epsilon\approx\int_{-\infty}^\mu 
+f(\epsilon)\d\epsilon+\frac{\pi^2}{6}(\kB T)^2f'{\mu}+\frac{7\pi^2}{360}(\kB T)^4f^{(3)}{\mu}+\ldots\\
+\end{align*}
+
+% ########################################################################################################################
+
+\frage{Berechnen Sie die Korrekturen für kleine Temperaturen zum chemischen Potential und der spezifischen Wärme für ein 
+ideales Fermionen Gas in drei Dimensionen.}
+\noindent
+\begin{align*}
+	\epsilon_p=&\frac{p^2}{2m}\qquad g(\epsilon)=\frac32\frac N{\epsilon_F}\ka{\frac\epsilon{\epsilon_F}}^{\frac12}\\
+	N=&\int g(\epsilon)n(\epsilon)\d\epsilon=\int_{-\infty}^\mu g(\epsilon)\d\epsilon+\frac{\pi^2}{6}(\kB T)^2g'(\mu)+\ldots\\
+	=&\ka{\frac{\mu}{\epsilon_F}}^{\frac32}N+\frac{\pi^2}{6}(\kB T)^2\frac34 \frac N{\epsilon_F^{\frac32}}\mu^{-\frac12}+\ldots\\
+	\intertext{Das $N$ fällt raus. Die Gleichung gibt an wie $\mu$ sich als Funktion von $\epsilon_F$ und $T$ verhält.}
+	1=&\ka{\frac{\mu}{\epsilon_F}}^{\frac32}\ka{1+\frac{\pi^2}{8}\ka{\frac{\kB T}{\mu}}^2+\ldots}\\
+	\mu=&\frac{\epsilon_F}{\ka{1+\frac{\pi^2}{8}\ka{\frac{\kB T}{\mu}}^2}^{\frac23}}\approx\epsilon_F\ka{1-\frac{\pi^2}{12}\ka{\frac{\kB T}{\epsilon_F}}^2+\ldots}\qquad(1+x)^{\frac nm}\approx1+\frac nmx\\
+	&\text{Näherung}\quad\mu\approx\epsilon_F\\
+\end{align*}
+\begin{align*}
+	E=&\int g(\epsilon)\epsilon n(\epsilon)\d\epsilon\approx\frac32N\int_0^\mu\ka{\frac\epsilon{\epsilon_F}}^{\frac32}\d\epsilon+\frac{\pi^2}{6}(\kB T)^2\ka{\frac32}^2N\frac{\sqrt\mu}{\epsilon_f^{\frac32}}\\
+	\approx&\frac32N\int_0^{\epsilon_F}\ka{\frac\epsilon{\epsilon_F}}^{\frac32}\d\epsilon+(\mu-\epsilon_F)\frac32N+\frac38\pi^2(\kB T)^2N\frac1{\epsilon_F}\quad\text{($\mu\approx\epsilon_F$)}\\
+	=&\frac35N\epsilon_F-\frac{\pi^2}{12}\ka{\frac{\kB T}{\epsilon_F}}^2\epsilon_F\frac32N+\frac38\pi^2N\frac{(\kB T)^2}{\epsilon_F}+\ldots\\
+	E\approx&\frac35N\epsilon_F+\frac N4\pi^2\frac{(\kB T)^2}{\epsilon_F}\approx\frac35N\epsilon_F\ka{1+\frac5{12}\pi^2\ka{\frac{\kB T}{\epsilon_F}}^2+\ldots}\\
+	c_V=&\pf ET=\frac{\pi^2}2\frac{\kB T}{\epsilon_F}N\kB 
+	\intertext{Spezifische Wärme für Festkörper}
+	c_V=&\alpha T+\beta T^3\qquad\text{$\alpha T$ nur für Metalle, $\beta T^3$ aus Debye-Modell, nur für kleine $T$!}
+\end{align*}
+
+% ########################################################################################################################
+
+\frage{Was ist die Boltzmann-(Transport)-Gleichung? Leiten Sie sie her.}
+\noindent
+Die Boltzmann-Transport-Gleichung ist wichtig für Nichtgleichgewichtsprozesse. Sie beschreibt Transporteigenschaften und die 
+Wiederherstellung des Gleichgewichts.
+\begin{align*}
+	n(\epsilon)=&\left\{
+		{
+		\begin{minipage}[c]{4cm}
+			Fermi-Dirac\\
+			Bose-Einstein\\
+			Maxwell-Boltzmann
+		\end{minipage}
+		}\right\}\text{ Verteilung}\\
+		&n(\vec p,\vec r,t)\ddd p\ddd r\quad\text{Teilchen im Intervall $[\vec p,\vec p+\d\vec p]$, $[\vec r, \vec 
+r+\d\vec r]$ zur Zeit $t$}\\
+		&\ddd  p\ddd r=\ddd  p'\ddd r'\quad\text{Liouville: Volumen im Phasenraum bleibt erhalten}\\
+		n(\vec p,\vec r,t)=&n(\epsilon_p)\quad\text{im Gleichgewicht}\\
+		n(\vec p,\vec r,t)=&\underbrace{n(\vec p-\vec p\d t,\vec r-\vec r\d t,t-\d t)}_{\text{ohne 
+Stöße}}+\underbrace{\ka{\pf nt}_{\text{Stoß}}\d t}_{\text{Kollisionsterm}}\\
+		n(\vec p,\vec r,t)=&n(\vec p,\vec r,t-\d t)-\vec\nabla_{\vec p}n(\vec p,\vec r,t)\vec F\d t-\vec\nabla_{\vec r}n(\vec 
+p,\vec r,t)\frac{\vec p}{m}\d t+\ka{\pf nt}_{\text{Stoß}}\d t\\
+		\ka{\pf nt}_{\text{Stoß}}=&\ka{\pf nt}+F\vec\nabla_{\vec p}n+\frac{\vec p}n\vec\nabla_{\vec 
+r}n\quad\text{Bolzmann-Transport-Gleichung}
+\end{align*}
+
+% ########################################################################################################################
+
+\frage{Wenden Sie die Boltzmann-Transport-Gleichung an, um die Leitfähigkeit in einem Metall zu berechnen unter der Annahme, 
+dass Kollisionen das Gleichgewicht herstellen mit einer Stosszeit $\tau$ (relaxation time
+approximation).}
+\noindent
+Relaxation Time Approximation:
+\begin{align*}
+	\ka{\pf nt}_{\text{Stoß}}=\ka{\pf nt}_{\text{rein}} +\ka{\pf nt}_{\text{raus}}=\frac {n_0}\tau-\frac {n}\tau=\frac 
+{n_0-n}\tau\quad\text{$n_0$: Gleichgewichtsverteilung}\\
+	\text{elektrische Leitfähigkeit:}\quad\vec F=-e\vec E\\
+	\text{gleichförmiger Fall:}\quad\overline v_rn=0\\
+	\text{stabiler Zustand:}\quad\pf nt=0\\
+\end{align*}	
+\begin{align*}	
+	n(\vec p,\vec r,t)=&n(\vec p)=n_0(\vec p)-\vec F\vec\nabla_{\vec p}n_0(\vec p)\tau=n_0(\vec p)-e\vec E\vec\nabla_{\vec 
+p}n_0(\vec p)\tau\\
+	\vec I=&-e\sum_{\vec p}\vec vn(\vec p)=-e\sum_{\vec p}\frac{\vec p}mn(\vec p)\\
+	\vec I=&-ge\int\frac{V\ddd p}{8\pi^3\hbar^3}(\underbrace{n_0(\vec p)}_{\rightarrow0\text{ (kugelsym.)}}+e\vec 
+E\vec\nabla_{\vec p}n_0(\vec p)\tau)\frac{\vec p}m\quad g=2\\
+	\vec E=&E_x\hat x\\
+	I_x=&-e^2\int\frac{V\ddd p}{4\pi^3\hbar^3}E_x\pf {n_0}{p_x}\tau\frac{p_x}m\\
+	I_y=&-e^2\int\frac{V\ddd p}{4\pi^3\hbar^3}E_x\pf {n_0}{p_y}\tau\frac{p_x}m=0\quad\text{($n_0$ kugelsym., meist $\pf 
+{n_0}{p_y}$ kugelsym.)}\\
+	I_x=&e^2\underbrace{\int\frac{V\ddd p}{4\pi^3\hbar^3}n_0}_N\underbrace{\pf 
+{p_x}{p_x}}_1\frac{E_x\tau}m=\underbrace{\frac{e^2N\tau}m}_{\text{Leitfähigkeit}}E_x=\sigma_{el}E_x\\
+\end{align*}
+
+% ########################################################################################################################
+
+\frage{Was ist das Wiedemann-Franz Gesetz? Zeigen Sie unter vereinfachenden Annahmen, dass das Wiedemann Franz Gesetz für 
+klassische Gase als auch für quantenmechanische Fermionen Gase hergestellt werden kann.}
+\noindent
+\begin{align*}
+	\vec J=&\sum_{\vec p}\vec vn(\vec p)\epsilon(\vec p)\\
+	\vec\nabla_{\vec r}n=&\pf nT\vec\nabla_{\vec r}T\approx\pf{n_0}T\vec\nabla_{\vec r}T\\
+	\vec J=&\int\frac{V\ddd p}{4\pi^3\hbar^3}\frac{\vec p}m(\underbrace{n_0(\vec p)}_{0}-\frac{\vec p}{m}\vec\nabla_{\vec 
+p}T\pf{n_0}T\tau)\epsilon(\vec p)\quad[n_o,\epsilon(\vec p)\text{ symetrisch}]\\
+	J_x=&\int\frac{V\ddd p}{4\pi^3\hbar^3}\ka{\frac{\vec p}m}^2\ka{-\pf Tx}\tau\epsilon(\vec p)\pf{n_0}T\\
+	v_x^2=&\ka{\frac{\vec p}m}^2\approx\frac{v_F^3}3\quad\text{(Integral an der Fermikante bestimmt)}\\
+	J_x\approx&\frac{v_F^3}3\ka{-\pf Tx}\tau\pf{}T\int \frac{V\ddd p}{4\pi^3\hbar^3}\epsilon(\vec 
+p)n_0=\frac{v_F^3}3\ka{-\pf Tx}\tau\pf{}T\kb\epsilon=\frac{v_F^2c_V\tau}3\ka{-\pf Tx}\\
+	\kappa=&\frac{v_F^2}3c_V\tau=\frac{\pi^2\kB N}{3m}\tau \kB T\quad 
+c_V=\frac{\pi^2}{2}\frac{\kB T}{\epsilon_F}\kB N=\pi^2\kB N\frac{\kB T}{mv_F^2}\\
+	\sigma=&\frac{e^2N\tau}m\quad\text{el. Leitfähigkeit}\\
+	\frac\kappa\sigma=&\frac{\pi^2}3\frac{\kB ^2}{e^2}T\quad\text{Wiedemann-Franz-Gesetz}
+\end{align*}
+
+% ########################################################################################################################
+
+\frage{Was ist der erste Hauptsatz der Thermodynamik?}
+\noindent
+\begin{align*}
+	&d\!E=\delta Q+\delta W\qquad\text{z.B. $\delta W=-p\,\d V $}&\text{\it $d\!E$ ist Zustandsgröße}
+\end{align*}
+Oder: Es gibt kein Perpetuum mobile erster Art.
+
+% ########################################################################################################################
+\frage{Geben Sie vier äquivalente Definitionen für ein vollständiges Differential. Was ist ein integrierender Faktor?}
+\noindent
+\begin{enumerate}
+	\item $\vec{k}(x)=-\nabla V(\vec{x})$
+	\item $\text{rot }\vec{k}=0$
+	\item $\oint d\!\vec{x}\vec{k}(\vec{x})=0$
+	\item $\int_{\vec{x}_1}^{\vec{x}_2}d\!\vec{x}\vec{k}(\vec{x})\qquad$wegunabhängig
+\end{enumerate}
+Ein integrierender Faktor erzeugt multipliziert mit einem nicht totalen Differential ein totales.
+\begin{align*}
+	\left[{\frac{\partial}{\partial x_l}\left({\frac{\partial F}{\partial x_k}}\right)_{x_{j\neq k}}}\right]_{x_{j\neq 
+l}}&=\left[{\frac{\partial}{\partial x_k}\left({\frac{\partial F}{\partial x_l}}\right)_{x_{j\neq
+	l}}}\right]_{x_{j\neq k}}\qquad\forall j,k,l\\
+	\text{wenn}\quad \d F&=\sum_{j=1}^N\left({\frac{\partial F}{\partial x_i}}\right)_{x_{j=i}}d\!x_j\\
+\end{align*}
+\eggert
+\begin{enumerate}
+	\item $\d F=F(x+\d x,y+\d y)-F(x,y)$
+	\item $\ka{\pf Bx}_y=\ka{\pf Ay}_x$
+	\item $\oint \d \vec{x} \, \vec{k}(\vec{x})=0$
+	\item $\int_{\vec{x}_1}^{\vec{x}_2} \d \vec{x} \,\vec{k}(\vec{x})\qquad$wegunabhängig
+\end{enumerate}
+Mathematische Funktion $F(x,y)$ dann $\d F=F(x+\d x,y+\d y)-F(x,y)=\ka{\pf Fx}_y\d x+\ka{\pf Fy}_x\d y$\\
+
+{\bf Integrierender Faktor:} Wenn ein nicht vollständiges Differential $\d A$ durch einen Faktor $f(x,y)$ vollständig wird, 
+d.h. $\d F=f(x,y)\delta A$ ist vollständig, dann ist $f(x,y)$ integrierender Faktor.
+
+% ########################################################################################################################
+\frage{Was ist das vollständige Differential der Energie $d\!E$ für Änderungen von Entropie $d\!S$, des Volumens $d\!V$ und der 
+Teilchenzahl $d\!N$? Drücken Sie die Änderung $d\!E$ mit Hilfe des kanonischen Ensembles aus
+und argumentieren Sie, dass die Änderung der Wärme proportional zu $d\!S$ und die Änderung der Arbeit proportional zu $d\!V$ 
+ist.}
+\noindent
+\begin{enumerate}
+	\item $d\!E=T\d S-pd\!V+\mu d\!N$
+	\item $F=E-TS=-kT\ln Z(T,N,N)$
+	\begin{align*}
+	\Rightarrow\quad E&=F-T\left({\frac{\partial F}{\partial T}}\right)_{V,N}=-T^2\left({\frac{\partial}{\partial 
+T}\frac{F}{T}}\right)_{V,N}\qquad\text{da}\;\left({\frac{\partial F}{\partial T}}\right)_{V,N}=-S\\
+	d\!E&=\delta Q+\delta A+\delta E_n
+	\end{align*}
+	\begin{itemize}
+		\item $\delta Q$: Wärmezufuhr
+		\item $\delta A$: mechanische Arbeit
+		\item $\delta E_n$: Energieänderung durch Materialzufuhr
+	\end{itemize}
+\end{enumerate}
+
+% ########################################################################################################################
+\frage{Was ist eine Legendre Transformation?}
+\noindent
+\begin{align*}
+	\text{Funktion:}\quad y&=y(x_1,x_2,\dots)\\
+	\intertext{Partielle Ableitungen von $y$ nach $x_i$:}
+	a_i(x_1,x_2,\dots)&=\left({\frac{\partial y}{\partial x_i}}\right)_{(x_j,j\neq i)}
+	\intertext{Ziel: Einführung der Ableitung $ \frac{\partial y}{\partial x_{\text{bel.}}}$ statt der unabhängigen Variablen 
+$x_{\text{bel.}}$ als unabhängige Variable. (z.B. Wechsel von $S\rightarrow T$)}
+	\partial y&=a_1d\!x_1+a_2d\!x_2+\dots\qquad\text{(für $x_1$)}\\
+	\text{aus}\quad d\!y&=d\!(a_1x_1)-x_1d\!a_1+a_2d\!x_2+\dots\\
+	\Rightarrow d\!(y-a_1x_1)&=-x_1d\!a_1+a_2d\!x_2+\dots
+	\intertext{Jetzt Einführung von $y_1=y-a_1x_1$, als Funktion der Variable $a_1x_1$ (natürliche Variable)}
+	d\!y_1&=-x_1d\!a_1+a_2d\!x_2+\dots\\
+	\text{mit partieller Ableitung}\quad\ka{\frac{\partial y_1}{\partial a_1}}_{x_2}&=-x_1;\quad\ka{\frac{\partial y_1}{\partial x_2}}_{a_1}=a_2\\
+	\text{nur eindeutig für bijektive Fkt.}
+\end{align*}
+
+% ########################################################################################################################
+\frage{Definieren Sie die Freie Energie $F$, die Enthalpie $H$, die Freie Enthalpie $G$ und das Grosskanonische Potential 
+$\Phi$, und geben Sie die entsprechenden Differentiale an.}
+\noindent
+\begin{tabularx}{\textwidth}{@{}lrclrcl}
+	Energie&$E$&$=$&$TS-pV+\sum_j\mu_j N_j$&$d\!E$&$=$&$Td\!S-pd\!V+\sum_j\mu_j d\!N_j$\\
+	Freie Energie&$F$&$=$&$E-TS$&$d\!F$&$=$&$-Sd\!T-pd\!V+\sum_j\mu_j d\!N_j$\\
+	Enthalpie&$H$&$=$&$E+pV$&$d\!H$&$=$&$Vd\!p+Td\!S+\sum_j\mu_j d\!N_j$\\
+	Freie Enthalpie&$G$&$=$&$E-TS+pV$&$d\!G$&$=$&$-Sd\!T+Vd\!p+\sum_j\mu_j d\!N_j$\\
+	Großkanon.&$\Phi$&$=$&$E-TS-\sum_j\mu_jN_j$&$d\!\Phi$&$=$&$-Sd\!T-pd\!V-\sum_jN_j d\!\mu_j$\\
+	Potential
+\end{tabularx}
+
+% ########################################################################################################################
+\frage{Was ist die Gibbs Duhem Relation? Leiten Sie her!}
+\noindent
+\begin{align*}
+	E&=TS-pV+\mu N\\
+	\text{bzw. differentiell:}\quad 0&=S\d T-V\d p+N\d \mu
+	\intertext{Die Gibbs Duhem Relation besagt, dass in einem homogenen System $T$,$p$ und $\mu$ nicht unabhängig voneinander 
+variiert werden können und gibt einen Zusammenhang zwischen den Variationen dieser intensiven Größen
+	an.}
+	\intertext{Herleitung: Betrachten ein System mit $E$, $V$, $N$ und ein zweites für das gilt: $\alpha E$, $\alpha V$, 
+$\alpha N$.}
+	\Rightarrow S&(\alpha E, \alpha V, \alpha N)=\alpha S(E,V,N)\qquad\text{Additivität der Entropie}\\
+	\Rightarrow S&\text{ homogene Funktion 1. Grades von $E$,$V$,$N$} (T, p, \mu \propto \alpha^0)
+	\intertext{Differentieren wir obiges nach $\alpha$ und setzen $\alpha=1$}\\
+	\Rightarrow S&=\left.{\lk{\pf{S}{\alpha E}E+\pf{S}{\alpha V}V+\pf{S}{\alpha N}}\rk}\right|_{\alpha=1}\\ 
+	\text{mit}\quad\left.{\pf{S}{E}}\right|_{V,N}&=\frac1T;\;\left.{\pf S V}\right|_{E,N}=\frac V T;\; \left.{\pf S 
+N}\right|_{E,V}=-\frac \mu T\\
+	\Rightarrow -S+\frac1 T E+\frac p T V-\frac\mu T N&=0\qquad\text{Gibbs-Duhem-Relation}\\
+	\text{mit}\quad\d E&=T\d S-p\d V+\mu\d N\qquad\text{differentiell}
+\end{align*}
+
+% ########################################################################################################################
+\frage{Definieren Sie die Wärmekapazitäten $C_p$ und $C_v$, die Kompressibilität $\kappa_T$ und den Ausdehnungskoeffizienten 
+$\alpha$ als partielle Ableitungen. Berechnen Sie diese Größen für ein ideales klassisches Gas.}
+\noindent
+\begin{align*}
+	C_p&=T\pf S T|_P=\pf H T|_P=\frac52Nk;\quad C_V=T\pf S T|_V=\pf E T|_V=\frac32Nk\\
+	\kappa_T&=-\frac1V\pf V p|_T=\frac1p=\frac{NkT}V;\quad \alpha=\frac1V\lk{\pf V T}\rk_p=\frac1T\\
+	E&=\frac32NkT,\quad pV=NkT\\
+	\Rightarrow\d S&=\frac32NkT\frac{\d T}T+Nk\frac{\d V}V\qquad\\
+\end{align*}
+
+% ########################################################################################################################
+\frage{Was sind die vier Maxwell Relationen? Leiten Sie her!}
+\noindent
+\begin{align*}
+	\text(1)\quad\d E&=T\d S-p\d V+\mu\d N=\left.{\pf ES}\right|_{V,N}\d S+\left.{\pf E V}\right|_{S,N}\d V+\left.{\pf 
+EN}\right|_{S,V}\d N\\
+	&\text{mit}\quad\lek{\pf{}{x_j} \lk{\pf E{x_k}}\rk_{k\neq j}}\rek _{j\neq l}=\lek{\pf{}{x_k} \lk{\pf E{x_j}}\rk_{j\neq 
+l}}\rek _{k\neq j}\\
+	\Rightarrow\ka{\pf T V}_{S,N}&=-\ka{\pf p S}_{V,N}\\
+	-\ka{\pf T N}_{S,V}&=\ka{\pf \mu S}_{V,N}\\
+	-\ka{\pf p N}_{S,V}&=\ka{\pf \mu V}_{S,N}\\
+	\text(2)\quad\d F&=-S\d T-p\d V+\mu\d N\\
+	\Rightarrow\ka{\pf S V}_{T,N}&=-\ka{\pf p T}_{V,N}\\
+	-\ka{\pf T N}_{T,V}&=\ka{\pf \mu T}_{V,N}\\
+	-\ka{\pf p N}_{T,V}&=\ka{\pf \mu V}_{T,N}\\
+	\text(3)\quad\d H&=T\d S-V\d p+\mu\d N\\
+	\Rightarrow\ka{\pf T p}_{S,N}&=\ka{\pf V S}_{p,N}\\
+	-\ka{\pf S N}_{T,p}&=\ka{\pf \mu T}_{p,N}\\
+	\ka{\pf V N}_{S,p}&=\ka{\pf \mu p}_{S,N}\\	
+	\text(4)\quad\d G&=-S\d T+V\d p+\mu\d N\\
+	\Rightarrow-\ka{\pf S p}_{T,N}&=\ka{\pf V T}_{p,N}\\
+	-\ka{\pf S N}_{T,p}&=\ka{\pf \mu T}_{p,N}\\
+	\ka{\pf V N}_{T,p}&=\ka{\pf \mu p}_{T,N}\\
+	\text(5)\quad\d\Phi&=-S\d T-p\d V+N\d \mu\\
+	\Rightarrow\ka{\pf S V}_{T,\mu}&=\ka{\pf p T}_{V,\mu}\\
+	\ka{\pf S \mu}_{T,V}&=\ka{\pf N T}_{V,\mu}\\
+	\ka{\pf p \mu}_{T,V}&=\ka{\pf N V}_{T,\mu}\\			
+\end{align*}
+
+% ########################################################################################################################
+\frage{Leiten Sie die zyklische Relation für partielle Ableitungen zwischen den drei abhängigen Variablen her.}
+\noindent
+\begin{align*}
+	-1&=\lk{\pf x y}\rk_z\lk{\pf y z}\rk_x\lk{\pf z x}\rk_y&(*)\\
+	\lk{\pf x y}\rk_z&=\frac{1}{\lk{\pf y x}\rk_z}
+	\intertext{Seien $x(y,z)$, $y(z,x)$, $z(x,y)$}
+	\d x&=\lk{\pf x y}\rk_z\d y+\lk{\pf x z}\rk_y\d z\\
+	\d y&=\lk{\pf y x}\rk_z\d x+\lk{\pf y z}\rk_x\d z\\
+	\Rightarrow\d x&=\lk{\pf x y}\rk_z\lk{\pf y x}\rk_z\d x+\lek{\lk{\pf x z}\rk_y+\lk{\pf x y}\rk_z\lk{\pf y z}\rk_x}\rek\d z
+	\intertext{$\Rightarrow$ $\d x$ und $\d z$ unabhängig!}
+	\lk{\pf x y}\rk_z\lk{\pf y x}\rk_z&=1&\Rightarrow\;(*)\\
+	\intertext{Desweiteren für 4 Variablen:}
+	\lk{\pf x w}\rk_z&=\lk{\pf x y}\rk_z\lk{\pf x w}\rk_z\\
+	\lk{\pf x y}\rk_z&=\lk{\pf x y}\rk_w+\lk{\pf x w}\rk_x\lk{\pf w y}\rk_z
+\end{align*}
+
+% ########################################################################################################################
+\frage{Finden Sie einen allgemeinen Ausdruck für die Differenz zwischen den Wärmekapazitäten $C_p$ und $C_V$.}
+\noindent
+\begin{align*}
+	C_V&=T\lk{\pf S T}\rk_V=\cdots=C_p-\frac{T\lk{\pf S p}\rk_T\lk{\pf V T}\rk_p}{\lk{\pf V p}\rk_T}=C_p+T\frac{\lk{\pf V 
+T}\rk_p^ 2}{\lk{\pf V p}\rk_T}\\
+	\Rightarrow C_p-C_V&=\frac{TV\alpha^2}{\kappa_T}
+\end{align*}
+\eggert
+\begin{align*}
+	C_P=&T\ka{\pf ST}_p\qquad C_V=T\ka{\pf ST}_V\\
+	\left.{\rpf{}{T}_p\cdot}\right|\quad\d S=&\rpf ST_V\d T+\rpf SV_T\d V\\
+	\rpf ST_p=&\rpf ST_V\rpf TT_p+\rpf SV_T\rpf VT_p\qquad\pf TT=1\\
+	T\rpf ST_p=&T\rpf ST_V+T\rpf SV_T\rpf VT_p\\
+	C_p=&C_V+T\rpf pT_V\rpf VT_p\qquad\text{(Maxwell-Relationen)}\\
+	C_p=&C_V+TpV\beta_S\alpha=C_V+TV\frac{\alpha^2}{\kappa_T}\\
+	\Rightarrow\quad C_p-C_V&=TV\frac{\alpha^2}{\kappa_T}\\
+	\alpha=&\frac1V\rpf VT_{p,N}\quad\text{Ausdehnungskoeffizient}\\
+	\beta_S=&\frac1p\rpf pT_{V,N}\quad\text{Spannungskoeffizient}\\
+	\kappa=&-\frac1V\rpf Vp\quad\text{Kompressibilität}\\
+	&\text{$\kappa_T \rightarrow T,N=\const$ oder $\kappa_S \rightarrow S,N=\const$}\\
+\end{align*}
+
+% ########################################################################################################################
+\frage{Definieren Sie {\it reversibel, irreversibel, quasistatisch, isobar, isochor, isotherm, isentrop} und {\it 
+adiabatisch}.}
+\noindent
+\begin{tabularx}{\textwidth}{lX}
+	{\bf reversibel}: &
+	\begin{itemize}
+		\item Umkehrbar ohne Umgebungsänderung
+		\item quasistatisch $\rightarrow$ Folge von Gleichgewichtszuständen
+		\item $p$, $V$, $T$ wohldefiniert
+	\end{itemize}\\
+	{\bf irreversibel}: &
+	\begin{itemize}
+		\item nicht umkehrbar
+		\item Nur Anfangs- und Endzustand im Gleichgewicht
+	\end{itemize}\\	
+	{\bf quasistatisch}: &
+	\begin{itemize}
+		\item Folge von Gleichgewichtszuständen
+		\item Vorgang der insgesamt langsam gegenüber der charakteristischen Relaxationszeit des Systems ist
+	\end{itemize}\\
+	{\bf isobar}: & $p=$const., $\d P=0$\\
+	{\bf isochor}:& $V=$const., $\d V=0$\\
+	{\bf isoterm}:& $T=$const., $\d T=0$\\
+	{\bf isentrop}: & $S=$const., $\d S=0$\\
+	{\bf adiabatisch}: & $\delta Q=0$, d.h. ohne Wärmeaustausch\\
+\end{tabularx}
+
+% ########################################################################################################################
+\frage{Leiten Sie von $\rpf pV_S=\kappa\rpf pV_T$, die Adiabatengleichung für ideale Gase her, das heißt die 3 Relationen 
+zwischen $p$, $V$ und $T$ (3 Gleichungen). Was ist $\kappa$?}
+\noindent
+\begin{align*}
+	\ka{\pf p V}_S&=\kappa\ka{\pf p V}_T=\frac{C_p}{C_v}\lk{\pf p V}\rk_T
+	\intertext{Für das ideale Gas gilt $\kappa=$const. (Wechselwirkungsfrei)}
+	\text{sowie}\quad\lk{\pf p V}\rk_T&=-\frac{NkT}{V^2}=-\frac p V\\
+	\Rightarrow\rpf p V_S&=-\kappa\frac p V\quad \stackrel{\d S=0}{\Longrightarrow}\quad 
+pV^\kappa=\text{const.}\qquad\text{bzw.}\quad TV^{\kappa-1}=\const\\
+	\text{Adiabatenexponent}\quad\kappa&=\frac{C_p}{C_V}=\frac{k_T}{k_S}\approx\frac{f+2}{f}
+\end{align*}
+
+% ########################################################################################################################
+\frage{Leiten Sie die Entropieänderung eines idealen Gases als Funktion von $V$ und $T$ her.}
+\noindent
+Gay-Lussac-Versuch: (BILD???)
+\begin{align*}
+	pV=&nkT;\qquad E=\frac 3 2 nkT;\qquad E=\const\\
+	\text{1. Hauptsatz:}\quad\delta Q=&\delta W=0\quad\Rightarrow\quad T=\const\\
+	S=&NK_B\ka{\ln\frac VN-\frac32\ln\beta+\sigma_0}\\
+	\Rightarrow\d S=&\lk{\pf S V}\rk_T\d V+\lk{\pf S T}\rk_V\d T\\
+	\text{(Maxwell)}\quad=&\lk{\pf p T}\rk_V\d V+\frac{C_V}T\d T\\
+	\text{(ideales Gas)}\quad=&\frac{Nk}V\d V+\frac{3Nk}{2T}\d T\\
+	\Delta S=&\int_i^f\d S=Nk\ln\frac{V_f}{V_i}+\frac32Nk\ln\frac{T_f}{T_i}=S_f-S_i=N\kB \ln\frac{V_f}{V_i}
+\end{align*}
+
+% ########################################################################################################################
+\frage{Betrachten Sie die Expansion eines idealen Gases von $V_1$ nach $V$ unter der Annahme, dass der Prozess isotherm, bzw. 
+adiabatisch abläuft. Berechnen Sie Entropieänderung, geleistete Arbeit und zugeführte Wärme.
+Wie ändern sich die Prozesse und Größen wenn die geleistete Arbeit direkt als Reibungwärme an das Gas zurückgeführt wird?}
+\noindent
+\begin{align*}
+	\delta S&\geq\int\frac{\delta Q}{T}\\
+	\intertext{reversibel: Gay-Lussac: $\delta Q=0$}
+	\d E&=-p\d V=-\delta W\\
+	W&=\int\delta W=\int p\d V\\
+%	\kappa&=\frac{C_p}{C_V}=\farc{\frac52}{\frac32}=\frac53\qquad pV=N\kB T\\
+	W&=V^{\frac23}nkT_1\int\frac{\d V}{V^{\frac53}}\\
+	&=V^{\frac23}nkT_1\frac32\lk{\frac1{V_1^{\frac23}}-\frac1{V_2^{\frac23}}}\rk\\
+	&=\frac32nkT_1\lk{1-\lk{\frac{V_1}V}\rk^{\frac23}}\rk\\
+	\Delta S&=\lk{k\ln\frac{V}{V_1}+\frac32\ln\frac{T}{T_1}}\rk\\
+	&=Nk\lk{\ln\frac{VT^{\frac32}}{V_1T^{\frac32}}}\rk=0\\
+	\Rightarrow VT^{\frac32}&=\const
+	\intertext{Irreversibel:$\quad \Delta Q=-\Delta W<0$}
+	\intertext{Isotherm: BILD??}
+	V_i&=V_1;\quad V_f=V;\quad T_i=T_f=T\\
+	E_i&=E_f=E;\quad E=\frac32NkT;\quad\d E=0=\delta Q-\delta W\\
+	\Delta Q&=\Delta W=\int p\d V=nkT_1\ln\frac{V1}V\qquad p=\frac{nkT_1}V\\
+	\Delta S&=Nk\ln{V_1}V\\
+	\Delta Q&=T\Delta S\quad\rightarrow\text{reversibel}
+	\intertext{\it Hier blicke ich insgesamt nicht durch!}
+\end{align*}
+
+% ########################################################################################################################
+\frage{Seben Sie den 2. Hauptsatz in mindestens zwei äquivalenten Definitionen an.}
+\noindent
+\begin{description}
+\item[1. Clausius:] Wärme kann nicht von alleine von einem kälterem zu einem wärmeren Objekt übergehen.
+\item[2. Kelvin:] Es existiert kein perpetuum mobile 2. Art, das heißt keine Maschine oder Prozeß der die Wärme vollständig in 
+Wärme umwandelt.
+\item[3.:]($\delta Q\leq T\d S$) Das Gleichzeichen gilt für reversible Prozesse.
+\item[4.:]Die Entropie in einem isolierten System nimmt immer zu. $\delta Q=0\qquad\delta S\geq 0$
+\end{description}
+
+% ########################################################################################################################
+\frage{Zeigen Sie, dass aus der Extremaleigenschaft der Entropie die Extremaleigenschaften der Freien Energie, der Enthalpie 
+und der Freien Enthalpie unter entsprechenden Bedingungen hergeleitet werden können.}
+\noindent
+Voraussetzung: $\d N_j=0$, Gleichgewicht bezüglich: $T,p$\\
+$\left.{
+	\begin{minipage}[c]{5.2cm}
+		1. Hauptsatz: $\delta E=\delta Q-p\d V$\\
+		2. Hauptsatz: $\d S\geq\dfrac{\delta Q}{T}$
+	\end{minipage}
+}\right\}\quad\d S \geq \dfrac{\d E+p\d V}T$\\
+%Man sollte doch meinen dass sowas eindfacher geht!
+Für konstantes $E$, $V$: $\d S\geq0$
+\begin{itemize}
+	\item Abgeschlossenes System stebt gegen ein Maximum der Entropie
+	\item Im Gleichgewicht ist die Entropie maximal
+\end{itemize}
+\begin{align*}
+	\mbox{Für die Freie Energie folgt:}\quad G&=E-TS+pV\\
+	\d G&=dE-S\d T-T\d S+V\d p+p\d V\\
+	\d S &\geq \dfrac{\d G+S\d T+T\d S-V\d p}T\\
+	\d G&\leq-S\d T+V\d p\\
+	\text{Für}\quad T, p&=\const\quad\Rightarrow\quad\d G\leq 0\qquad G\rightarrow\text{ Minimum}\\
+	\text{Selbiges für:}\quad F&=E-TS\\
+	\d F&\leq-S\d T-p\d V;\quad\d F\leq0;\quad T,V=\const\\
+	\text{und}\quad H&=E+pV\\
+	\d H&\leq T\d S+V\d p;\quad\d H\leq0;\quad S,V=\const
+\end{align*}
+
+% ########################################################################################################################
+\frage{Zeigen Sie, dass aus der Extremaleigenschaft der Entropie die Stabilitätsbedingung ${C_V}\ge{0}$ folgt.}
+\noindent
+{\it(Schwabel 3.6.5; Seite 123)}
+\begin{align*}
+	\intertext{System mit $E, V$. Zerlegung in gleich große Teile:}
+	S(E,V)=&S_1\lk{\frac E2,\frac V2}\rk+S_2\lk{\frac E2,\frac V2}\rk\\
+	\intertext{Betrachten nun Änderungen von System 1 um $\delta E_1,\delta V_1\quad\rightarrow\quad$System 2 um$\; -\delta 
+E_1,-\delta V_1$}
+	\Rightarrow\delta S=&S_1\lk{\frac E2+\delta E_1,\frac V2+\delta V_1}\rk+S_2\lk{\frac E2-\delta E_1,\frac V2-\delta 
+V_1}\rk-S(E,V)\\
+	=&\lk{\pf{S_1}{E_1}-\pf{S_2}{E_2}}\rk\delta E_1+\lk{\pf{S_1}{V_1}-\pf{S_2}{V_2}}\rk\delta V_1\\
+	&+\frac12\lk{\pfq{S_1}{E_1}-\pfq{S_2}{E_2}}\rk(\delta E_1)^2+\frac12\lk{\pfq{S_1}{V_1}-\pfq{S_2}{V_2}}\rk(\delta V_1)^2\\
+	&+\lk{\frac{\partial^2S_1}{\partial E_1\partial V_1}+\frac{\partial^2S_2}{\partial E_2 \partial V_2}}\rk\delta E_1\delta 
+V_1+\dots
+\end{align*}	
+\begin{align*}
+	\intertext{Wegen Stationarität der Entropie gilt $\delta S=0$ und Terme lineal in $\delta E_1$und $\delta V_1$ müssen 
+verschwinden. Es gilt $T_1=T_2,\;P_1=P_2$. Im Gleichgewichtszustnad ist die Entropie maximal.}
+	\Rightarrow\quad&\pfq{S_1}{E_1}=\pfq{S_2}{E_2}\leq0&(*1)\\
+	\text{und}\quad &\pfq{S_1}{E_1}\pfq{S_1}{V_1}-\lk{\frac{\partial^2S_1}{\partial E_1\partial V_1}}\rk^2\geq0&(*2)\\
+	\intertext{Den Index weglassen und $(*1)$ umformen liefert:}
+	0&\geq\pfq S E=\ka{\pf{} E\frac1T}_V=-\frac1{T^2}\rpf TE_V=-\frac1{T^2C_V}&(*3)\\
+	\Rightarrow\quad C_V&>0\qquad C_p>C_V>0\\
+	\intertext{Darstellung und Umformung der linken Seite von $(*2)$ durch Jakobi-Determinante ergibt:}
+	\pf{\lk{\pf S E,\pf S V}\rk}{(E,V)}&=\pf{\lk{\frac1 T,\frac P T}\rk}{(E,V)}=\pf{\lk{\frac1 T,\frac P 
+T}\rk}{(T,V)}\pf{\lk{T,V}\rk}{(E,V)}=-\frac1{T^3}\lk{\pf P V}\rk_T\frac1 {C_V}=\frac1{T^3V\kappa_TC_V}&(*4)\\
+	\intertext{Aus $(*3)$ und $(*4)$ eingesetzt in $(*1)$ und $(*2)$ folgt:}
+	C_V&\geq0,\qquad\kappa_T\geq0 \qquad \text{\it Stabilitätsbedingungen}
+	\intertext{Das System ist also stabil. Bei Wärmeabgabe wird das System kälter. Bei Kompression erhöht sich der Druck.}
+\end{align*}
+
+% ########################################################################################################################
+\frage{Was ist das Prinzip von Le-Chatelier?}
+\noindent
+Wenn in einem System mit stabilen Zustand die äußeren Parameter geändert werden, dann stebt die Reaktion des Systems danach 
+ein Gleichgewicht wiederherzustellen.\\
+{\it Siehe auch die Stabilitätsbedingnungen vorherige Frage.}
+
+% Frage 82
+% ########################################################################################################################
+\frage{Argumentieren Sie mit Hilfe der Gesetze der Quantenmechanik, dass die Entropie eines abgeschlossenen Quantensystems 
+erhalten bleibt.}
+\noindent
+\begin{align*}
+	\varrho&=-K\sum_nP_n\ln P_n\qquad\text{mit $P_n=\frac{e^{-\beta\epsilon_n}}{z}$ und $\varrho$ Dichtematrix}\\
+	\text{Es sei}\qquad\varrho&=\sum_nP_n|n\rangle\langle n|=\frac{e^{-\beta H}}{z}\\
+	\Rightarrow S&=-\kappa\sum_nP_n\ln P_n=\cdots=-\kappa\langle\ln\varrho\rangle\\
+	\intertext{für $\varrho$ Erhaltungsgröße:}
+	\dot{\varrho}&=-\frac{I}{\hbar}\left[{\rho,H}\right]=0\\
+	\Rightarrow S&=-\kappa\langle\ln P\rangle=\text{const.}%\quad\Rightarrow\text{ $S$ Erhaltungsgröße (im abgeschlossenen mikroskopischen System!)}
+	\intertext{$\Rightarrow$ $S$ Erhaltungsgröße (im abgeschlossenen mikroskopischen System!)}
+	\intertext{Aber im Makroskopischen gilt: Die Wellenfunktionen kollabieren, d.h. eine Zeitrichtung wird ausgezeichnet, und $S$ nimmt zu!}
+\end{align*}
+
+% ########################################################################################################################
+\frage{Beschreiben Sie einen Maxwellschen Dämon.}
+\noindent
+Ein Wesen das ein perpetuum mobile 2. Art zu bauen versucht indem es den 2. Hauptsatz in folgender Weise zu überlisten 
+versucht. Es sitzt an einer kleinen Öffnung zwischen zwei Gasvolumina und kann diese mit einer
+Klappe öffnen oder schließen. Geöffnet wird die Klappe wenn ein schnelles Teilchen sich von rechts nach links oder wenn ein 
+langsammes von links nach rechts fliegt. Ansonsten bleibt die Klappe geschlossen. So wird das
+linke Volumen wärmer als das rechte. $\rightarrow$ Entropieverminderung ohne Arbeit oder Wärmeaustausch mit Umgebung. 
+$\lightning$\\
+Für $N\rightarrow\infty$ unmöglich.\\
+Für die Arbeit zur bedienung der Klappe $A_k$ und die Energie eines Teilchens $\kB T$ muss, damit Energie gewonnen wird, gelten 
+\[A_k\ll
+\kB T\] Die Klappe ist ein System mit einem Freiheitsgrad und hat daher im
+Gleichgewicht mit ihrer Umgebung die mittlere statistische Energie \[\overline{\epsilon_k}=\mathscr{O}(\kB T) \qquad\text{nicht 
+das richtige Symbol!}\]
+Wegen $\overline{\epsilon_k}\gg A_k$ öffnet und schließt sich die Klappe unkontolliert, die Hände das Dämons zittern zu stark!
+
+% Frage 84
+% ########################################################################################################################
+\frage{Was ist mit dem Begriff Kreisprozess gemeint?}
+\noindent
+Ein Kreisprozess ist ein Prozess bei dem die Arbeitssubstanzen, das heißt das betrachtete System nach einem Umlauf wieder 
+in den Ausgangszustand zurückläuft (zyklischer Ablauf). 
+
+% ########################################################################################################################
+\frage{Beschreiben sie den Carnot Kreisprozess und skizzieren Sie die dazugehörigen p-V und T-S Diagramme. Berechnen sie den Wirkungsgrad.}
+\noindent
+%	\begin{figure}
+%		\centering
+%		\subfigure{\includegraphics[angle=0,scale=1]{Bilder/Carnot_pV_ST.ps}}
+%		\subfigure{\includegraphics[angle=0,scale=1]{Bilder/Carnot_Kolben.ps}}
+%	 	\caption{Diagramme des Carnot Kreisprozesses
+%		\newline(a) p-V Diagramm; 1) isotherme Expansion, 2) adiabatische Expansion, 3) isotherme Kompression, 4) adiabatische 
+%Kompression.
+%		\newline(b) T-S Diagramm}
+%	\end{figure} 
+	1) Isotherme Expansion: $Q_2=T_2(S_2-S_1)$ wird der Umgebung entnommen.\\
+	2) Adiabatische Expansion: System expandiert adiabatisch und kühlt die Arbeitssubstanz von der Temperatur $T_2$ auf $T_1$ 
+ab.\\
+	3) Isotherme Kompression: $Q_1=T_1(S_1-S_2)<0$ die Wärmemenge $\|Q_1\|$ wird an das Wärmebad abgegeben.\\
+	4) Adiabatische Kompression: Arbeitssubstanz wird komprimiert, Temperatur $T_2$ nimmt auf $T_1$ zu.\\
+	\begin{align*}
+		\intertext{\textit{Wirkungsgrad}:}Q&=Q_1+Q_2=W\\
+		W&=Q=(T_2-T_1)(S_2-S_1)\\
+		\eta&=\frac{W}{Q_2} \stackrel{Carnot}{\Longrightarrow}\eta_C=1-\frac{T_1}{T_2}\\
+	\end{align*}
+
+% ########################################################################################################################
+\frage{Beschreiben Sie den Stirling Kreisprozess und skizzieren Sie das dazugehörige p-V Diagramm. Wie könnte man einen 
+realistischen Stirling Motor konstruieren? Beschreiben Sie eine geeignete Kolbenanordnung und die
+einzelnen Schritte des Motors.}
+\noindent
+Siehe Abbildung.
+%	\begin{figure}
+%		\centering
+%		\subfigure{\includegraphics[angle=0,scale=0.65]{Bilder/Stirling-Prozess.ps}}
+%		\subfigure{\includegraphics[angle=0,scale=1]{Bilder/StirlingMotor.ps}}
+%	 	\caption{Oben: p-V Diagramm des Stirlingmotors\newline Unten: Stirlingmotor Kolbenanordnung}
+%	\end{figure} 
+
+% ########################################################################################################################
+\frage{Was versteht man unter einem reversiblen Kreisprozess? Zeigen Sie, dass alle reversiblen Kreisprozesse den gleichen 
+Wirkungsgrad haben.}
+\noindent
+Ein reversibler Kreisprozess ist ein Prozess der in beide Richtungen durchlaufen werden kann.
+Alle umkehrbaren Kreisprozesse haben den gleichen Wirkungsgrad, ansonsten wäre ein Perpetuum mobile 2. Art möglich.\\
+%	\begin{figure}[h]
+%		\centering
+%		\subfigure{\includegraphics[angle=0,scale=1.2]{Bilder/WirkungsgradKreisprozess.ps}}
+%	 	\caption{Verschaltung von zwei Prozessen.}
+%	\end{figure} 
+A pumpt unter dem Arbeitsaufwand $A_A$ die Wärme $Q_{kA}$ aus dem kalten Reservoir als Wärme $Q_{hA}$ in das heiße 
+Reservoir. Die Arbeit $A_A$ wird dabei von dem Prozeß B der mit einem höheren Wirkungsgrad als A hat erzeugt. Die Arbeitsleistung $A_B-A_A$ bleibt dabei übrig.
+	\begin{align*}
+		A_A&=\eta_AQ_{hA}\\
+		A_B&=\eta_BQ_{hB}\\
+		Q_{kA}&=Q_{hA}-A_A\\
+		Q_{kB}&=Q_{hB}-A_B\\		
+	\intertext{Es soll nun gelten, dass $Q_{hA}=Q_{hB}=Q_h$}
+		Q_{kA}&=(1-\eta_A)Q_h \; >\; Q_{kB}=(1-\eta_B)Q_h\qquad\text{wegen}\;\; \eta_B>\eta_A\\
+		\Delta{Q_{kA}}&=Q_{kA}-Q_{kB}=(\eta_B-\eta_A)Q_h \\
+		&\text{dem kaltem Reservoir entzogene Wärme}\\
+		A_B-A_A&=(\eta_B-\eta_A)Q_h \quad\lightning\qquad\text{Perpetuum mobile 2. Art!}\\
+		\text{Entropiesatz} \Rightarrow \Delta Q_{k}&=A_B-A_A=0\\
+		\text{Wirkungsgrad} \quad\eta&=\frac{T_h-T_k}{T_h}\leq{1}\quad \text{reversible Prozesse}\\
+	\end{align*}	
+	
+% ########################################################################################################################
+\frage{Wie sind der Kühl- und Heizwirkungsgrad definiert? Was sind die entsprechenden Ausdrücke als Funktion der 
+Reservoirtemperaturen für einen inversen Carnot Prozess?}
+\noindent
+	\begin{align*}
+		\eta_C^H&=-\frac{Q_2}{A}=\frac{T_2}{T_2-T_1}>1\\
+		\eta_C^K&=\frac{Q_1}{A}=\frac{T_1}{T_2-T_1}
+	\end{align*}
+
+
+% ########################################################################################################################
+\frage{Erläutern Sie wie man einen Phasenübergang zwischen einer geordneten und einer ungeordneten Phase quantitativ verstehen 
+kann indem man die Freie Energie minimiert. Was bedeutet dies für die Energie und Entropie
+bei hohen bzw. tiefen Temperaturen?}
+\noindent
+	Der stabile Zustand ist gegeben wenn:
+	\begin{align*}
+		S&=\,\text{max bei gegebenen }E,V\\
+		F&=\,\text{min bei gegebenen }T,V\\
+		G&=\,\text{min bei gegebenen }T,p\\
+		F&=E-TS\quad\text{minimales }E\text{, maximales }S\\	
+	\end{align*}
+	\begin{tabularx}{\textwidth}{@{}p{.5\textwidth}|X}
+		\textbf{kleines T dominiert $\rightarrow$ Festkörper} & \textbf{großes T dominiert $\rightarrow$ Gas}\\
+		\hline{}
+		niedrige Entropie da geordnet & hohe Entropie: $S\sim\frac{3}{2}NkT\ln T$\\
+		niedrige Energie der geordneten Zustände & hohe Energie: $E\sim\frac{3}{2}kT$\\
+		$E=E_{bind}<0\quad F\sim E_{bind}$&$F\sim-kT\ln T-T$\\
+	\end{tabularx}	
+%	\begin{figure}[h]
+%		\centering
+%		\subfigure{\includegraphics[angle=0,scale=1]{Bilder/FreieEnergiePhasenuebergang.ps}}
+%		\caption{Phasenübergang zwischen einer geordneten und einer ungeordneten Phase.}
+% 	\end{figure}\\
+	\\{\bf Terminologie:}
+	\begin{itemize}
+		\item{$\varrho$:} Ordnungsparameter gibt an in welchem Phasenübergang man sich befindet.
+		\item{Phasenübergang 1. Ordnung:} $F$ ist diskontinuierlich in der 1. Ableitung, der Ordnungsparameter hat einen 
+Sprung.
+		\item{Spezialfälle:} Phasenübergänge höherer Ordnung haben keine Diskontinuität von F in der 1. Ableitung, aber in 
+höheren Ableitungen. Ordnungsparameter, kontinuierlich, aber wohlmöglich Singularität in den Ableitungen.
+		\item{Ehrenfest Klassifikation:} Phasenübergang $n$. Ordnung = Diskontinuität in der $n$-ten Ableitung
+	\end{itemize}
+% ########################################################################################################################
+\frage{Was ist die Clausius Clapeyron Gleichung? Leiten sie her.}
+\noindent
+	Clausius-Clapeyron-Gleichung: $\frac{d\!P}{d\!T}=\frac{L}{T\Delta V}$\\
+	Die Dampfdruckkurve $p_d(T)$ zwischen der gasförmigen Phase A und der flüssigen Phase B ist gegeben durch:
+	\begin{align*}
+		T&=T_A=T_B\quad \\ p_d(T)&=p_{d_A}(T)=p_{d_B}(T)\\
+		\mu_A(T,p_d(T))&=\mu_B(T,p_d(T))\\
+		\intertext{Für die Freie Enthalpie G gilt:}\quad G&=E-TS+pV=N\mu\\
+		p,T\quad&\rightarrow\quad \text{$G$ wird minimiert}\\
+		d\!G&=-Sd\!T+Vd\!p\\
+		\intertext{Daraus folgt:}
+		\d G_A&=\d G_B\\
+		-S_Ad\!T+V_Ad\!p&=-S_Bd\!T+V_Bd\!p\\
+		\Rightarrow\quad\frac{d\!p}{d\!T}&=\frac{S_B-S_A}{V_B-V_A}\\
+		\text{Änderung der Entropie:}\quad\Delta S&=\frac{\Delta Q}T=\frac LT\\
+		\intertext{Wärmeänderung zum Phasenübergang $\rightarrow$ Latente Wärme $L$}
+		\frac{\d p}{\d T}&=\frac L{T\Delta V}\qquad\text{Clausius-Clapeyron-Gleichung}
+	\end{align*}
+	
+% ########################################################################################################################
+\frage{Skizzieren sie das Phasendiagramm von Wasser. Leiten Sie Gleichungen für den ungefähren Verlauf der Phasengrenzkurven 
+zwischen Wasser/Eis, und Wasser/Dampf her. Wie nennt man den Schnittpunkt der beiden Kurven.}
+\noindent
+	Der Punkt in dem sich alle Kurven schneiden wird Tripelpunkt genannt.
+%\begin{figure}[h]
+%	\centering
+%	\subfigure{\includegraphics[angle=0,scale=1]{Bilder/Wasser_Kurven.ps}}
+%	\caption{Phasendiagramm von Wasser}
+%\end{figure} 
+\begin{align*}
+	\intertext{Mit $s=\frac{S}{N}$, $v=\frac{V}{N}$ und der Verdampfungswärme $\delta Q$ pro Teilchen ($\Delta S=\frac{\delta 
+Q}{T}$) lässt sich schreiben}\\
+	\frac{d\!p}{d\!T}&=\frac{\delta Q}{T(v_A-v_B)}\qquad\text{mit }{v_A}\gg{v_B}\\
+	\frac{d\!p}{d\!T}&\approx\frac{\delta Q}{Tv_A}\qquad\text{mit }{v_A}=\frac{V_A}{N}=\frac{kT}{p}\\
+	\frac{d\!p}{d\!T}&\approx\frac{P}{kT^2}\delta Q\\
+	\text{Integrieren liefert:}\quad\ln\frac{p}{p_0}&=-\frac{\delta Q}{k}\left({\frac{1}{T}-\frac{1}{T_0}}\right)\\
+	\Longrightarrow\quad p(T)&=p_0 e^{-\frac{\delta Q}{k}\left({\frac{1}{T}-\frac{1}{T_0}}\right)}\\
+\end{align*}
+
+	
+% ########################################################################################################################
+\frage{Was besagt die Gibbs Phasenregel?}
+\noindent
+	$f=2+n-r$\\
+	f: Zahl der Freiheitsgrade\\
+	n: Anzahl der verschiedenen Substanzen\\
+	r: Anzahl der vorhandenen Phasen\\	
+	
+% ########################################################################################################################
+\frage{Wie lautet die Van-der-Waals Zustandsgleichung? Leiten Sie sie aus dem Zustndsintegral her unter der Annahme, dass das Gas ungeordnet ist und dass das Wechselwirkungpotential einen geeignet vereinfachten
+anziehenden und abstossenden Teil hat. Entwickeln die die Zustandsgleichung für kleine N/V. Was ist der erste 
+Virialkoeffizient in diesem Fall?}
+
+klassische Teilchen mit Wechselwirkung
+\begin{align*}
+	Z=&\int\d\Gamma e^{-\beta E(\vec r_1,\vec r_2,\ldots,\vec r_N,\vec p_1,\ldots,\vec p_N,)}\\
+	\d\Gamma=&\prod\ddd r_i\ddd p_i\qquad E=\sum_i\frac{p_i^2}{2m}+\sum_{ij}U(\vec r_i-\vec r_j)\\
+	\int\ddd pe^{-\beta\frac{p^2}{2m}}\rightarrow&\ka{\frac{2\pi m}{h^2\kB T}}^{\frac32}\qquad\text{($h^2$ 
+Normierungskonstante)}\\
+	\text{Ein Teilchen:}\quad&\int\ddd re^{-\beta\sum_jU(\vec r-\vec r_j)}\stackrel{\vec 
+r_j=\const}{\approx}\int\ddd re^{-\beta\frac NVU(\vec r)}
+\end{align*}
+Gas: 1. Näherung: Positionen sind unabhängig voneinander. Falsch für Festkörper.\\
+ 2. Näherung:	\[U(r)\left\{ {
+		\begin{minipage}[c]{5.2cm}
+			\begin{tabbing}
+			infinity \= weitere Zeile nicht so wichtig\kill
+			$\infty\quad$\>$\text{$r$ in $V_0$}$\\
+			$-U_0\quad$\>$\text{$r$ außerhalb von $V_0$}$
+			\end{tabbing}
+		\end{minipage}
+	}\right.\\ \]
+\begin{align*}
+	\int\ddd re^{-\beta\frac NVU(\vec r)}=&(V-V_0)e^{\beta\frac NVU_0}\\
+	Z_1=&\int\ddd p\ddd re^{-\beta E(\vec r,\vec p)}\approx\ka{\frac{2\pi m}{h^2\kB T}}^{\frac32}(V-V_0)e^{\beta\frac NVU_0}\\
+	\ln Z=&N\ln\frac{Z_1}{N!}\approx N\ka{\ln\frac{V-V_0}{N}-\frac32\ln T+\beta\frac{U_0N}V+\const}\\
+	p=&\frac1\beta\pf{\ln Z}V=\frac{N\kB T}{V-V_0}-\frac{U_0N^2}{V^2}\qquad\text{mit $U_0=a$ und $V_0=bN$ gilt:}\\
+	p+\frac aV=&\frac{\kB T}{V-b}\qquad\text{van der Waals Zustandsgleichung}
+\end{align*}
+Entwicklung für kleine Dichten (Virialentwicklung)
+\begin{align*}
+	p=&\frac{N\kB T}{V}\ka{1+(b-\frac a{\kB T})\frac NV+\mathscr{O}\ka{\frac 
+NV}^2+\ldots}=\frac{N\kB T}{V}\sum_lb_l(T){\frac NV}^l\\
+	\pf pV>&0\quad\text{ist unphysikalisch}\\
+	\kappa_T=&-\frac1p\pf Vp>0\qquad
+	F=-\kB T\ln Z\qquad
+	p=-\rpf FV\\
+	\pfq FV=&-\pf pV>0\qquad\text{physikalisch. Die Freie Energie ist konkav als Funktion von V}
+\end{align*}
+
+% ########################################################################################################################
+\frage{Was passiert wenn es einen Bereich gibt, in dem die Freie Energie als Funktion von V konkav wird? Beschreiben sie die 
+Maxwell Konstruktion.}
+\noindent
+Siehe auch vorherige Frage!\\
+Für physikalische Lösungen mus $P>0$ und\\
+\[\kappa_T=-\frac1V\rpf VP_T>0,\quad\text{also}\quad\rpf PV_T<0\]
+gelten. Für $\kappa_T<0$ gäbe es bei kleinen Volumenschwankungen keine rücktreibende Kraft. Jede Schwankung würde zu einer 
+Explo- oder Implosion führen. Das System wäre mechanisch instabil.
+
+Maxwellkonstruktion: Konstruktion einer Parallelen zur V-Achse im PV-Diagramm so, dass die eingeschlossene Fläche mit der 
+Isothermen ober- wie unterhalb gleich groß ist. Dies ist die Vorschrift zur Bestimmung des Drucks
+an dem der Phasenübergang flüssig zu Gasförmig stattfindet.
+
+% ########################################################################################################################
+\frage{Wie sind die kritischen Exponenten $\alpha$, $\beta$, $\gamma$ und $\delta$ definiert?}
+\noindent
+	\begin{tabularx}{\textwidth}{@{}r|rcl|l}
+		\textbf{Physikalische Größe} & \multicolumn{3}{c|}{\textbf{kritisches Verhalten}}&\textbf{Temperaturbereich}\\
+		\hline{}
+		Spezifische Wärme&$C_V$&$\propto$&$|T_c-T|^{-\alpha}$&$T\neq T_c$\\
+		Ordnungsparameter&$m$&$\propto$&$(T_c-T)^\beta$&$T< T_c$\\
+		isotherme Kompressibilität&$\kappa_T$&$\propto$&$|T-T_c|^{-\gamma }$&$T\neq T_c$\\
+		Druckdifferenz&$(p-p_c)$&$\propto$&$(\Delta v)^\delta$&$T = T_c$\\
+	\end{tabularx}\\	
+Skalenrelationen:\quad$\gamma=\beta(\delta-1)$\quad$\alpha+2\beta+\gamma=2$\\
+{\it($T_c$ nicht Curie-Temperatur sondern allgemein kritische Temperatur)}
+
+% ########################################################################################################################
+\frage{Berechnen Sie die Zustandssumme für einen magnetischen Moment mit Spin 1/2 in einem Magnetfeld. Berechnen Sie die 
+magnetische Suszeptibilität bei kleinen Feldern. Was ist das Curie-Gesetz?}
+\noindent
+Spin $\vec S$, orbitaler Drehimpuls $\vec L$
+\begin{align*}
+	\text{magnetisches Moment}\quad\vec m=&\frac e{2mc}\ka{\vec L+g\vec S}\\
+	\text{Gesamtdrehimpuls}\quad\vec J=&\vec L+\vec S\\
+	\text{Zustandssumme:}\quad Z=&\sum_{S_z=\pm\frac\hbar2}e^{\beta g\mu_BS_zB_z}=2\cosh\frac{\beta 
+g\mu_BS_zB_z\hbar}2\qquad\vec B=\hat zB_z\\
+	\text{Kopplung zum Magnetfeld}\quad H=&-\vec m\vec B+\mathscr{O}(\vec B^2)\\
+	\vec m=&g_l\frac e{2mc}\vec J=g_l\mu\vec J\\
+	H=&-g_l\mu_B\vec J\vec B\\
+	\intertext{Einfachster Fall Spin $\frac12$ und $\vec L=0$}
+	\kb{m_z}=&g\mu_B\kb{S_z}=g\mu_B\frac{\sum_{S_z=\pm\frac\hbar2}S_ze^{\beta g\mu_BS_zB_z}}{Z}\\
+	=&\frac1\beta\frac1Z\pf Z{B_z}=-\pf F{B_z}\\
+	\text{Definition Magnetisierung:}\quad\vec m=&-\pf FB\qquad[\hat =p]\\
+	\text{magnetische Suszeptibilität:}\quad\chi=&\pf mB=-\pfq TB\qquad[\hat =\text{Kompressibilität}]\\
+	\kb{m_z}=&\frac{\hbar g\mu_0}2\tanh\ka{\frac{g\mu_B\beta\hbar B}2}\\
+	\chi(B=0)=&\left.{\pf mB}\right|_{B=0}=\frac{\hbar^2(g\mu_B)^2\beta}4\sim\frac1T\qquad\text{Curie-Gesetz}
+\end{align*}
+
+% ########################################################################################################################
+\frage{Wie ist die Magnetisierung und die magnetische Suszeptibilität definiert?}
+\noindent
+Aus dem magnetischen Moment eines Körpers, der durch den thermischen Mittelwert des gesamten magnetischen Moment definiert ist
+\begin{align*}
+	\mathscr{M}&\equiv\left\langle{\mu}\right\rangle=-\left\langle{\frac{\partial\mathscr{H}}{\partial H}}\right\rangle\\
+	\intertext{können wir die Magnetisierung $M$, also das magnetische Moment pro Einheitsvolumen, definieren als:}
+	M&=\frac{1}{V}\mathscr{M}\\
+	\text{bzw. allgemein:}\qquad\mathscr{M}&=\int d^3\!xM(x)
+	\intertext{Für die Suszeptibilitäten erhalten wir:}
+	\chi_T&\equiv\left ({\frac{\partial M}{\partial H}}\right )_T=-\frac{1}{V}\left({\frac{\partial^2 F}{\partial H^2}}\right 
+)_T\\
+	\chi_S&\equiv\left ({\frac{\partial M}{\partial H}}\right )_S=-\frac{1}{V}\left({\frac{\partial^2 E}{\partial H^2}}\right 
+)_S\\
+\end{align*}
+\eggert
+Siehe vorherige Frage!
+
+% ########################################################################################################################
+\frage{Was versteht man unter dem Heisenberg- und dem Ising-Modell?}
+\noindent
+Das Heisenberg- und das Isingmodell beschreiben ursprünglich Phasenübergänge in Ferromagnetika,
+jedoch lassen sich mit kleinen Änderungen im Isingmodell auch viele Phasenübergänge
+beschreiben.\\
+Das Isingmodell besteht im wesentlichen aus einem Gitter von Spins (magnetische Momente), welche
+nur die beiden Einstellungen $\sigma =\pm 1$ bezüglich der z-Achse einnehmen können.\\
+Je nach Anordnung der Spins erhalten wir in einem ferromagnetischen System eine Wechselwirkung
+dergestalt, dass $\uparrow\uparrow$ Spins Energie $-I$ und $\downarrow\uparrow$ Spins Energie $+I$
+haben.\\
+Da die Austauschwechselwirkung rasch abnimmt brauchen hierbei nur die nächsten Nachbarn im Gitter
+berücksichtigt werden. Da die parallele Stellung der Spins energetisch günstiger ist, führt die
+Wechselwirkung zu einer verstärkten parallelen Ausrichtung. Wir schreiben ohne äußeres Magnetfeld
+\begin{align*}
+H\left({\sigma_1,\ldots,\sigma_n }\right)=-I\sum_{\text{n.N.}}\sigma_j\sigma_k\qquad\sigma=
+\pm{1}\\
+\end{align*}
+Für $T=0$ richten sich alle Spins parallel aus, wohingegen für Temperaturen ${kT}\gg{I}$  die
+Wechselwirkung keine Rolle mehr spielt und aufgrund der höheren Entropie eine statistische
+Orientierung der Spins bevorzugt wird. (Kein Phasenübergang in 1D)\\
+Das Heisenbergmodell enthält im Gegensatz zum Isingmodell die vollen Spinvektoren der
+wechselwirkenden Elektronen benachbarter Atome ($\rightarrow$ quantenmechanisches-Modell)
+\begin{align*}
+\hat{H}\left({\vec{s}_1,\ldots,\vec{s}_n }\right)=-2I\sum_{\text{n.N.}}\hat{s}_j\hat{s}_k
+\end{align*}
+Da alle Modell in 3D analytisch nicht lösbar sind $\rightarrow$ Molekularfeldtheorie (MFT).
+
+% ########################################################################################################################
+\frage{Schätzen sie die Freie Energie einer Domänenwand im Ising Modell in ein und zwei Dimensionen ab und diskutieren Sie die 
+Möglichkeit eines Phasenüberganges.}
+\noindent
+
+% ########################################################################################################################
+\frage{Was versteht man unter spontaner Magnetisierung und spontaner Symmetriebrechung?}
+\noindent
+Falls die Austauschenergie $E=J\vec S_1\vec S_2$ zwischen zwei Molekülen mit den Spins $\vec S_{1/2}$ negativ ist wird die 
+Parallelstellung der Spins bevorzugt. Im Festkörper kommt es zu Ferromagnetismus, unterhalb der
+Curie-Temperatur $T_C$ tritt eine spontane Magnetisierung auf.\\
+$\rightarrow$ spontane Symmetriebrechung
+
+% ########################################################################################################################
+\frage{Beschreiben Sie das Konzept des Kühlens durch adiabatische Entmagnetisierung.}
+\noindent
+\begin{enumerate}
+	\item Abkühlen bei hohem B auf einige Kelvin
+	\item Entkoppeln vom Temperaturbad
+	\item Magnetfeld langsam (adiabatisch) $B\rightarrow 0$: $~\frac{1}{1000}$K$\quad T\propto B$\\
+		$S\left ({\frac{T}{B}}\right )=\text{const.}\quad\Rightarrow\quad\frac{T_1}{B_1}=\frac{T_2}{B_2}$
+\end{enumerate}
+Kühlung durch Entmagnetisierung
+\eggert
+\begin{enumerate}
+	\item $B$ erhöhen bei $T_1=\const$ [Wärmebad z.B. flüssiges He] $S$ sinkt [wegen Ausrichtung der Spins]\\
+	\item vom Wärmebad entkoppeln $S=\const$ Magnetfeld wegnehmen, das heißt Entmagnetisierung $\rightarrow T$ sinkt $\sim 
+B$\\
+\end{enumerate}
+von He Wärmebad (paar K) auf ein paar mK absinken lassen.
+
+% ########################################################################################################################
+\frage{Was besagt das Nerstsche Theorem (der 3. Hauptsatz der Thermodynamik)? Was bedeutet dies für Kühlprozesse im Limes 
+${T}\rightarrow{0}$?}
+\noindent
+\begin{align*}
+	\Delta S\rightarrow 0\quad\text{wenn}\quad T\rightarrow 0\\
+	\left ({\text{Plank:}\quad\lim_{T\rightarrow 0}\frac{S}{N}\rightarrow 0}\right )
+	\intertext{Es ist prinzipiell unmöglich den absoluten Temperaturnullpunkt zu erreichen. Man braucht unendlich viele 
+Kühlschritte im Limes $T\rightarrow 0$.}
+\end{align*}
+\eggert
+\[\lim_{T\rightarrow0}\Delta S=0\qquad\Delta S=S_a-S_b\qquad\text{$a,b$ Thermodynamische Parameter}\]\\
+$\Rightarrow$ unendlich viele Kühlschritte um zu $T\rightarrow0$ zu gelangen\\
+
+{\bf Verschärfung von Planck:}\quad$\lim_{T\rightarrow0}\frac SN\rightarrow0$\\ 
+Das heißt es existiert ein Grundzustand dessen Entartung endlich ist.\\ $S(T=0)=\kB \ln(\text{Grundzustandsentartung})$
+
+% ########################################################################################################################
+\frage{Beschreiben Sie den Ansatz der Molekularfeldtheorie (MFT) am Beispiel des Ising Modells. Bestimmen Sie die kritische 
+Temperatur im Rahmen der MFT Näherung.}
+\noindent
+Mean field theory (MFT)\qquad Effective field theorie
+\[H=-B\sum_i\sigma_i-J\sum_{ij}\sigma_i\sigma_j\]
+{\bf Idee:} quanten Freiheitsgrade durch Erwartungswerte ersetzen, so dass Energien unabhängig werden
+\begin{align*}
+	H=&-\sum_i\ka{B+J\sum_j\sigma_j}\sigma_i\qquad\text{Summation über nächste Nachbarn}\\
+	\kb{\sigma_j}=&m_j=m\qquad\text{durchschnittliche Magnetisierung}\\
+	H=&-\sum_i\ka{B+zJm}\sigma_i\qquad\text{$z$ Koordinatenzahl, Anzahl der n. Nachbarn}\\
+	\sum_i\sigma_i=&zm\quad\text{ist besser für große z}\\
+	Z_1=&\sum_\sigma e^{\beta(B+zJm)\sigma}=2\cosh\beta(B+zJm)\qquad Z=Z_1^N\\
+	\kb\sigma=&m=\frac{\sum_\sigma e^{\beta(B+zJm)\sigma}}{Z}=\tanh\beta(B+zJm)\\
+	m=&\tanh\beta(B+zJm)\qquad\text{Selbstkonsistenzgleichung}\\
+	\text{??BILD einfügen??}
+\end{align*}
+$\Rightarrow$ Eine Lösung $m\neq0$ von $m=\tanh\beta(B+zJm)$ existiert wenn $zJ\beta>1$ 
+
+$\Rightarrow$ $T_c=Z\frac J{\kB }$ ist die kritische Temperatur.
+
+% ########################################################################################################################
+\frage{Berechnen Sie die kritischen Exponenten $\beta$, $\gamma$ und $\delta$ für die Molekularfeldtheorie des Ising Modells.}
+\noindent
+kritische Exponenten
+\[m\sim\ka{T-T_C}^\beta\quad(B=0), T<T_c \]
+\[\chi\sim\ka{T-T_C}^{-\gamma} \]
+\[m\sim B^{\frac1\delta}\quad(T=T_c)\]
+\[\text{MFT}\quad m=\tanh\beta(zJm+B)\qquad\beta_czJ=1\]
+Entwickeln in der Nähe des kritischen Punktes d.h. $B$ klein, $m$ klein
+\begin{align*}
+	\tan x=&x-\frac13x^3+\ldots\\
+	\beta zJ=&\frac{T_c}T,\quad T_c=\frac{zJ}{\kB }\\
+	m=&\ka{m\frac{T_c}T+\frac B{\kB T}}-\frac13\ka{m\frac{T_c}T+\frac B{\kB T}}^3+\ldots\\
+	\intertext{\bf Exponent $\beta$}
+	m=&m\frac{T_c}T-\frac13\ka{m\frac{T_c}T}^2\quad m=3\frac{\frac{T_c}T-1}{\ka{\frac{T_c}T}^3}\\
+	m=&\sqrt 3\frac T{T_c}\sqrt{1-\frac T{T_c}}\quad\Rightarrow\quad\beta=\frac12\\
+	\intertext{\bf Exponent $\gamma$}
+	\chi=&\pf mB=\chi\frac{T_c}T+\frac1{\kB T}+\ldots\\
+	\chi(1-\frac{T_c}T)=&\frac1{\kB T}\quad\chi=\frac1{\kB }\frac1{T-T_c}\quad\Rightarrow\quad\gamma=1\\
+	\intertext{\bf Exponent $\delta$}
+	m=&\ka{m\frac{T_c}T+\frac B{\kB T}}-\frac13\ka{m\frac{T_c}T+\frac B{\kB T}}^3\qquad\text{$m^1$ wird gestrichen}\\
+	m=&3\ka{\frac B{\kB T_c}}^{\frac13}-\ka{\frac B{\kB T_c}}\quad\Rightarrow\quad\delta=\frac13
+\end{align*}
+
+
+% ########################################################################################################################
+\frage{Beschreiben Sie das Gittergasmodell und vergleichen Sie es mit dem Ising Modell. Wie werden die abstossenden und 
+anziehenden Kräfte vereinfacht modelliert? Welche Phasenübergänge gibt es? Vergleichen sie das
+Phasendiagramm mit dem Phasendiagramm von Wasser und vom Ising Modell.}
+\noindent
+Die Lösung dieser Aufgabe sei dem geneigten Leser überlassen...
+
+% ########################################################################################################################
+\frage{Leiten Sie die exakte Zustandsumme des Ising Modells ohne Magnetfeld in einer Dimension der. Beschreiben Sie wie man 
+die Zustandsumme mit Magnetfeld bestimmen kann. Wie heisst die Methode?}
+\noindent
+\begin{align*}
+	\text{Ohne $B$:}\quad H&=-I\sum_j\sigma_j\sigma_{j+1}\qquad\text{(offene Randbedingung)}\\
+	\begin{tabular}{rrrrr}
+		1&2&3&$\cdots$&N\\
+		$\uparrow$&$\downarrow$&$\uparrow$&$\cdots$&$\downarrow$\\
+	\end{tabular}
+	\\Z_N&=\sum_{\text{alle Zustände}}e^{\beta J\sum_j\sigma_j\sigma_{j+1}}=\sum_{\text{alle Zustände}}e^{\beta 
+J\sum_{j=1}^{N=2}\sigma_j\sigma_{j+1}}e^{\beta J\sigma_{n-1}\sigma_{n}}\\
+	\intertext{Summiere über$\quad\sigma_N=\pm 1$:}
+	\sigma_N&=+1\quad\sigma_{N-1}=\pm 1\qquad 2\cosh \beta J\\
+	\sigma_N&=-1\quad\sigma_{N-1}=\pm 1\qquad 2\cosh \beta J\\
+	Z_N&=Z_{N-1}2\cosh \beta J=Z_2(2\cosh\beta J)^{N-2}\\
+	Z_2&=\sum_{\sigma_1\sigma_2}e^{\beta J \sigma_1\sigma_2}=4\cosh\beta J\\
+	\Rightarrow Z_N&=2(2\cosh\beta J)^{N-1}\\
+	F&=-kT\ln Z_N =-\kB T[\ln 2+(N-1)\ln (2\cosh\beta J)]\\&\stackrel{\hidewidth N\rightarrow\infty}{=}-\kB N\ln(2\cosh\beta J)\\
+	\text{mit $B\neq0$:}\quad H&=-J\sum_{j=1}^N\sigma_j\sigma_{j+1}-\beta\sum_j\sigma_j\\
+	&\quad \text{periodische Randbedingung 
+$\sigma_{N+1}=\sigma_1$}\\
+	Z&=\sum_{\text{alle Zustände}}e^{\beta J\sum_{j=1}^N\sigma_j\sigma_{j+1}+\beta B\sum_{j=1}^N\sigma_j}\\
+\end{align*}
+nur für kommutierende Operatoren lösbar (Renormierungsgruppen, siehe nächste Frage).
+
+% ########################################################################################################################
+\frage{Beschreiben Sie das Konzept der Renormierungsgruppe allgemein. Veranschaulichen Sie dieses Konzept an Hand des Ising 
+Modells in einer Dimension durch explizite Rechnungen.}
+\noindent
+Die Lösung dieser Aufgabe sei dem geneigten Leser überlassen...
+
+
+\end{document}

@@ -1,0 +1,652 @@
+%Fragenkatalog
+\documentclass[12pt,a4paper,notitlepage]{report}
+
+%\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage{amsmath,xfrac,mathtools}
+\usepackage{amsfonts,mathrsfs}
+\usepackage{amssymb}
+\usepackage{euscript,xspace}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{amsthm}
+\usepackage{float,sidecap}
+\usepackage{fancyhdr}
+\usepackage{cancel}
+\usepackage{paralist}
+\usepackage{wrapfig} %hinzugefügt
+\usepackage{relsize}
+\setcounter{tocdepth}{1}
+\newcommand{\theauthor}{Maximilian Kiefer-Emmanouilidis, Philipp Jaeger}
+\author{\theauthor}
+\date{}
+
+\newcommand{\thetitle}{Fragenkatalog zu Thermodynamik und Statistik ohne Antworten\\\smaller{Prof. Eggert, Sommersemester 2014}}
+\title{\textbf{\thetitle}\vspace{25mm}}
+
+\geometry{a4paper,left=25mm,right=25mm, top=15mm, bottom=55mm}
+%\setlength{\mathindent}{15mm}
+
+\fancyhead{}
+\fancyhead[R]{\textbf{\thetitle}\\\theauthor}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+\addtolength{\headheight}{70.5pt}
+\pagestyle{fancy}
+
+\renewcommand{\familydefault}{\sfdefault}
+%hätte gerne nen sf-font
+
+\newcommand{\betrag}[1]{\ensuremath {\mid #1 \mid}}
+\newcommand{\dif}{\mathsf{d}}
+\newcommand{\logn}{\mathsf{ln}}
+\newcommand{\partd}[1]{\ensuremath {\frac{\partial}{\partial #1}}}
+\newcommand{\partdd}[2]{\ensuremath {\left(\frac{\partial #1}{\partial #2}}\right)}
+\newcommand{\partddd}[3]{\ensuremath {\left(\frac{\partial #1}{\partial #2}}\right)_{#3}}
+\newcommand{\pseq}{\mathrel{\phantom{=}}}
+\newcommand{\binkoef}[2]{\left(\begin{array}{c}{#1}\\{#2}\end{array}\right)}
+\newcommand{\const}{\mathsf{const.}}
+\newcommand{\ket}[1]{\ensuremath {\mid #1 \rangle}}
+\newcommand{\bra}[1]{\ensuremath {\langle #1 \mid}}
+
+\let\oldoverset\overset
+\renewcommand{\overset}[2]{\oldoverset{\mathclap{#1}}{#2}\quad}
+
+\newtheorem{mydef}{Definition}
+%\newtheorem{myfrag}{}%Frage} doppelt nur die Nummerierung
+\newenvironment{myfrag}{\begin{it}}{\end{it}\vspace{3mm}\par}
+\newtheorem{mybem}{Bemerkung}
+\newtheorem{mybei}{Beispiel}
+\newtheorem{mybeh}{Behauptung}
+\newtheorem{mybew}{Beweis}
+\newtheorem{mycod}{Code}%sollte man als environment mit monospace bauen
+
+\renewcommand{\thesubsection}{Frage}
+\numberwithin{equation}{section}
+\begin{document}
+\maketitle
+%\tableofcontents
+\chapter{Thermodynamik}
+\section{Thermodynamik und Allgeimeine Definitionen}
+\subsection{1}
+\begin{myfrag}
+Was ist ein Makrozustand und ein Mikrozustand?
+Was sind Zustandsgrößen?
+\end{myfrag}
+\subsection{2}
+\begin{myfrag}
+Was ist ein vollständiges Differential? Was ist ein integrierender Faktor?
+In welchem Zusammenhang werden diese Konzepte in der
+Thermodynamik benötigt (gebe Beispiele)?
+\end{myfrag}
+\subsection{3}
+\begin{myfrag}
+Was besagen der Nullte und der Erste Hauptsatz der Thermodynamik?
+\end{myfrag}
+\subsection{4}
+\begin{myfrag}
+Was ist eine generalisierte Kraft? Gebe ein Beispiel!
+\end{myfrag}
+\subsection{5}
+\begin{myfrag}
+Wie ist die Entropie in der Thermodynamik definiert? Was sind
+reversible Prozesse?
+\end{myfrag}
+\subsection{6}
+\begin{myfrag}
+Was besagt der Zweite Hauptsatz der Thermodynamik?
+\end{myfrag}
+\subsection{7}
+\begin{myfrag}
+Gebe die thermodynamischen Definitionen für die Freie Energie F, die
+Enthalpie H, die Freie Enthalpie G und das Grosskanonische Potential $\Phi $
+an. Was sind jeweils die entsprechenden Differentiale? Wie können
+thermodynamische Größen und generalisierte Kräfte mit den
+thermodynamischen Potentialen berechnet werden?
+\end{myfrag}
+\subsection{8}
+\begin{myfrag}
+Was ist eine Legendre-Transformation?
+\end{myfrag}
+\subsection{9}
+\begin{myfrag}
+Was sind intensive und extensive thermodynamische Variablen? Gebe
+Beispiele
+\end{myfrag}
+\subsection{10}
+\begin{myfrag}
+Was ist die Gibbs-Duhem Relation? Leite sie her! Was besagt die Gibbs-
+Duhem Relation für die Freie Enthalpie G und das Grosskanonische
+Potential $\Phi$?
+\end{myfrag}
+\subsection{11}
+\begin{myfrag}
+Definiere die Wärmekapazitäten Cp und CV, die Kompressibilität $\kappa_T$, den
+Ausdehnungskoeffizienten $\alpha$ und den Spannungskoeffizienten $\gamma$ als
+partielle Ableitungen. Berechne $\alpha, \gamma$, Cp und CV, für ein ideales
+klassisches Gas.
+\end{myfrag}
+\subsection{12}
+\begin{myfrag}
+Leite die Umkehrrelation und die zyklische Relation für partielle
+Ableitungen her.
+\end{myfrag}
+\subsection{13}
+\begin{myfrag}
+Zeige dass der Druck und allgemeine generalisierte Kräfte mit Hilfe einer
+Ableitung der Entropie berechnet werden können.
+\end{myfrag}
+\subsection{14}
+\begin{myfrag}
+Leite einen Ausdruck für den Spannungskoeffizienten $\gamma$ als Funktion des
+Ausdehnungskoeffizienten $\alpha$ und der Kompressibilität $\kappa_T$ her.
+\end{myfrag}
+\subsection{15}
+\begin{myfrag}
+Leite die vier Maxwell Relationen her!
+\end{myfrag}
+\subsection{16}
+\begin{myfrag}
+Leite einen allgemeinen Ausdruck von physikalischen Parametern für die
+Differenz zwischen den Wärmekapazitäten $C_p$ und $C_V$ her.
+\end{myfrag}
+\subsection{17}
+\begin{myfrag}
+Betrachte die Druckabhängigkeit p(V) für einen adiabatischen Prozess. Leite mit
+Hilfe geeigneter Relationen einen allgemeinen Ausdruck für $\dfrac{\partial V}{\partial p}|_S$ her. Was ist die
+Adiabatengleichung unter der Annahme, dass $\sigma = \dfrac{C_p\gamma}{C_V\alpha}$ konstant bleibt? Was ist $\sigma = \dfrac{C_p\gamma}{C_V\alpha}$ für ein ideales klassisches Gas?
+\end{myfrag}
+\subsection{18}
+\begin{myfrag}
+Was ist mit dem Begriff reversibler Kreisprozess gemeint? Was ist die praktische
+Bedeutung?
+\end{myfrag}
+\subsection{19}
+\begin{myfrag}
+Wie sind die Wirkungsgrade für Motoren, Kühlmaschinen und Wärmepumpen
+definiert?
+\end{myfrag}
+\subsection{20}
+\begin{myfrag}
+Beweise dass alle reversiblen Kreisprozesse den gleichen Wirkungsgrad haben
+müssen. Wie kann man dies zu einer thermodynamischen Definition der
+Temperatur nutzen?
+\end{myfrag}
+\subsection{21}
+\begin{myfrag}
+Beschreibe den Carnot Kreisprozess und skizziere die dazugehörigen p-V und S-T
+Diagramme. Berechne den Wirkungsgrad für reversible Kreisprozesse
+\end{myfrag}
+\subsection{22}
+\begin{myfrag}
+Beschreibe den Stirling Kreisprozess und skizziere das dazugehörige p-V
+Diagramm. Wie könnte man einen realistischen Stirling Motor konstruieren?
+Beschreibe eine geeignete Kolbenanordnung und die einzelnen Schritte des
+Motors.
+\end{myfrag}
+\subsection{23}
+\begin{myfrag}
+Was sind wichtige Gründe, dass reale Maschinen einen geringeren Wirkungsgrad
+haben? Wie kann die Entropieproduktion errechnet werden?
+\end{myfrag}
+\subsection{24}
+\begin{myfrag}
+Argumentiere, dass für effiziente Prozesse die Temperaturunterschiede beim
+Überführen von Wärme möglichst klein sein sollten.
+\end{myfrag}
+
+
+\chapter{Statistische Mechanik}
+\subsection{25}
+\begin{myfrag}
+\end{myfrag}
+\subsection{26}
+\begin{myfrag}
+\end{myfrag}
+\subsection{27}
+\begin{myfrag}
+
+\end{myfrag}
+\subsection{28}
+\begin{myfrag}
+Was ist eine Wahrscheinlichkeitsverteilung? Wie werden Erwartungswerte
+allgemein berechnet?
+\end{myfrag}
+\subsection{29}
+\begin{myfrag}
+Was besagt der zentrale Grenzwertsatz?
+\end{myfrag}
+\subsection{30}
+\begin{myfrag}
+Was ist die Definition der Entropie von einer allgemeinen Wahrscheinlichkeitsverteilung?
+\end{myfrag}
+\subsection{31}
+\begin{myfrag}
+Beschreibe das Konzept des Mikrokanonischen Ensembles. Was ist die
+Wahrscheinlichkeitsverteilung im Mikrokanonischen Ensemble?
+\end{myfrag}
+\subsection{32}
+\begin{myfrag}
+Mit welchem Ausdruck kann die Gesamtzahl der Zustände $\Omega$ im
+Mikrokanonischen Ensemble berechnet werden? Was ist die Entropie?
+\end{myfrag}
+\subsection{33}
+\begin{myfrag}
+Wann sind zwei Systeme im energetischen Gleichgewicht im Mikrokanonischen
+Ensemble? Was bedeutet das für die Entropie?
+\end{myfrag}
+\subsection{34}
+\begin{myfrag}
+Definiere Temperatur im Mikrokanonischen Ensemble. Wie werden
+generalisierte Kräfte berechnet?
+\end{myfrag}
+\subsection{35}
+\begin{myfrag}
+Was besagen die Stabilitätsbedingungen?
+\end{myfrag}
+\subsection{36}
+\begin{myfrag}
+Leite das Ideale Gasgesetz mit Hilfe des Mikrokanonischen Ensembles her.
+Zeige, dass die durchschnittliche Energie pro Teilchen E=3kT/2 ist.
+\end{myfrag}
+\subsection{37}
+\begin{myfrag}
+Betrachte ein vereinfachtes quantisiertes Modell für ein „Polymer“, wobei die
+einzelnen Polymerglieder der Länge d nur nach links oder rechts zeigen können.
+Berechne die generalisierte Kraft konjugiert zur Länge L mit Hilfe des
+Mikrokanonischen Ensembles.
+\end{myfrag}
+\subsection{38}
+\begin{myfrag}
+Was versteht man unter dem Loschmidt Paradoxon und dem Zermelo Paradoxon?
+Beschreibe einen Maxwellschen Dämon.
+\end{myfrag}
+\subsection{39}
+\begin{myfrag}
+Beschreibe das Konzept des Kanonischen Ensembles und leite es mit Hilfe des
+Mikrokanonischen Ensembles her. Was ist die Boltzmann Verteilung?
+\end{myfrag}
+\subsection{40}
+\begin{myfrag}
+Was ist die kanonische Zustandssumme? Leite den Erwartungswert der Energie
+als Ausdruck der Zustandssumme her.
+\end{myfrag}
+\subsection{41}
+\begin{myfrag}
+Wie ist die Freie Energie definiert? Wie können Energie, Entropie sowie
+generalisierte Kräfte (Druck, etc.) als Funktion der Freien Energie berechnet
+werden?
+\end{myfrag}
+\subsection{42}
+\begin{myfrag}
+Vergleiche die Konzepte des Kanonischen und des Mikrokanonischen Ensembles
+in einer Liste: Was ist die jeweilige physikalische Situation? Was ist jeweils die
+Zustandssumme und das zentrale thermodynamische Potential? Wie werden
+thermodynamische Größen (gen. Kräfte, Druck, Temperatur, Energie und
+Entropie) bestimmt? Was sind die Besetzungswahrscheinlichkeiten?
+\end{myfrag}
+\subsection{43}
+\begin{myfrag}
+Wende die Methoden des Kanonischen Ensembles auf das Ideale Klassische Gas
+an. Rechne die Erwartungswerte für den Druck, die Energie und die Entropie aus.
+\end{myfrag}
+\subsection{44}
+\begin{myfrag}
+Betrachte ein vereinfachtes quantisiertes Modell für ein „Polymer“, wobei die
+einzelnen Polymerglieder der Länge d nur nach links oder rechts zeigen können.
+Berechne den Erwartungswert der Länge L mit Hilfe des Kanonischen Ensembles
+als Funktion der Kraft (siehe auch Frage 37.).
+\end{myfrag}
+\subsection{45}
+\begin{myfrag}
+Berechne die Mischentropie für zwei ideale Gase. Erläutere ausführlich das
+Gibbssche Paradoxon und dessen Lösung.
+\end{myfrag}
+\subsection{46}
+\begin{myfrag}
+Wann sind zwei Teilsysteme unabhängig? Was passiert mit der Zustandssumme,
+den Wahrscheinlichkeiten und den Erwartungswerten in diesem Fall? Was
+versteht man unter einer Einteilchenzustandssumme?
+\end{myfrag}
+\subsection{47}
+\begin{myfrag}
+Argumentiere, dass die Änderung des statistischen Erwartungswertes der Energie
+in Erwartungswerte für die Änderung von Wärme und Arbeit aufgeteilt werden
+kann. Leite einen Zusammenhang mit Änderungen der Entropie und der
+generalisierten Kräfte her.
+\end{myfrag}
+\subsection{48}
+\begin{myfrag}
+Zeige allgemein, dass Energieschwankungen im kanonischen Ensemble von der
+spezifischen Wärme und der Temperatur bestimmt werden können. Wie verhalten
+sich die absoluten und relativen Energiefluktuationen als Funktion von N in einem
+idealen Gas?
+\end{myfrag}
+\subsection{49}
+\begin{myfrag}
+Was ist der Virialsatz? Leite ihn her!
+\end{myfrag}
+\subsection{50}
+\begin{myfrag}
+Was ist das Äquipartitionstheorem? Leite es her!
+\end{myfrag}
+\subsection{51}
+\begin{myfrag}
+Leite die Verteilung der Geschwindigkeiten in eine Richtung vx und die
+Maxwellsche Geschwindigkeitsverteilung für |v| her.
+\end{myfrag}
+\subsection{52}
+\begin{myfrag}
+Berechne die Erwartungswerte $\left\langle v_x \right\rangle , \left\langle |v| \right\rangle , \left\langle v^2 \right\rangle $ und die wahrscheinlichste
+Geschwindigkeit max $v_{max}$ für die Maxwellsche Geschwindigkeitsverteilung. Wie
+groß ist die Fluktuation der Geschwindigkeiten?
+\end{myfrag}
+\subsection{53}
+\begin{myfrag}
+Welche zwei Bedingungen müssen gegeben sein, damit eine klassische
+Näherung von Quantenfreiheitsgraden sinnvoll ist?
+\end{myfrag}
+\subsection{54}
+\begin{myfrag}
+Wie ist die thermische Wellenlänge definiert? Vergleiche mit der De-Broglie
+Wellenlänge typischer Geschwindigkeiten aus der Maxwellschen
+Geschwindigkeitsverteilung. Welche Bedingung muss für die Dichte gelten,
+damit Quanteninterferenzeffekte vernachlässigbar sind?
+\end{myfrag}
+\subsection{55}
+\begin{myfrag}
+Berechne die Zustandssumme, den Energieerwartungswert und die
+spezifische Wärme für einen harmonischen Quantenoszillator.
+\end{myfrag}
+\subsection{56}
+\begin{myfrag}
+Wie ist die Einteilchenzustandsdichte $g(\omega )$ definiert? Leite die
+Einteilchenzustandsdichte für den Fall von drei-dimensionalen
+Wellenvektoren mit linearer Dispersionsrelation her.
+\end{myfrag}
+\subsection{57}
+\begin{myfrag}
+Was ist das Plancksche Strahlungsgesetz? Leite es her. Was ist das
+Rayleigh-Jeans Gesetz für kleine Frequenzen?
+\end{myfrag}
+\subsection{58}
+\begin{myfrag}
+Beschreibe das Einstein Modell für die spezifische Wärme von Festkörpern.
+Leite den entsprechenden Ausdruck für die spezifische Wärme als Funktion
+der Temperatur her. Was ist der Dulong-Petit Grenzwert für die spezifische
+Wärme?
+\end{myfrag}
+\subsection{58}
+\begin{myfrag}
+Erkläre im Detail das Debye Modell für die spezifische Wärme von
+Festkörpern. Was sind die wichtigen Näherungen? Definiere die Debye
+Wellenvektor, Frequenz und Temperatur. Was ist das Tief- bzw.
+Hochtemperaturverhalten für die spezifische Wärme als Funktion der
+Temperatur?
+\end{myfrag}
+\subsection{59}
+\begin{myfrag}
+Welche Eigenschaften haben Materialen mit hoher bzw. niedriger Debye
+Temperatur. Warum?
+\end{myfrag}
+\subsection{60}
+\begin{myfrag}
+Schreibe einen Ausdruck für die Einteilchen-Zustandssumme über die
+quantisierten kinetischen Freiheitsgrade eines Gases. Was ist die
+Hochtemperaturentwicklung der Energie und der spezifischen Wärme?
+Welche Bedingung muss für die Längenskalen gelten, damit die
+Hochtemperaturentwicklung gerechtfertigt ist?
+\end{myfrag}
+\subsection{61}
+\begin{myfrag}
+Was ist das Verhalten der spezifischen Wärme für die Vibrationsfreiheitsgrade
+eines Molekülgases?
+\end{myfrag}
+\subsection{62}
+\begin{myfrag}
+Was ist die Zustandssumme über die quantisierten Rotationsfreiheitsgrade
+eines Moleküls aus zwei verschiedenen Atomen? Berechne die
+Tieftemperatur-Entwicklungen der Zustandssumme, der Energie und der
+spezifischen Wärme.
+\end{myfrag}
+\subsection{63}
+\begin{myfrag}
+Erkläre wie eine Hochtemperatur-Entwicklung der Rotationszustandssumme
+gemacht werden kann (die MacLaurin Summen Formel sei gegeben). Erkläre,
+warum cv(T) ein Maximum als Funktion der Temperatur durchläuft.
+\end{myfrag}
+\subsection{64}
+\begin{myfrag}
+Erkläre allgemein wie sich die Eigenschaften eines diskreten Spektrums
+(Entartung, Energieabstände) im Temperaturverlauf von cv(T) widerspiegeln
+(mit Beispiel).
+\end{myfrag}
+\subsection{65}
+\begin{myfrag}
+Was muss bei der Zustandssumme über die quantisierten
+Rotationsfreiheitsgrade eines zwei-atomigen Moleküls beachtet werden, wenn
+das Molkül aus identischen Atomen besteht? Wie sieht dann die
+Zustandssumme für die Fälle aus, dass der Kernspin s ganz- oder halbzahlig
+ist?
+\end{myfrag}
+\subsection{66}
+\begin{myfrag}
+Was versteht man unter Ortho- und Para-Wasserstoff? Wie kann das
+Verhältnis von Ortho und Para-Wasserstoff im Gleichgewicht berechnet
+werden? Gegen welche Werte strebt das Verhältnis für sehr große und für
+sehr kleine Temperaturen?
+\end{myfrag}
+\subsection{67}
+\begin{myfrag}
+Erkläre die Darstellung von fermionischen und bosonischen Wellenfunktionen
+mit Hilfe von Besetzungszahlen. Was versteht man unter
+statistischer Abstoßung bzw. Anziehung?
+\end{myfrag}
+\subsection{68}
+\begin{myfrag}
+Mache eine vereinfachte Herleitung für die Bose-Einstein und die Fermi-
+Dirac Verteilungen als Summe über Besetzungszahlen eines Zustandes für
+den Fall dass es kein chemisches Potential gibt.
+\end{myfrag}
+\subsection{69}
+\begin{myfrag}
+Beschreibe das Konzept des Großkanonischen Ensembles. Definiere die
+großkanonische Zustandssumme, das großkanonische Potential $\Phi$, die
+Fugazität z und das chemische Potential $\mu$.
+\end{myfrag}
+\subsection{70}
+\begin{myfrag}
+Wie können p, N, E und S mit Hilfe des großkanonischen Potentials $\Phi$
+berechnet werden?
+\end{myfrag}
+\subsection{71}
+\begin{myfrag}
+Wende das Konzept des Großkanonischen Ensembles auf ein ideales
+klassisches Gas an. Was ist z? Berechne E und p als Funktion von T, V und
+N.
+\end{myfrag}
+\subsection{72}
+\begin{myfrag}
+Leite allgemeine Ausdrücke für die nichtwechselwirkenden bosonischen und
+fermionischen großkanonischen Zustandssummen als Produkt über Einteilchenzustände
+her. Zeige, dass die Energie und die Teilchenzahl als
+Summe über Einteilchenzustände ausgedrückt werden können. Was versteht
+man dementsprechend unter der Bose-Einstein und der Fermi-Dirac
+Verteilung?
+\end{myfrag}
+\subsection{73}
+\begin{myfrag}
+Was ist die Entwicklung in z für die Bose-Einstein und die Fermi-Dirac
+Verteilung?
+\end{myfrag}
+\subsection{74}
+\begin{myfrag}
+Leite die Einteilchen-Zustandsdichte $g(\omega )$ für ein ideales Quantengas in drei
+Dimensionen her.
+\end{myfrag}
+\subsection{75}
+\begin{myfrag}
+Finde Integralausdrücke für N und E als Funktion von z und T in einem
+dreidimensionalen bosonischen Quantengas. Drücke die Integrale mit Hilfe
+der polylogarithmischen Funktion $g_\nu (z)$ aus. Wie kann mit Hilfe dieser
+Ausdrücke E als Funktion von N, V und T bestimmt werden (Eine Skizze ist
+hilfreich hier).
+\end{myfrag}
+\subsection{76}
+\begin{myfrag}
+Zeige für ein dreidimensionales Quantengas, wie der Druck mit dem
+Energieerwartungswert zusammenhängt.
+\end{myfrag}
+\subsection{77}
+\begin{myfrag}
+Erkläre das Konzept der Virialentwicklung am Beispiel eines idealen
+Bosonen Gases. Berechne den ersten Koeffizienten.
+\end{myfrag}
+\subsection{78}
+\begin{myfrag}
+Argumentiere dass in der Berechnung der Teilchenzahl der Grundzustand
+eines Bosonen Gases ab einer kritischen Temperatur gesondert behandelt
+werden muss. Was ist die kritische Temperatur $T_C$ ?
+\end{myfrag}
+\subsection{79}
+\begin{myfrag}
+Berechne den Kondensatsanteil x in einem dreidimensionalen Bosonengas als
+Funktion der Temperatur und der Kondensationstemperatur $T_C$.
+\end{myfrag}
+\subsection{80}
+\begin{myfrag}
+Berechne die Energie und die spezifische Wärme in einem idealen Bose-Gas
+als Funktion der Temperatur bei gegebener Dichte (d.h. gegebener kritische
+Temperatur Tc). Zeichne den ungefähren Verlauf der spezifischen Wärme CV
+als Funktion von T eines bosonischen Gases.
+\end{myfrag}
+\subsection{81}
+\begin{myfrag}
+Argumentiere, dass in einem Bosegas für T<Tc der Druck proportional zu $T^{\dfrac{5}{2}}$
+ist.
+\end{myfrag}
+\subsection{82}
+\begin{myfrag}
+Wie ändert sich das großkanonische Ensemble falls innere Freiheitsgrade
+(z.B. Spin) berücksichtigt werden müssen? Was ist der Effekt für die
+Quantenstatistik und Virialentwicklung falls es entartete innere Freiheitsgrade
+gibt?
+\end{myfrag}
+\subsection{83}
+\begin{myfrag}
+Wie kann man bei einem bosonischen Gas Wechselwirkungseffekte durch
+einen Molekularfeldansatz (MFT) berücksichtigen?
+\end{myfrag}
+\subsection{84}
+\begin{myfrag}
+Wende das großkanonische Ensemble auf ein bosonisches Photonengas mit
+Entartung g=2 und $Ek=\hbar kc$ an. Berechne die Erwartungswerte der Energie,
+der Teilchenzahl und des Druckes (mit Hilfe einer Integraltabelle). Warum
+gibt es keine Bose-Einstein Kondensation in diesem Fall?
+\end{myfrag}
+\subsection{85}
+\begin{myfrag}
+Was sind die Ausdrücke für die Teilchenzahl und die Energie eines
+dreidimensionalen fermionischen Gases als Funktion der Fugazität?
+\end{myfrag}
+\subsection{86}
+\begin{myfrag}
+Was ist die Virialentwicklung für ein ideales Fermionengas bis zur 1.
+Ordnung?
+\end{myfrag}
+\subsection{87}
+\begin{myfrag}
+Wie ist die Fermi Energie $\epsilon _F$ definiert? Berechne den Druck und die Energie
+für ein ideales dreidimensionales Fermigas bei T=0 als Funktion von N, V
+und $\epsilon _F$.
+\end{myfrag}
+\subsection{88}
+\begin{myfrag}
+\end{myfrag}
+\subsection{89}
+\begin{myfrag}
+Wende die Sommerfeld Entwicklung auf ein ideales Fermionen Gas in drei Dimensionen
+an, um die Korrekturen für kleine Temperaturen zum chemischen Potential und zur
+spezifischen Wärme zu bestimmen.
+\end{myfrag}
+\subsection{90}
+\begin{myfrag}
+Wie hängt der Entwicklungsparameter $k_B T/\epsilon_F$ in der Sommerfeld Entwicklung mit dem
+Parameter $\lambda^3 N/gV$ 3 N/gV zusammen (für ein ideales Fermigas)?
+\end{myfrag}
+\subsection{91}
+\begin{myfrag}
+Was besagt die Boltzmann Transport Gleichung und der Stoßzahlansatz? Erläutere die
+Herleitung.
+\end{myfrag}
+\subsection{92}
+\begin{myfrag}
+Erläutere wie man einen Phasenübergang zwischen einer geordneten und einer
+ungeordneten Phase quantitativ verstehen kann indem man die Freie Energie minimiert.
+Was bedeutet dies für die Energie und Entropie bei hohen bzw. tiefen Temperaturen?
+\end{myfrag}
+\subsection{93}
+\begin{myfrag}
+Was ist die Ehrenfest Klassifikation? Was zeichnet einen Phasenübergang von 1.
+Ordnung aus? Was versteht man unter einem Ordnungsparameter?
+\end{myfrag}
+\subsection{94}
+\begin{myfrag}
+Was besagt die Gibbssche Phasenregel für die Koexistenz verschiedener Phasen?
+\end{myfrag}
+\subsection{95}
+\begin{myfrag}
+Was ist die Clausius Clapeyron Gleichung? Leite sie her.
+\end{myfrag}
+\subsection{96}
+\begin{myfrag}
+Skizziere das Phasendiagramm von Wasser. Leite Gleichungen für den
+ungefähren Verlauf der Phasengrenzkurven zwischen Wasser/Eis, und
+Wasser/Dampf her. Was ist ein Tripelpunkt? Welche Beziehung zwischen
+den Steigungen der Phasengrenzkurven gibt es dort?
+\end{myfrag}
+\subsection{97}
+\begin{myfrag}
+Wie lautet die Van-der-Waals Zustandsgleichung? Leite sie aus dem
+Zustandsintegral her unter der Annahme, dass das Gas ungeordnet ist und
+dass das Wechselwirkungspotential einen geeignet vereinfachten anziehenden
+und abstoßenden Teil hat.
+\end{myfrag}
+\subsection{98}
+\begin{myfrag}
+Was passiert quantitativ an einem kritischen Punkt? Wie sind die kritischen
+Exponenten $\alpha, \beta , \gamma , \delta $ definiert?
+\end{myfrag}
+\subsection{99}
+\begin{myfrag}
+Was passiert wenn es einen Bereich gibt, in dem die berechnete Freie Energie
+als Funktion von V konkav wird?
+\end{myfrag}
+\subsection{100}
+\begin{myfrag}
+Beschreibe das Gittergasmodell. Was ist der Zusammenhang mit dem Ising
+Modell?
+\end{myfrag}
+\subsection{101}
+\begin{myfrag}
+Schätze die Freie Energie einer Domänwand im Ising Modell in ein und zwei
+Dimensionen ab und diskutiere die Möglichkeit eines Phasenüberganges.
+Was versteht man unter spontaner Magnetisierung und spontaner
+Symmetriebrechung?
+\end{myfrag}
+\subsection{102}
+\begin{myfrag}
+Leite die exakte Zustandsumme des Ising Modells ohne Magnetfeld in einer
+Dimension her.
+Beschreiben Sie wie man die Zustandssumme mit
+Magnetfeld bestimmen kann. Wie heisst die Methode?
+\end{myfrag}
+\subsection{103}
+\begin{myfrag}
+Beschreibe Sie das Konzept der Renormierungsgruppe allgemein.
+Veranschauliche dieses Konzept an Hand des Ising Modells durch explizite
+Rechnungen.
+\end{myfrag}
+\end{document}
